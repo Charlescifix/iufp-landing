@@ -1,15 +1,17 @@
 {
   "name": "iufp-landing",
   "version": "1.0.0",
-  "description": "IUFP Landing Page",
+  "description": "IUFP - International University Foundation Programme Landing Page",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build required for static site'"
   },
   "dependencies": {
     "express": "^4.18.2"
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "keywords": ["iufp", "university", "foundation", "programme", "education"]
 }
