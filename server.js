@@ -10,9 +10,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'iufp-landing.html'));
 });
 
-// Route for Students page to match links like "/students/"
+// Route for Students page
 app.get(['/students', '/students/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'iufp-students.html'));
+});
+
+// Route for Universities page
+app.get(['/universities', '/universities/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'iufp-universities.html'));
 });
 
 app.listen(PORT, () => {
