@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm start)",
+      "Bash(node server.js)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

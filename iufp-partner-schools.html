@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Partner Schools — IUFP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--brand-nav-bg:#0b2447;--brand-nav-text:#ffffff;--brand-primary:#19376d;--brand-on-primary:#ffffff;--brand-footer-bg:#0b2447;--brand-footer-text:#ffffff;--tint-a:rgba(25,55,109,.06);--tint-b:rgba(20,184,166,.12);--tint-c:rgba(167,139,250,.14);--tint-d:rgba(11,36,71,.05)}
+.brand-header{background:var(--brand-nav-bg);color:var(--brand-nav-text)}
+.brand-link{color:var(--brand-nav-text)}
+.brand-footer{background:var(--brand-footer-bg);color:var(--brand-footer-text)}
+.crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease}
+.crystal:hover{transform:translateY(-2px) scale(1.01)}
+.chip{display:inline-block;padding:.35rem .7rem;border-radius:9999px;font-weight:700;border:1px solid rgba(0,0,0,.06);background:#fff}
+.tab{cursor:pointer;padding:.6rem 1rem;border-radius:9999px;font-weight:700;border:1px solid rgba(0,0,0,.08)}
+.tab.active{background:var(--brand-primary);color:#fff;border-color:transparent}
+.table-wrap{overflow-x:auto}
+table.fancy{width:100%;border-collapse:separate;border-spacing:0;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+table.fancy thead th{text-align:left;font-weight:800;background:var(--brand-nav-bg);color:#fff;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+table.fancy tbody td{padding:14px 16px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
+.contact a{text-decoration:underline;text-underline-offset:2px}
+.search{border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;width:100%}
+/* Make school/college column stand out */
+table.fancy tbody td:nth-child(2){font-weight:800;background:rgba(25,55,109,.035)}
+</style>
+</head>
+<body class="bg-white text-slate-900">
+<header class="brand-header">
+  <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+    <a href="/" class="flex items-center gap-3"><img src="/iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" /></a>
+    <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+      <a class="brand-link hover:opacity-90" href="/">Home</a>
+      <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
+      <a class="brand-link hover:opacity-90" href="/students/">Students</a>
+      <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
+      <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
+      <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
+      <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
+      <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="max-w-7xl mx-auto px-4 py-10 md:py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">IUFP Partner Schools</h1>
+        <p class="mt-4 text-lg opacity-95">Explore our current partner schools and centres. Use the search to find a centre by country, city or name.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="chip">Vetted Centres</span>
+          <span class="chip">ATHE-Endorsed Programme</span>
+          <span class="chip">Direct & IY1 Routes</span>
+        </div>
+        
+        <!-- Want to become a partner section - compact -->
+        <div class="mt-6 crystal rounded-2xl p-6 shadow-lg" style="background: linear-gradient(135deg, rgba(255,196,0,.15) 0%, rgba(20,184,166,.12) 50%, rgba(167,139,250,.15) 100%);">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-4">
+              <div class="text-3xl">🤝</div>
+              <div>
+                <div class="font-bold text-lg text-slate-900">Want to become an IUFP Partner School?</div>
+                <div class="text-sm text-slate-700">Join our global network of vetted educational institutions</div>
+              </div>
+            </div>
+            <a href="/contact-us/" class="crystal rounded-xl px-6 py-3 font-bold text-white shadow-lg hover:scale-105 transition-all duration-200" style="background: linear-gradient(135deg, #0b2447 0%, #19376d 100%);">
+              🚀 Start Partnership
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="justify-self-end">
+        <figure class="rounded-2xl p-2 crystal shadow-lg w-[420px] max-w-full">
+          <img class="rounded-xl w-full h-64 object-cover" alt="Partner school collaboration"
+               src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1400&auto=format&fit=crop">
+          <figcaption class="text-xs opacity-70 mt-2 px-1">Working together to create progression pathways.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 pb-6">
+    <div class="flex flex-col md:flex-row md:items-end gap-3">
+      <div class="md:flex-1 min-w-[260px]">
+        <label class="block text-sm font-bold mb-1" for="q">Search schools (name, city, country)</label>
+        <input id="q" class="search" placeholder="e.g., Lagos, Nairobi, Accra, or 'College'">
+      </div>
+      <div class="flex flex-wrap md:flex-nowrap gap-2 md:justify-end md:ml-3">
+        <button class="tab active" data-tab="all">All</button>
+        <button class="tab" data-tab="Ghana">Ghana</button>
+        <button class="tab" data-tab="Kenya">Kenya</button>
+        <button class="tab" data-tab="Nigeria">Nigeria</button>
+        <button class="tab" data-tab="India">India</button>
+        <button class="tab" data-tab="United Arab Emirates">UAE</button>
+        <button class="tab" data-tab="Zambia">Zambia</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 pb-16">
+    <div class="table-wrap crystal rounded-2xl p-2" style="background:var(--tint-d)">
+      <table class="fancy" id="partners">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>School / College</th>
+            <th>Key Contact</th>
+            <th>Address</th>
+            <th>Tel</th>
+            <th>Email</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-country="Ghana"><td>Ghana</td><td>Concord Business College</td><td>Mr. David Mills</td><td>PO Box AT 1238, Achimota, Accra, Ghana</td><td><a href="tel:+233244469590">+233 24 446 9590</a></td><td class="contact"><a href="mailto:David.mills@concordedu.co.uk">David.mills@concordedu.co.uk</a> / <a href="mailto:dmillus@yahoo.co.uk">dmillus@yahoo.co.uk</a></td><td><a href="https://www.concordedu.co.uk" target="_blank" rel="noopener">concordedu.co.uk ↗</a></td></tr>
+          <tr data-country="Kenya"><td>Kenya</td><td>St. Elizabeth Academy-Karen</td><td>Madam Anne Munene</td><td>313-00502, Nairobi, Kenya</td><td><a href="tel:+254203882276">+254 20 3882276</a></td><td class="contact"><a href="mailto:anne.wanjiku57@gmail.com">anne.wanjiku57@gmail.com</a></td><td><a href="https://www.stelizabethschools.sc.ke" target="_blank" rel="noopener">stelizabethschools.sc.ke ↗</a></td></tr>
+          <tr data-country="Kenya"><td>Kenya</td><td>High End Study Centre</td><td>Mr. Wycliffe Omondi Okelo</td><td>Diamond Plaza 1 Annexe, 2nd Floor, Stall 19 & 20, Highridge Parklands, Masari Rd / 4th Parklands Ave, Kenya</td><td><a href="tel:+254759766862">+254 759 766862</a></td><td class="contact"><a href="mailto:wycliffe.okelo@iufp.co.uk">wycliffe.okelo@iufp.co.uk</a> / <a href="mailto:info@highend.co.ke">info@highend.co.ke</a></td><td></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Atlantic Hall School</td><td>Mr. Adetayo David</td><td>Poka, Epe, Lagos State, Nigeria</td><td><a href="tel:+2349085547991">+234 908 554 7991</a> / <a href="tel:+2348163906557">+234 816 390 6557</a></td><td class="contact"><a href="mailto:principal@atlantic-hall.net">principal@atlantic-hall.net</a></td><td><a href="https://www.atlantic-hall.net" target="_blank" rel="noopener">atlantic-hall.net ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>D-Ivy Sixth Form College</td><td>Mr. Oloyede Taiwo</td><td>34 Allen Avenue, Ikeja, Lagos State, Nigeria</td><td><a href="tel:+2349029910608">+234 902 991 0608</a></td><td class="contact"><a href="mailto:taiwo2a@gmail.com">taiwo2a@gmail.com</a></td><td><a href="https://www.divysixthformcollege.com" target="_blank" rel="noopener">divysixthformcollege.com ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Olumawu School (University Pathways College)</td><td>Mr. Dotun Sobande</td><td>92 Ademola Adetokunbo Crescent, Wuse Zone II, Abuja FCT, Nigeria</td><td><a href="tel:+2348144868315">+234 814 486 8315</a></td><td class="contact"><a href="mailto:principal@olumawu.org.ng">principal@olumawu.org.ng</a> / <a href="mailto:dotunglobal@gmail.com">dotunglobal@gmail.com</a></td><td><a href="https://www.olumawu.org.ng" target="_blank" rel="noopener">olumawu.org.ng ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Topfaith University (Topfaith International Secondary School)</td><td>Mr. Moses Udoudo</td><td>Mkpatak, Obo Anang Junction, Off Ikot Ekpene-Abak Hwy, Essien Udim, Akwa-Ibom State, Nigeria</td><td><a href="tel:+2347058416285">+234 705 841 6285</a></td><td class="contact"><a href="mailto:foundation@topfaith.sch.ng">foundation@topfaith.sch.ng</a> / <a href="mailto:udoudomosesgabriel@yahoo.com">udoudomosesgabriel@yahoo.com</a></td><td><a href="https://www.topfaith.sch.ng" target="_blank" rel="noopener">topfaith.sch.ng ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Redemption Gate Secondary School</td><td>Mrs. Yetunde Abolarin</td><td>Oko-Oba GRA Scheme 1, 5 Tanimowo Obajimi Cres., New Oko-Oba, Agege, Lagos State, Nigeria</td><td><a href="tel:+2348179995145">+234 817 999 5145</a></td><td class="contact"><a href="mailto:redemptiongate@yahoo.com">redemptiongate@yahoo.com</a> / <a href="mailto:abolarinyetunde79@gmail.com">abolarinyetunde79@gmail.com</a></td><td><a href="https://www.redemptiongateschool.com" target="_blank" rel="noopener">redemptiongateschool.com ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Noble Guide Academy</td><td>Mr. Bolaji Abdulbasit Bakare</td><td>Plot M305/321, Owner Occupier Scheme, FCDA, Abuja FCT, Nigeria</td><td><a href="tel:+2348023126169">+234 802 312 6169</a> / <a href="tel:+2348091688310">+234 809 168 8310</a></td><td class="contact"><a href="mailto:president@nobleguideacademy.sch.ng">president@nobleguideacademy.sch.ng</a></td><td><a href="https://www.nobleguideacademy.com" target="_blank" rel="noopener">nobleguideacademy.com ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Starfield College</td><td>Mrs. Mariya Sirajo</td><td>2 Natasha Akpoti Street, Kado, Gwarinpa, Abuja FCT, Nigeria</td><td><a href="tel:+2347033396840">+234 703 339 6840</a></td><td class="contact"><a href="mailto:mariyassani@gmail.com">mariyassani@gmail.com</a></td><td><a href="https://www.starfieldcollegeabuja.ng" target="_blank" rel="noopener">starfieldcollegeabuja.ng ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Prince Charles International Schools</td><td>Prince Charles Anumudu</td><td>1 & 6, Chukaben Avenue, Olodi Apapa, Lagos State, Nigeria</td><td><a href="tel:+2347015776874">+234 701 577 6874</a> / <a href="tel:+2349055460751">+234 905 546 0751</a></td><td class="contact"><a href="mailto:info@pcischools.org">info@pcischools.org</a></td><td><a href="https://www.pcischools.org" target="_blank" rel="noopener">pcischools.org ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Distinct Star International College</td><td>Mr. Dapo Adaramewa</td><td>Plot 11-12 Bankole, Magodo Phase I, Lagos State, Nigeria</td><td><a href="tel:+2348166898556">+234 816 689 8556</a></td><td class="contact"><a href="mailto:distinctstarintlcollege@gmail.com">distinctstarintlcollege@gmail.com</a></td><td><a href="https://www.distinctstarschool.com" target="_blank" rel="noopener">distinctstarschool.com ↗</a></td></tr>
+          <tr data-country="Nigeria"><td>Nigeria</td><td>Taidob College</td><td>Mr. Obawunmi Jiboku</td><td>Asero Housing Estate, Asero, Abeokuta, Ogun State, Nigeria</td><td><a href="tel:+2348033900853">+234 803 390 0853</a></td><td class="contact"><a href="mailto:enquiries@taidobcollege.org">enquiries@taidobcollege.org</a></td><td><a href="https://www.taidobcollege.org" target="_blank" rel="noopener">taidobcollege.org ↗</a></td></tr>
+          <tr data-country="India"><td>India</td><td>Cambridgeshire Career Academy</td><td>Ms. Gyalmo Singh</td><td>D-1369 Second Floor, Kamdhenu Complex, Sector 1, Block D, Indiranagar, Lucknow, Uttar Pradesh 226016</td><td><a href="tel:+918429023684">+91 84290 23684</a></td><td class="contact"><a href="mailto:admin@ccainstitute.ac">admin@ccainstitute.ac</a> / <a href="mailto:rsupport@cambridgecenter.in">rsupport@cambridgecenter.in</a></td><td><a href="https://www.ccainstitute.ac" target="_blank" rel="noopener">ccainstitute.ac ↗</a></td></tr>
+          <tr data-country="United Arab Emirates"><td>United Arab Emirates</td><td>Innova Training Institute</td><td>Mr. Chinmay Chitransh</td><td>Block 13, F-121, 122, Dubai Knowledge Park, Al Sufouh 2, Dubai, UAE</td><td><a href="tel:+971505185752">+971 50 518 5752</a></td><td class="contact"><a href="mailto:admin@innovainstitute.ae">admin@innovainstitute.ae</a> / <a href="mailto:chinmaychitransh@gmail.com">chinmaychitransh@gmail.com</a></td><td><a href="https://www.innovainstitute.edu" target="_blank" rel="noopener">innovainstitute.edu ↗</a></td></tr>
+          <tr data-country="Zambia"><td>Zambia</td><td>Study Connect International</td><td>Mrs. Chilunji Dodwell</td><td>Plot No. 6019 Great East Road, Northmead, Lusaka, Zambia</td><td><a href="tel:+260955308664">+260 9553 08664</a> / <a href="tel:+260972384814">+260 9723 84814</a></td><td class="contact"><a href="mailto:studyconnect.lusaka@gmail.com">studyconnect.lusaka@gmail.com</a></td><td><a href="https://www.studyconnectinternational.com" target="_blank" rel="noopener">studyconnectinternational.com ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="brand-footer">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <div><img src="/iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16"><p class="opacity-95 text-sm">IUFP Global Education UK<br>Aldgate Beaufort House Rm 1134,<br>15 St. Botolph Street, London EC3A 7BB</p></div>
+    <div><h4 class="font-semibold mb-2">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li><li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li><li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li><li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li></ul></div>
+    <div><h4 class="font-semibold mb-2">Start Your Application</h4><div class="flex gap-3"><a href="/students/apply" class="crystal rounded-xl px-5 py-3 font-bold" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">APPLY NOW</a><a href="/partner-schools/apply" class="crystal rounded-xl px-5 py-3 font-bold">Partner School</a></div></div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+      <div class="space-x-4"><a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a><a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a><a href="/terms/" class="underline-offset-4 hover:underline">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const q=document.getElementById('q');const rows=Array.from(document.querySelectorAll('#partners tbody tr'));const tabs=document.querySelectorAll('.tab');let current='all';
+function applyFilter(){const needle=q.value.toLowerCase().trim();rows.forEach(r=>{const country=r.dataset.country;const text=r.innerText.toLowerCase();const matchTab=(current==='all')||(country===current);const matchText=!needle||text.includes(needle);r.style.display=(matchTab&&matchText)?'':'none';});}
+q.addEventListener('input',applyFilter);
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');current=t.dataset.tab||'all';applyFilter();}));
+document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

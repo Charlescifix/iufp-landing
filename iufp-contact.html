@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us — IUFP</title>
+  <meta name="description" content="Get in touch with IUFP: address, phone, email, and a modern contact form for student and partner enquiries." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447;           
+      --brand-nav-text:#ffffff;
+      --brand-primary:#19376d;          
+      --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447;
+      --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06);
+      --tint-b: rgba(20,184,166,.12);
+      --tint-c: rgba(167,139,250,.14);
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text)}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .cta{font-weight:900;border:1px solid rgba(255,255,255,.25)}
+    .cta--apply{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .cta--apply:hover{filter:saturate(115%); box-shadow:0 14px 30px rgba(0,0,0,.22); transform:translateY(-3px) scale(1.02)}
+    .field{display:flex;flex-direction:column;gap:.375rem}
+    .label{font-weight:700}
+    input[type=text],input[type=email],input[type=tel],select,textarea{
+      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;outline:none
+    }
+    input:focus,select:focus,textarea:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- Header -->
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="/">Home</a>
+        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="/students/">Students</a>
+        <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
+        <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
+        <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
+        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-7xl mx-auto px-4 py-10 md:py-16">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">Contact IUFP</h1>
+          <p class="mt-4 text-lg opacity-95">
+            We’re here to help with admissions, partner schools, and general enquiries. Reach us directly or use the form and we’ll get back to you.
+          </p>
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="crystal p-4 rounded-xl" style="background:var(--tint-a)">
+              <div class="text-2xl mb-2">📞</div>
+              <div class="text-sm uppercase tracking-wide opacity-70">Call Us</div>
+              <div class="font-extrabold text-lg mt-1">+44 020 8133 6420</div>
+            </div>
+            <div class="crystal p-4 rounded-xl" style="background:var(--tint-b)">
+              <div class="text-2xl mb-2">📧</div>
+              <div class="text-sm uppercase tracking-wide opacity-70">Email</div>
+              <div class="font-extrabold text-lg mt-1">info@iufp.co.uk</div>
+            </div>
+            <div class="crystal p-4 rounded-xl md:col-span-2" style="background:var(--tint-c)">
+              <div class="text-2xl mb-2">📍</div>
+              <div class="text-sm uppercase tracking-wide opacity-70">Address</div>
+              <div class="font-semibold mt-1">Beaufort House Rm 1134,<br>15 St. Botolph Street, Aldgate, London EC3A 7BB</div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href="/students/apply" class="crystal cta cta--apply rounded-2xl px-6 py-3 text-lg">APPLY NOW</a>
+          </div>
+        </div>
+        <!-- Framed photo -->
+        <div class="justify-self-end">
+          <figure class="rounded-2xl p-2 crystal shadow-lg w-[420px] max-w-full">
+            <img class="rounded-xl w-full h-64 object-cover" alt="Students connecting with IUFP"
+                 src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1400&auto=format&fit=crop">
+            <figcaption class="text-xs opacity-70 mt-2 px-1">We respond to every enquiry personally.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fancy Contact Form -->
+    <section class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 crystal rounded-2xl p-6">
+          <h2 class="text-2xl md:text-3xl font-extrabold mb-1">Send us a message</h2>
+          <p class="text-sm opacity-80 mb-4">Complete the form and we’ll reply within 2–3 working days.</p>
+          <form action="mailto:info@iufp.co.uk" method="post" enctype="text/plain" onsubmit="return validateForm()" id="contactForm">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="field">
+                <label class="label" for="first">First name *</label>
+                <input type="text" id="first" name="First name" required>
+              </div>
+              <div class="field">
+                <label class="label" for="last">Last name *</label>
+                <input type="text" id="last" name="Last name" required>
+              </div>
+              <div class="field md:col-span-2">
+                <label class="label" for="email">Email *</label>
+                <input type="email" id="email" name="Email" required>
+              </div>
+              <div class="field md:col-span-2">
+                <label class="label" for="phone">Phone (incl. country code)</label>
+                <input type="tel" id="phone" name="Phone">
+              </div>
+              <div class="field">
+                <label class="label" for="country">Country *</label>
+                <select id="country" name="Country" required>
+                  <option value="">Select your country</option>
+                  <option>Nigeria</option><option>Ghana</option><option>Kenya</option><option>United Kingdom</option><option>United Arab Emirates</option><option>India</option><option>Pakistan</option><option>Bangladesh</option><option>China</option><option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="label" for="interest">I’m interested in *</label>
+                <select id="interest" name="Interest" required>
+                  <option value="">Select an option</option>
+                  <option>Becoming an IUFP Student</option>
+                  <option>Becoming a Partner School</option>
+                  <option>Universities / Progression</option>
+                  <option>Fees / Payments</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field md:col-span-2">
+                <label class="label" for="message">Your message *</label>
+                <textarea id="message" name="Message" rows="6" required placeholder="Tell us a little about your background and your question."></textarea>
+              </div>
+              <div class="md:col-span-2 flex items-start gap-2">
+                <input id="consent" type="checkbox" required>
+                <label for="consent" class="text-sm">I consent to IUFP storing my details for the purpose of responding to this enquiry.</label>
+              </div>
+              <div class="md:col-span-2">
+                <button class="brand-primary rounded-xl px-6 py-3 font-bold">Send Message</button>
+                <p class="text-xs opacity-70 mt-2">By submitting this form, you agree to our <a class="underline" href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Sidebar: quick info & map -->
+        <aside class="space-y-4">
+          <div class="crystal rounded-2xl p-5" style="background:var(--tint-a)">
+            <h3 class="font-bold text-lg mb-2">Office Hours</h3>
+            <p class="text-sm opacity-90">Mon–Fri: 9:00 – 18:00 (UK time)<br>Sat–Sun: Closed</p>
+          </div>
+          <div class="crystal rounded-2xl p-5" style="background:var(--tint-b)">
+            <h3 class="font-bold text-lg mb-2">Need to apply?</h3>
+            <a href="/students/apply" class="crystal cta cta--apply rounded-xl px-5 py-3 inline-block">APPLY NOW</a>
+          </div>
+          <div class="crystal rounded-2xl p-2 overflow-hidden" style="background:var(--tint-c)">
+            <iframe title="Map" width="100%" height="220" style="border:0;border-radius:14px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=15%20St.%20Botolph%20Street%20London%20EC3A%207BB&output=embed"></iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
+        <p class="opacity-95 text-sm">
+          IUFP Global Education UK<br>
+          Aldgate Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, London EC3A 7BB
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Start Your Application</h4>
+        <div class="flex gap-3">
+          <a href="/students/apply" class="crystal cta cta--apply rounded-xl px-5 py-3">APPLY NOW</a>
+          <a href="/partner-schools/" class="crystal rounded-xl px-5 py-3">Partner School</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function validateForm(){
+      const form = document.getElementById('contactForm');
+      const email = form.querySelector('#email').value.trim();
+      if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      return true;
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

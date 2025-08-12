@@ -20,6 +20,16 @@ app.get(['/universities', '/universities/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'iufp-universities.html'));
 });
 
+// Route for Contact page
+app.get(['/contact-us', '/contact-us/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'iufp-contact.html'));
+});
+
+// Route for Partner Schools page
+app.get(['/partner-schools', '/partner-schools/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'iufp-partner-schools.html'));
+});
+
 // Redirect any .html file requests to clean URLs
 app.get('/iufp-landing.html', (req, res) => {
   res.redirect(301, '/');
@@ -31,6 +41,14 @@ app.get('/iufp-students.html', (req, res) => {
 
 app.get('/iufp-universities.html', (req, res) => {
   res.redirect(301, '/universities/');
+});
+
+app.get('/iufp-contact.html', (req, res) => {
+  res.redirect(301, '/contact-us/');
+});
+
+app.get('/iufp-partner-schools.html', (req, res) => {
+  res.redirect(301, '/partner-schools/');
 });
 
 app.listen(PORT, () => {
