@@ -30,6 +30,11 @@ app.get(['/partner-schools', '/partner-schools/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'iufp-partner-schools.html'));
 });
 
+// Route for VLE page
+app.get(['/vle', '/vle/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'iufp-vle.html'));
+});
+
 // Redirect any .html file requests to clean URLs
 app.get('/iufp-landing.html', (req, res) => {
   res.redirect(301, '/');
@@ -49,6 +54,10 @@ app.get('/iufp-contact.html', (req, res) => {
 
 app.get('/iufp-partner-schools.html', (req, res) => {
   res.redirect(301, '/partner-schools/');
+});
+
+app.get('/iufp-vle.html', (req, res) => {
+  res.redirect(301, '/vle/');
 });
 
 app.listen(PORT, () => {

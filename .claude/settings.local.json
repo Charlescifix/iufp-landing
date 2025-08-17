@@ -5,7 +5,9 @@
       "Bash(taskkill:*)",
       "Bash(npm start)",
       "Bash(node server.js)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(cmd /c:*)",
+      "Bash(npx kill-port:*)"
     ],
     "deny": []
   }
