@@ -33,9 +33,14 @@
     .field{display:flex;flex-direction:column;gap:.375rem}
     .label{font-weight:700}
     input[type=text],input[type=email],input[type=tel],select,textarea{
-      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;outline:none
+      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;outline:none;min-height:44px;font-size:16px
     }
     input:focus,select:focus,textarea:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+    button,a.cta{min-height:44px;min-width:44px}
+    @media (max-width: 768px) {
+      input[type=text],input[type=email],input[type=tel],select,textarea{font-size:16px;padding:1rem}
+      button,a.cta{padding:1rem 1.5rem}
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -55,6 +60,20 @@
         <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
         <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
       </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-2">
+        <a class="brand-link" href="/">Home</a>
+        <a class="brand-link" href="/aboutus/">About IUFP</a>
+        <a class="brand-link" href="/students/">Students</a>
+        <a class="brand-link" href="/universities/">Universities</a>
+        <a class="brand-link" href="/partner-schools/">Partner Schools</a>
+        <a class="brand-link" href="/vle/">VLE</a>
+        <a class="brand-link" href="/contact-us/">Contact Us</a>
+        <a class="brand-link" href="/payment/">Payments</a>
+      </div>
     </div>
   </header>
 

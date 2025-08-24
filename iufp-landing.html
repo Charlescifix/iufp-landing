@@ -48,7 +48,11 @@
     .cta:hover{transform:translateY(-3px) scale(1.02)}
 
     .bot-bubble{position:fixed;right:20px;bottom:20px;z-index:50}
-    .bot-panel{position:fixed;right:20px;bottom:92px;width:360px;max-width:92vw;height:520px;max-height:70vh;z-index:50;display:none}
+    .bot-panel{position:fixed;right:20px;bottom:92px;width:360px;max-width:calc(100vw - 40px);height:520px;max-height:calc(100vh - 120px);z-index:50;display:none}
+    @media (max-width: 480px) {
+      .bot-panel{right:10px;bottom:82px;width:calc(100vw - 20px);max-width:none;height:calc(100vh - 100px);max-height:none}
+      .bot-bubble{right:10px;bottom:10px}
+    }
     .bot-open .bot-panel{display:block}
   </style>
 </head>

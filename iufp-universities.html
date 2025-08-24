@@ -34,12 +34,16 @@
     .cta--partner{background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442}
     .cta:hover{filter:saturate(110%); box-shadow:0 12px 26px rgba(0,0,0,.18); transform:translateY(-3px) scale(1.02)}
     /* Table styles */
-    .table-wrap {overflow-x:auto}
-    table.fancy {width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .table-wrap {overflow-x:auto;-webkit-overflow-scrolling:touch}
+    table.fancy {width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06);min-width:600px}
     table.fancy thead th {text-align:left; font-weight:800; background:var(--brand-nav-bg); color:#fff; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.1)}
     table.fancy tbody td {padding:14px 16px; border-bottom:1px solid rgba(0,0,0,.06);}
     table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
     table.fancy a {text-decoration:underline; text-underline-offset:2px}
+    @media (max-width: 768px) {
+      table.fancy thead th{padding:12px 8px;font-size:14px}
+      table.fancy tbody td{padding:12px 8px;font-size:14px}
+    }
     /* Tabs */
     .tab{cursor:pointer; padding:.6rem 1rem; border-radius:9999px; font-weight:700; border:1px solid rgba(0,0,0,.08)}
     .tab.active{background:var(--brand-primary); color:#fff; border-color:transparent}
@@ -64,6 +68,20 @@
         <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
         <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
       </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-2">
+        <a class="brand-link" href="/">Home</a>
+        <a class="brand-link" href="/aboutus/">About IUFP</a>
+        <a class="brand-link" href="/students/">Students</a>
+        <a class="brand-link" href="/universities/">Universities</a>
+        <a class="brand-link" href="/partner-schools/">Partner Schools</a>
+        <a class="brand-link" href="/vle/">VLE</a>
+        <a class="brand-link" href="/contact-us/">Contact Us</a>
+        <a class="brand-link" href="/payment/">Payments</a>
+      </div>
     </div>
   </header>
 
