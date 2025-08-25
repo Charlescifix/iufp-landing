@@ -1,65 +1,47 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
-const PORT = process.env.PORT || 3001;
 
+// Port from environment or default to 3000
+const PORT = process.env.PORT || 3000;
+
+// Serve static files from current directory
 app.use(express.static(__dirname));
 
+// Serve HTML files without extension
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-landing.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Route for Students page
-app.get(['/students', '/students/'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-students.html'));
+app.get('/students', (req, res) => {
+    res.sendFile(path.join(__dirname, 'students.html'));
 });
 
-// Route for Universities page
-app.get(['/universities', '/universities/'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-universities.html'));
+app.get('/universities', (req, res) => {
+    res.sendFile(path.join(__dirname, 'universities.html'));
 });
 
-// Route for Contact page
-app.get(['/contact-us', '/contact-us/'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-contact.html'));
+app.get('/partner-schools', (req, res) => {
+    res.sendFile(path.join(__dirname, 'partner-schools.html'));
 });
 
-// Route for Partner Schools page
-app.get(['/partner-schools', '/partner-schools/'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-partner-schools.html'));
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
-// Route for VLE page
-app.get(['/vle', '/vle/'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'iufp-vle.html'));
+app.get('/vle', (req, res) => {
+    res.sendFile(path.join(__dirname, 'vle.html'));
 });
 
-// Redirect any .html file requests to clean URLs
-app.get('/iufp-landing.html', (req, res) => {
-  res.redirect(301, '/');
+app.get('/admissions', (req, res) => {
+    res.sendFile(path.join(__dirname, 'admissions.html'));
 });
 
-app.get('/iufp-students.html', (req, res) => {
-  res.redirect(301, '/students/');
-});
-
-app.get('/iufp-universities.html', (req, res) => {
-  res.redirect(301, '/universities/');
-});
-
-app.get('/iufp-contact.html', (req, res) => {
-  res.redirect(301, '/contact-us/');
-});
-
-app.get('/iufp-partner-schools.html', (req, res) => {
-  res.redirect(301, '/partner-schools/');
-});
-
-app.get('/iufp-vle.html', (req, res) => {
-  res.redirect(301, '/vle/');
+// Handle 404 - redirect to home
+app.get('*', (req, res) => {
+    res.redirect('/');
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`IUFP Landing server running on port ${PORT}`);
 });

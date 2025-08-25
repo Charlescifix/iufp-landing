@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <title>IUFP — Admissions Criteria by Countries</title>
+  <meta name="description" content="Check IUFP entry requirements and English language expectations by country. Search, filter, and view details in a modern, mobile-friendly table." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--brand-nav-bg:#0b2447;--brand-nav-text:#ffffff;--brand-primary:#19376d;--brand-on-primary:#ffffff;--brand-footer-bg:#0b2447;--brand-footer-text:#ffffff;--tint-a: rgba(25,55,109,.06);--tint-b: rgba(20,184,166,.12);--tint-c: rgba(167,139,250,.14);--tint-d: rgba(11,36,71,.05);}
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease;position:relative;z-index:1}
+    .crystal:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+    .chip{display:inline-block;padding:.35rem .7rem;border-radius:9999px;font-weight:700;border:1px solid rgba(0,0,0,.06);background:#fff;transition:all .2s ease}
+    .chip.country{background:linear-gradient(135deg,#3B82F6,#1E40AF);color:#fff;border:none;box-shadow:0 2px 8px rgba(59,130,246,.3)}
+    .chip.english{background:linear-gradient(135deg,#10B981,#047857);color:#fff;border:none;box-shadow:0 2px 8px rgba(16,185,129,.3)}
+    .chip.iufp-compliant{background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;border:none;box-shadow:0 2px 8px rgba(139,92,246,.3)}
+    .chip:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .table-wrap {overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+    table.fancy {width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    table.fancy thead th {text-align:left; font-weight:800; background:var(--brand-nav-bg); color:#fff; padding:12px 8px; border-bottom:1px solid rgba(255,255,255,.1); font-size:.9rem}
+    @media (min-width:768px) { table.fancy thead th {padding:14px 16px; font-size:1rem} }
+    @media (max-width:640px) { table.fancy thead th {padding:8px 6px; font-size:.8rem} }
+    table.fancy tbody td {padding:12px 8px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align:top; font-size:.9rem}
+    @media (min-width:768px) { table.fancy tbody td {padding:14px 16px; font-size:1rem} }
+    @media (max-width:640px) { table.fancy tbody td {padding:8px 6px; font-size:.85rem} }
+    table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
+    .search { border:1px solid rgba(0,0,0,.12); border-radius:12px; padding:.8rem 1rem; width:100%; font-size:16px; transition:border-color .2s ease, box-shadow .2s ease }
+    .search:focus { outline:none; border-color:var(--brand-primary); box-shadow:0 0 0 3px rgba(25,55,109,.1) }
+    @media (max-width:768px) { .search { font-size:16px } }
+    .pill{border:1px solid rgba(0,0,0,.08); border-radius:9999px; padding:.2rem .6rem; font-weight:700; display:inline-block;}
+    .pill.ielts{ background:linear-gradient(180deg, rgba(167,139,250,.18), rgba(167,139,250,.10)); }
+    .pill.na{ background:linear-gradient(180deg, rgba(20,184,166,.18), rgba(20,184,166,.10)); }
+    
+    /* Enhanced Responsive Design System */
+    .responsive-text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .responsive-text-5xl { font-size: 3rem; line-height: 1; }
+    .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .responsive-text-xl { font-size: 1.125rem; line-height: 1.75rem; }
+    .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
+
+    /* Mobile-first responsive breakpoints */
+    @media (min-width: 576px) {
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 3.75rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+    }
+
+    @media (min-width: 640px) {
+      .responsive-text-4xl { font-size: 3.5rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 4rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2rem; line-height: 2.5rem; }
+      .responsive-text-3xl { font-size: 2.5rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.875rem; }
+    }
+
+    @media (min-width: 768px) {
+      .responsive-text-4xl { font-size: 3.75rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 4.5rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-3xl { font-size: 2.75rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 2rem; }
+      .responsive-text-lg { font-size: 1.375rem; line-height: 2rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .responsive-text-4xl { font-size: 4rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 5rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2.5rem; line-height: 1; }
+      .responsive-text-3xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.625rem; line-height: 2rem; }
+      .responsive-text-lg { font-size: 1.5rem; line-height: 2rem; }
+    }
+
+    /* Navigation enhancements */
+    @media (max-width: 767px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1.25rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+
+    /* Grid system enhancements */
+    .responsive-grid { display: grid; gap: 1rem; }
+    @media (min-width: 576px) { .responsive-grid { gap: 1.25rem; } }
+    @media (min-width: 768px) { .responsive-grid { gap: 1.5rem; } }
+    @media (min-width: 1024px) { .responsive-grid { gap: 2rem; } }
+
+    /* Button responsiveness */
+    @media (max-width: 576px) {
+      .cta { font-size: 1rem; padding: 0.875rem 1.5rem; }
+    }
+
+    /* Image responsiveness */
+    .responsive-img { width: 100%; height: auto; }
+    @media (max-width: 576px) { .responsive-img { height: 200px; } }
+    @media (min-width: 577px) and (max-width: 768px) { .responsive-img { height: 240px; } }
+    @media (min-width: 769px) { .responsive-img { height: 256px; } }
+
+    /* Container spacing optimization */
+    .responsive-container { padding: 1rem; }
+    @media (min-width: 576px) { .responsive-container { padding: 1.5rem; } }
+    @media (min-width: 768px) { .responsive-container { padding: 2rem; } }
+    @media (min-width: 1024px) { .responsive-container { padding: 2.5rem; } }
+
+    /* Touch target improvements for mobile devices */
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .cta, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+      
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </div>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-2">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-7xl mx-auto px-4 py-10 md:py-14">
+      <div class="responsive-grid md:grid-cols-3 lg:gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <div class="crystal rounded-2xl p-4 lg:p-6 flex flex-col items-center gap-4 w-fit mx-auto md:mx-0">
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="English University Campus" class="w-full h-48 object-cover rounded-xl">
+            <p class="text-xs opacity-70 text-center">Traditional English University Campus</p>
+          </div>
+        </div>
+        <div class="md:col-span-2 order-1 md:order-2">
+          <h1 class="responsive-text-4xl md:responsive-text-5xl lg:responsive-text-6xl font-black leading-tight text-center md:text-left">Admissions Criteria by Countries</h1>
+          <p class="mt-4 responsive-text-lg lg:responsive-text-xl opacity-95 text-center md:text-left">
+            Explore IUFP entry requirements by country, including secondary qualifications and English language expectations.
+            Requirements reflect the <strong>minimum academic standard</strong> for entry to the IUFP, with centres reserving discretion for borderline profiles.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+            <span class="chip country">Country-specific qualifications</span>
+            <span class="chip english">English equivalencies</span>
+            <span class="chip iufp-compliant">IUFP-compliant</span>
+          </div>
+          <div class="mt-6 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit mx-auto md:mx-0">
+            <img src="athe-logo.png" alt="ATHE Endorsed Programme" class="h-10 w-auto">
+            <p class="text-sm leading-snug">
+              <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by OFQUAL (UK). ATHE Certificates of Completion are issued to successful IUFP students.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-6">
+      <div class="flex flex-col md:flex-row md:items-end gap-3">
+        <div class="md:flex-1 min-w-[260px]">
+          <label class="block text-sm font-bold mb-1" for="q">Search (country, qualification, keyword)</label>
+          <input id="q" class="search" placeholder="e.g., WASSCE, KCSE, HSC, GCE O Level">
+        </div>
+        <div class="flex flex-wrap sm:flex-nowrap gap-2 sm:justify-end sm:ml-3">
+          <button class="tab active" data-tab="all" style="padding:.5rem .8rem;border-radius:9999px;border:1px solid rgba(0,0,0,.08);font-weight:800;font-size:.85rem;white-space:nowrap">All</button>
+          <button class="tab" data-tab="IELTS" style="padding:.5rem .8rem;border-radius:9999px;border:1px solid rgba(0,0,0,.08);font-weight:800;font-size:.85rem;white-space:nowrap">IELTS 4.5</button>
+          <button class="tab" data-tab="NA" style="padding:.5rem .8rem;border-radius:9999px;border:1px solid rgba(0,0,0,.08);font-weight:800;font-size:.85rem;white-space:nowrap">English N/A</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="table-wrap crystal rounded-2xl p-2" style="background:var(--tint-d)">
+        <table class="fancy" id="criteria">
+          <thead>
+            <tr>
+              <th style="width:16%">Country</th>
+              <th style="width:56%">Admissions Criteria</th>
+              <th style="width:28%">English Language</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ielts="IELTS"><td>Angola</td><td>Habilitacao Literarias (Secondary School Leaving Certificate) — 5 subjects passed; overall average ≥ 10.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Bangladesh</td><td>HSC 12 GPA ≥ 2.5 (1 semester) or GPA ≥ 2.0 (2 semesters).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Bahrain</td><td>5 passes at Certificate of General Secondary Education (Shahadat Al-Thanawaya Al-Aama).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Cameroon</td><td>Baccalauréat: 5 passes; Certificat de Probation: 5 passes (grade 10); or GCE O Level: 5 passes at grade C.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>China</td><td>Senior Middle School 2 (≥ 70%) or Senior Middle School 3 (≥ 60%).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Egypt</td><td>5 passes at Certificate of General Secondary Education or Al-Azhar Secondary Certificate (≥ 50%).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="NA"><td>Ghana</td><td>WASSCE: 5 credit passes (grade C equivalent) incl. English & Mathematics; minimum C6 in English & Maths.</td><td><span class="pill na">N/A</span></td></tr>
+            <tr data-ielts="IELTS"><td>Guinea</td><td>Baccalauréat Deuxième Partie after the 3rd year (successful completion).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="NA"><td>Hong Kong</td><td>HKCEE: 5 passes incl. English & Maths; or HKDSE forms 4–5: 60% in 5 subjects incl. Mathematics.</td><td><span class="pill na">N/A</span></td></tr>
+            <tr data-ielts="NA"><td>India</td><td>Standard XII Certificate ≥ 50% (SSC X: CBSE/ICSE/MH/TN/GJ/KA/WB ≥ 40%; other boards ≥ 50%).</td><td><span class="pill na">N/A</span></td></tr>
+            <tr data-ielts="NA"><td>Kenya</td><td>KCSE: 5 × grade C incl. English & Mathematics.</td><td><span class="pill na">N/A</span></td></tr>
+            <tr data-ielts="IELTS"><td>Macau</td><td>5 passes at COSC / GCE O Level / HKCEE; or Senior Middle 2 ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Malaysia</td><td>SPM: 5 passes; 4 with grades above 6C, incl. Mathematics & English.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Mauritius</td><td>5 O-Level/COSC passes min. Grade C (1 semester) or min. Grade E (2 semesters).</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Myanmar</td><td>Basic Education Standard X / Matriculation Exam with ≥ 40% overall incl. English & Maths.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Namibia</td><td>5 passes in CSC / COSC / GCE O Level incl. English & Mathematics.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Nepal</td><td>2‑year Higher Secondary Certificate with ≥ 45%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="NA"><td>Nigeria</td><td>WASSCE (WAEC/NECO): 5 credit passes (grade C equivalent) incl. English & Mathematics; minimum C6 in both.</td><td><span class="pill na">N/A</span></td></tr>
+            <tr data-ielts="IELTS"><td>Oman</td><td>Thanawiya Amma ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Pakistan</td><td>SSC (10) grade average ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Philippines</td><td>Grade 12 High School Diploma ≥ 80%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Qatar</td><td>Thanawiya Amma ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Saudi Arabia</td><td>Tawjihiyah (General Secondary Education Certificate) average ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Sri Lanka</td><td>Year 11 (GCE “O” Levels or equivalent) with ≥ 5 C grades.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Singapore</td><td>5 Singapore/Cambridge GCE O Levels grade C incl. Mathematics & English.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Taiwan</td><td>Senior Middle School 2 with ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Thailand</td><td>Mathayom Suksa 6 (M6) GPA ≥ 3.0.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Uganda</td><td>Uganda Certificate of Education (UCE): 5 passes at grade 6 or above.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>United Arab Emirates</td><td>Tawajihiya (Secondary School Certificate) with ≥ 60%.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+            <tr data-ielts="IELTS"><td>Zambia</td><td>School Certificate / GCE: 5 × grades 1–6 incl. English & Mathematics.</td><td><span class="pill ielts">IELTS 4.5 (no band &lt; 4.0)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 text-xs opacity-70">
+        <p><strong>Notes:</strong> “N/A” indicates the English requirement is met via the national qualification or assessed at centre level. IELTS bands shown are minimums; centres may request higher scores for certain pathways (e.g., Medical Sciences, Law).</p>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="crystal rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4" style="background:linear-gradient(180deg, rgba(20,184,166,.12), rgba(167,139,250,.12))">
+        <div>
+          <h3 class="responsive-text-2xl font-extrabold">Ready to apply?</h3>
+          <p class="text-sm opacity-80">If your country isn't listed or your results are borderline, contact us for an eligibility check.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="students.html" class="crystal rounded-xl px-5 py-3 font-bold" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">APPLY NOW</a>
+          <a href="contact.html" class="brand-primary rounded-xl px-5 py-3 font-bold">Ask Admissions</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="text-center">
+        <div class="crystal rounded-3xl p-8 mx-auto max-w-2xl" style="background:linear-gradient(135deg, rgba(59,130,246,.15), rgba(139,92,246,.15))">
+          <div class="mb-6">
+            <h3 class="responsive-text-3xl font-black mb-3" style="background:linear-gradient(135deg, #1e40af, #6d28d9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text">Explore Student Resources</h3>
+            <p class="responsive-text-lg opacity-90">Ready to dive deeper? Discover comprehensive guides, application support, and student success resources tailored for your IUFP journey.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="students.html" class="group relative overflow-hidden rounded-2xl px-8 py-4 font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl" style="background:linear-gradient(135deg, #3B82F6, #8B5CF6); color:#fff; box-shadow:0 8px 32px rgba(59,130,246,.3)">
+              <span class="relative z-10 flex items-center gap-3">
+                <svg class="w-6 h-6 transition-transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Student Hub
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 transition-opacity group-hover:opacity-100"></div>
+            </a>
+            <div class="flex items-center gap-2 text-sm opacity-70">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              <span>Application guides • Study tips • Success stories</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-4 py-10 responsive-grid md:grid-cols-3">
+      <div>
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
+        <p class="opacity-95 text-sm">IUFP Global Education UK<br>Aldgate Beaufort House Rm 1134,<br>15 St. Botolph Street, London EC3A 7BB</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact Us</a></li>
+          <li><a href="vle.html" class="underline-offset-4 hover:underline">VLE</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Admissions</h4>
+        <div class="flex gap-3">
+          <a href="students.html" class="crystal rounded-xl px-5 py-3 font-bold" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">APPLY NOW</a>
+          <a href="contact.html" class="crystal rounded-xl px-5 py-3 font-bold">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="#" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="#" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="#" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const q = document.getElementById('q');
+    const rows = Array.from(document.querySelectorAll('#criteria tbody tr'));
+    const tabs = document.querySelectorAll('.tab');
+    let current = 'all';
+    
+    function applyFilter(){
+      const needle = q.value.toLowerCase().trim();
+      rows.forEach(r=>{
+        const tag = r.dataset.ielts;
+        const text = r.innerText.toLowerCase();
+        const matchTab = (current==='all') || (current==='IELTS' && tag==='IELTS') || (current==='NA' && tag==='NA');
+        const matchText = !needle || text.includes(needle);
+        r.style.display = (matchTab && matchText) ? '' : 'none';
+      });
+    }
+    
+    // Set current year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    q.addEventListener('input', applyFilter);
+    tabs.forEach(t=>t.addEventListener('click', ()=>{
+      tabs.forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      current = t.dataset.tab || 'all';
+      applyFilter();
+    }));
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

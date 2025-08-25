@@ -59,38 +59,128 @@
     .kbd{border:1px solid rgba(0,0,0,.2);border-bottom-width:3px;border-radius:10px;padding:.15rem .4rem;background:#fff;font-weight:800}
     .badge{border:1px solid rgba(0,0,0,.08);background:#fff;border-radius:9999px;padding:.25rem .6rem;font-weight:700}
     .table-wrap{overflow-x:auto}
+    
+    /* Enhanced Responsive Design System */
+    .responsive-text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .responsive-text-5xl { font-size: 3rem; line-height: 1; }
+    .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .responsive-text-xl { font-size: 1.125rem; line-height: 1.75rem; }
+    .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
+
+    /* Mobile-first responsive breakpoints */
+    @media (min-width: 576px) {
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 3.75rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+    }
+
+    @media (min-width: 640px) {
+      .responsive-text-4xl { font-size: 3.5rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 4rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2rem; line-height: 2.5rem; }
+      .responsive-text-3xl { font-size: 2.5rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.875rem; }
+    }
+
+    @media (min-width: 768px) {
+      .responsive-text-4xl { font-size: 3.75rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 4.5rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-3xl { font-size: 2.75rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 2rem; }
+      .responsive-text-lg { font-size: 1.375rem; line-height: 2rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .responsive-text-4xl { font-size: 4rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 5rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 2.5rem; line-height: 1; }
+      .responsive-text-3xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.625rem; line-height: 2rem; }
+      .responsive-text-lg { font-size: 1.5rem; line-height: 2rem; }
+    }
+
+    /* Navigation enhancements */
+    @media (max-width: 767px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1.25rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+
+    /* Grid system enhancements */
+    .responsive-grid { display: grid; gap: 1rem; }
+    @media (min-width: 576px) { .responsive-grid { gap: 1.25rem; } }
+    @media (min-width: 768px) { .responsive-grid { gap: 1.5rem; } }
+    @media (min-width: 1024px) { .responsive-grid { gap: 2rem; } }
+
+    /* Button responsiveness */
+    @media (max-width: 576px) {
+      .cta { font-size: 1rem; padding: 0.875rem 1.5rem; }
+    }
+
+    /* Image responsiveness */
+    .responsive-img { width: 100%; height: auto; }
+    @media (max-width: 576px) { .responsive-img { height: 200px; } }
+    @media (min-width: 577px) and (max-width: 768px) { .responsive-img { height: 240px; } }
+    @media (min-width: 769px) { .responsive-img { height: 256px; } }
+
+    /* Container spacing optimization */
+    .responsive-container { padding: 1rem; }
+    @media (min-width: 576px) { .responsive-container { padding: 1.5rem; } }
+    @media (min-width: 768px) { .responsive-container { padding: 2rem; } }
+    @media (min-width: 1024px) { .responsive-container { padding: 2.5rem; } }
+
+    /* Touch target improvements for mobile devices */
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .cta, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+      
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
   <!-- Header -->
   <header class="brand-header">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
-      <a href="/" class="flex items-center gap-3">
-        <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
       </a>
       <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
-        <a class="brand-link hover:opacity-90" href="/">Home</a>
-        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
-        <a class="brand-link hover:opacity-90" href="/students/">Students</a>
-        <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
-        <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
-        <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
-        <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
-        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
       </nav>
       <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
               onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
     </div>
     <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
       <div class="crystal rounded-xl p-3 flex flex-col gap-2">
-        <a class="brand-link" href="/">Home</a>
-        <a class="brand-link" href="/aboutus/">About IUFP</a>
-        <a class="brand-link" href="/students/">Students</a>
-        <a class="brand-link" href="/universities/">Universities</a>
-        <a class="brand-link" href="/partner-schools/">Partner Schools</a>
-        <a class="brand-link" href="/vle/">VLE</a>
-        <a class="brand-link" href="/contact-us/">Contact Us</a>
-        <a class="brand-link" href="/payment/">Payments</a>
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
       </div>
     </div>
   </header>
@@ -100,8 +190,8 @@
     <section class="max-w-7xl mx-auto px-4 pt-10 pb-8 md:pt-16 md:pb-12">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">IUFP Virtual Learning Environment</h1>
-          <p class="mt-4 text-lg opacity-95">
+          <h1 class="responsive-text-4xl md:responsive-text-5xl font-black leading-tight">IUFP Virtual Learning Environment</h1>
+          <p class="mt-4 responsive-text-lg opacity-95">
             Learn anywhere with interactive courses, assessments, resources, and a built‑in <strong>AI Study Assistant</strong> that supports your progress.
           </p>
           <div class="mt-4 flex flex-wrap gap-2">
@@ -180,7 +270,7 @@
               <input type="password" id="pass2" placeholder="Re‑enter password">
             </div>
             <div class="md:col-span-2 flex items-start gap-2 text-sm">
-              <input id="terms" type="checkbox"><label for="terms">I agree to the <a href="/terms/" target="_blank" class="underline">Terms</a> and <a href="/privacy-policy/" target="_blank" class="underline">Privacy Policy</a>.</label>
+              <input id="terms" type="checkbox"><label for="terms">I agree to the <span class="underline opacity-50">Terms</span> and <span class="underline opacity-50">Privacy Policy</span>.</label>
             </div>
             <div class="md:col-span-2">
               <button type="button" class="brand-primary rounded-xl px-6 py-3 font-bold">Create account</button>
@@ -205,17 +295,17 @@
 
     <!-- Feature highlight -->
     <section class="max-w-7xl mx-auto px-4 pb-12">
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="responsive-grid md:grid-cols-3">
         <div class="crystal p-6 rounded-xl course-card" style="background:var(--tint-a)">
-          <h3 class="font-extrabold text-xl">Interactive Courses</h3>
+          <h3 class="font-extrabold responsive-text-xl">Interactive Courses</h3>
           <p class="text-sm mt-1 opacity-80">Video lessons, readings, quizzes, assignments and discussion.</p>
         </div>
         <div class="crystal p-6 rounded-xl course-card" style="background:var(--tint-b)">
-          <h3 class="font-extrabold text-xl">Assessments & Grades</h3>
+          <h3 class="font-extrabold responsive-text-xl">Assessments & Grades</h3>
           <p class="text-sm mt-1 opacity-80">Timed exams, rubric‑based marking and downloadable transcripts.</p>
         </div>
         <div class="crystal p-6 rounded-xl course-card" style="background:var(--tint-c)">
-          <h3 class="font-extrabold text-xl">Resources Library</h3>
+          <h3 class="font-extrabold responsive-text-xl">Resources Library</h3>
           <p class="text-sm mt-1 opacity-80">Past questions, mark schemes, lab sheets, e‑books and more.</p>
         </div>
       </div>
@@ -223,11 +313,11 @@
 
     <!-- Dashboard preview + AI assistant -->
     <section class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="grid lg:grid-cols-2 gap-6">
+      <div class="responsive-grid lg:grid-cols-2">
         <!-- Dashboard preview -->
         <div class="crystal rounded-2xl p-6">
           <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-extrabold">Your Dashboard</h2>
+            <h2 class="responsive-text-2xl font-extrabold">Your Dashboard</h2>
             <div class="progress" style="--p:72"><span>72%</span></div>
           </div>
           <div class="mt-4 grid sm:grid-cols-2 gap-4">
@@ -265,7 +355,7 @@
               </svg>
             </div>
             <div>
-              <h2 class="text-2xl font-extrabold">AI Study Assistant</h2>
+              <h2 class="responsive-text-2xl font-extrabold">AI Study Assistant</h2>
               <p class="text-sm opacity-80">Get explanations, practice questions, and feedback on your writing—right inside the VLE.</p>
             </div>
           </div>
@@ -287,8 +377,8 @@
 
     <!-- How it works -->
     <section class="max-w-7xl mx-auto px-4 pb-12">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">How the VLE works</h2>
-      <div class="grid md:grid-cols-4 gap-4">
+      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-4">How the VLE works</h2>
+      <div class="responsive-grid md:grid-cols-4">
         <div class="crystal p-4 rounded-xl" style="background:var(--tint-a)"><div class="text-sm uppercase opacity-70">Step 1</div><div class="font-bold">Create your account</div><div class="text-sm opacity-80 mt-1">Register with your email and country.</div></div>
         <div class="crystal p-4 rounded-xl" style="background:var(--tint-b)"><div class="text-sm uppercase opacity-70">Step 2</div><div class="font-bold">Join your courses</div><div class="text-sm opacity-80 mt-1">Use enrol codes from your centre.</div></div>
         <div class="crystal p-4 rounded-xl" style="background:var(--tint-c)"><div class="text-sm uppercase opacity-70">Step 3</div><div class="font-bold">Learn & submit</div><div class="text-sm opacity-80 mt-1">Access lessons and upload work.</div></div>
@@ -298,8 +388,8 @@
 
     <!-- FAQs -->
     <section class="max-w-7xl mx-auto px-4 pb-16">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">VLE FAQs</h2>
-      <div class="grid md:grid-cols-2 gap-6">
+      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-4">VLE FAQs</h2>
+      <div class="responsive-grid md:grid-cols-2">
         <details class="crystal rounded-xl p-4" style="background:var(--tint-a)">
           <summary class="font-bold">Can parents/guardians view progress?</summary>
           <p class="text-sm opacity-90 mt-2">Centres can enable “observer” accounts so parents can see assignments and grades.</p>
@@ -322,7 +412,7 @@
 
   <!-- Footer -->
   <footer class="brand-footer">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <div class="max-w-7xl mx-auto px-4 py-10 responsive-grid md:grid-cols-3">
       <div>
         <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
         <p class="opacity-95 text-sm">
@@ -334,10 +424,10 @@
       <div>
         <h4 class="font-semibold mb-2">Quick Links</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li>
-          <li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li>
-          <li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li>
-          <li><a href="/contact-us/" class="underline-offset-4 hover:underline">Contact</a></li>
+          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -352,9 +442,9 @@
       <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
         <div class="space-x-4">
-          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
-          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
-          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+          <span class="opacity-50">Privacy Policy</span>
+          <span class="opacity-50">Cookie Policy</span>
+          <span class="opacity-50">Terms</span>
         </div>
       </div>
     </div>

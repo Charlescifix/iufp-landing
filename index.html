@@ -54,6 +54,146 @@
       .bot-bubble{right:10px;bottom:10px}
     }
     .bot-open .bot-panel{display:block}
+    
+    /* Enhanced Responsive Design System */
+    
+    /* Mobile First - Base styles (320px+) */
+    .responsive-text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .responsive-text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .responsive-text-base { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+    .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .responsive-text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    
+    /* Small devices (576px and up) */
+    @media (min-width: 576px) {
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 2rem; }
+      .responsive-text-2xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
+    }
+    
+    /* Medium devices (768px and up) */
+    @media (min-width: 768px) {
+      .responsive-text-2xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .responsive-text-3xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 3.75rem; line-height: 1; }
+    }
+    
+    /* Large devices (1024px and up) */
+    @media (min-width: 1024px) {
+      .responsive-text-3xl { font-size: 3.75rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 4.5rem; line-height: 1; }
+    }
+    
+    /* Navigation Enhancements */
+    @media (max-width: 640px) {
+      .brand-header .max-w-7xl { padding: 0.75rem 1rem; }
+      .brand-header img { height: 4rem; }
+      .crystal { padding: 0.75rem 1rem !important; }
+    }
+    
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .brand-header img { height: 5rem; }
+    }
+    
+    /* Grid System Enhancements */
+    .responsive-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .responsive-grid { gap: 1.5rem; }
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-grid { gap: 2rem; }
+      .responsive-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (min-width: 1024px) {
+      .responsive-grid { gap: 2.5rem; }
+      .responsive-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    /* Button Enhancements */
+    .responsive-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 640px) {
+      .responsive-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-btn {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+        width: auto;
+      }
+    }
+    
+    /* Image Responsiveness */
+    .responsive-img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+    
+    @media (max-width: 640px) {
+      .responsive-img { border-radius: 0.75rem; }
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-img { border-radius: 1rem; }
+    }
+    
+    /* Container Spacing */
+    .responsive-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .responsive-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    
+    /* Touch Target Improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .cta, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+      
+      .brand-link::before {
+        display: none; /* Remove hover effects on touch devices */
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative">
@@ -61,32 +201,28 @@
 
   <header class="brand-header relative z-20">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
-      <a href="/" class="flex items-center gap-3">
-        <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto md:h-28" />
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto md:h-28" />
       </a>
       <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
-        <a class="brand-link hover:opacity-90" href="/">Home</a>
-        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
-        <a class="brand-link hover:opacity-90" href="/students/">Students</a>
-        <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
-        <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
-        <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
-        <a class="brand-link hover:opacity-90" href="/contact-us/">Contact Us</a>
-        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
       </nav>
       <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
               onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
     </div>
     <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
       <div class="crystal rounded-xl p-3 flex flex-col gap-2">
-        <a class="brand-link" href="/">Home</a>
-        <a class="brand-link" href="/aboutus/">About IUFP</a>
-        <a class="brand-link" href="/students/">Students</a>
-        <a class="brand-link" href="/universities/">Universities</a>
-        <a class="brand-link" href="/partner-schools/">Partner Schools</a>
-        <a class="brand-link" href="/vle/">VLE</a>
-        <a class="brand-link" href="/contact-us/">Contact Us</a>
-        <a class="brand-link" href="/payment/">Payments</a>
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
       </div>
     </div>
   </header>
@@ -102,12 +238,12 @@
           </p>
 
           <div class="mt-6 flex flex-wrap gap-4">
-            <a href="/students/" class="crystal cta cta--student bouncy rounded-2xl px-8 py-5 text-xl">IUFP Student</a>
-            <a href="/partner-schools/" class="crystal cta cta--partner bouncy rounded-2xl px-8 py-5 text-xl">IUFP Partner Schools</a>
+            <a href="students.html" class="crystal cta cta--student bouncy rounded-2xl px-8 py-5 text-xl">IUFP Student</a>
+            <a href="partner-schools.html" class="crystal cta cta--partner bouncy rounded-2xl px-8 py-5 text-xl">IUFP Partner Schools</a>
           </div>
 
           <div class="mt-6 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit">
-            <img src="/athe-logo.png" class="h-10 w-auto" alt="ATHE Endorsed Programme" />
+            <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE Endorsed Programme" />
             <p class="text-sm leading-snug">
               <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by OFQUAL (UK). ATHE Certificates of Completion are issued to successful IUFP students.
             </p>
@@ -223,7 +359,7 @@
         </div>
         <div class="justify-self-end">
           <div class="crystal rounded-xl p-3 shadow-lg flex items-center gap-3">
-            <img src="/athe-logo.png" class="h-10 w-auto" alt="ATHE Endorsed Programme">
+            <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE Endorsed Programme">
             <span class="text-sm">Trusted quality assurance</span>
           </div>
         </div>
@@ -255,7 +391,7 @@
           <p class="mt-2 text-sm">A wide range including Business & Finance, Computing & IT, Engineering, Law, Social Sciences, Medical and Life Sciences, Media & Culture, and more.</p>
         </details>
         <div class="mt-4">
-          <a href="/faqs/" class="brand-primary inline-block px-4 py-2 rounded-lg">See all FAQs</a>
+          <span class="brand-primary inline-block px-4 py-2 rounded-lg opacity-50">More FAQs coming soon</span>
         </div>
       </div>
     </section>
@@ -265,7 +401,7 @@
       <div class="crystal rounded-2xl p-8 shadow-lg">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div class="text-center md:text-left">
-            <img src="/LCBL Logo.jpg" alt="LCBL Logo" class="h-20 w-auto mx-auto md:mx-0 mb-4 md:h-24" />
+            <img src="LCBL Logo.jpg" alt="LCBL Logo" class="h-20 w-auto mx-auto md:mx-0 mb-4 md:h-24" />
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4">LCBL — Our Academic Partner</h2>
             <p class="text-lg opacity-95 leading-relaxed">
               <strong>London College of Business and Law (LCBL)</strong> owns the intellectual property rights to the IUFP curriculum and maintains all progression agreements with our university partners.
@@ -304,7 +440,7 @@
   <footer class="brand-footer relative z-10 mt-8">
     <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
       <div>
-        <img src="/iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto mb-3 md:h-24">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto mb-3 md:h-24">
         <p class="opacity-95">
           IUFP Global Education UK<br>
           Beaufort House Rm 1134,<br>
@@ -314,18 +450,16 @@
       <div>
         <h4 class="font-semibold mb-2">Quick Links</h4>
         <ul class="space-y-2">
-          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
-          <li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li>
-          <li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li>
-          <li><a href="/contact-us/" class="underline-offset-4 hover:underline">Contact Us</a></li>
-          <li><a href="/payment/" class="underline-offset-4 hover:underline">Payments</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <h4 class="font-semibold mb-2">Start Your Application</h4>
         <div class="flex gap-3">
-          <a href="/students/" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e">IUFP Student</a>
-          <a href="/partner-schools/" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442">Partner School</a>
+          <a href="students.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e">IUFP Student</a>
+          <a href="partner-schools.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442">Partner School</a>
         </div>
       </div>
     </div>
@@ -333,9 +467,9 @@
       <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
         <div class="space-x-4">
-          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
-          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
-          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+          <span class="opacity-50">Privacy Policy</span>
+          <span class="opacity-50">Cookie Policy</span>
+          <span class="opacity-50">Terms</span>
         </div>
       </div>
     </div>
