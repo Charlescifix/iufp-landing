@@ -41,18 +41,7 @@
       table.fancy tbody td{padding:12px 8px;font-size:14px}
     }
     
-    /* Glassy bouncy button styling with colors */
-    .bouncy-btn {
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      font-weight: 700;
-      color: #ffffff;
-      text-shadow: 0 1px 2px rgba(0,0,0,.2);
-      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      animation: subtleBounce 3s ease-in-out infinite;
-      position: relative;
-      overflow: hidden;
-    }
+    /* Glassy bouncy button styling with colors - moved to Button responsiveness section */
     
     /* First button - Warm Orange/Amber gradient (matches APPLY NOW theme) */
     .bouncy-btn:first-child {
@@ -119,49 +108,49 @@
       50% { transform: translateY(-2px) scale(1.01); }
     }
 
-    /* Enhanced Responsive Design System */
-    .responsive-text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-    .responsive-text-5xl { font-size: 3rem; line-height: 1; }
-    .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
-    .responsive-text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-    .responsive-text-xl { font-size: 1.125rem; line-height: 1.75rem; }
-    .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
+    /* Enhanced Responsive Design System - Optimized */
+    .responsive-text-4xl { font-size: 1.875rem; line-height: 2rem; }
+    .responsive-text-5xl { font-size: 2.5rem; line-height: 1; }
+    .responsive-text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .responsive-text-3xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-xl { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-lg { font-size: 0.9375rem; line-height: 1.375rem; }
 
-    /* Mobile-first responsive breakpoints */
+    /* Mobile-first responsive breakpoints - Optimized */
     @media (min-width: 576px) {
-      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 3.75rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 1.875rem; line-height: 2.25rem; }
-      .responsive-text-3xl { font-size: 2.25rem; line-height: 2.5rem; }
-      .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-      .responsive-text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+      .responsive-text-4xl { font-size: 2.25rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 2.75rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-3xl { font-size: 1.75rem; line-height: 2rem; }
+      .responsive-text-xl { font-size: 1.125rem; line-height: 1.625rem; }
+      .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
     }
 
     @media (min-width: 640px) {
-      .responsive-text-4xl { font-size: 3.5rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 4rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 2rem; line-height: 2.5rem; }
-      .responsive-text-3xl { font-size: 2.5rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.375rem; line-height: 1.875rem; }
-      .responsive-text-lg { font-size: 1.25rem; line-height: 1.875rem; }
+      .responsive-text-4xl { font-size: 2.5rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
+      .responsive-text-3xl { font-size: 1.875rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-lg { font-size: 1.125rem; line-height: 1.625rem; }
     }
 
     @media (min-width: 768px) {
-      .responsive-text-4xl { font-size: 3.75rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 4.5rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 2.25rem; line-height: 2.5rem; }
-      .responsive-text-3xl { font-size: 2.75rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.5rem; line-height: 2rem; }
-      .responsive-text-lg { font-size: 1.375rem; line-height: 2rem; }
+      .responsive-text-4xl { font-size: 2.75rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 3.25rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.625rem; line-height: 2rem; }
+      .responsive-text-3xl { font-size: 2rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.375rem; line-height: 1.75rem; }
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.75rem; }
     }
 
     @media (min-width: 1024px) {
-      .responsive-text-4xl { font-size: 4rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 5rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 2.5rem; line-height: 1; }
-      .responsive-text-3xl { font-size: 3rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.625rem; line-height: 2rem; }
-      .responsive-text-lg { font-size: 1.5rem; line-height: 2rem; }
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
+      .responsive-text-5xl { font-size: 3.5rem; line-height: 1; }
+      .responsive-text-2xl { font-size: 1.75rem; line-height: 1; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 1; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 1.875rem; }
+      .responsive-text-lg { font-size: 1.375rem; line-height: 1.875rem; }
     }
 
     /* Navigation enhancements */
@@ -175,16 +164,101 @@
       .brand-header .brand-link { font-size: 1rem; }
     }
 
-    /* Grid system enhancements */
-    .responsive-grid { display: grid; gap: 1rem; }
-    @media (min-width: 576px) { .responsive-grid { gap: 1.25rem; } }
-    @media (min-width: 768px) { .responsive-grid { gap: 1.5rem; } }
-    @media (min-width: 1024px) { .responsive-grid { gap: 2rem; } }
+    /* Grid system enhancements - Compact */
+    .responsive-grid { display: grid; gap: 0.75rem; }
+    @media (min-width: 576px) { .responsive-grid { gap: 1rem; } }
+    @media (min-width: 768px) { .responsive-grid { gap: 1.25rem; } }
+    @media (min-width: 1024px) { .responsive-grid { gap: 1.5rem; } }
 
     /* Button responsiveness */
+    .btn-primary {
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary.btn-cta {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+    }
+    
+    .btn-secondary {
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    
+    /* Optimized CTA buttons */
+    .cta { 
+      font-weight: 900; 
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+    }
+    
+    /* Optimized bouncy buttons */
+    .bouncy-btn {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,.2);
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      animation: subtleBounce 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+    }
+    
     @media (max-width: 576px) {
-      .cta { font-size: 1rem; padding: 0.875rem 1.5rem; }
-      .bouncy-btn { font-size: 1rem; padding: 0.875rem 1.25rem; }
+      .btn-primary {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+      .btn-primary.btn-cta {
+        font-size: 0.9rem;
+        padding: 0.625rem 1.25rem;
+      }
+      .btn-secondary {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+      .cta { 
+        font-size: 0.9rem; 
+        padding: 0.625rem 1.25rem; 
+      }
+      .bouncy-btn { 
+        font-size: 0.8rem; 
+        padding: 0.5rem 1rem; 
+      }
+    }
+    
+    @media (min-width: 577px) and (max-width: 768px) {
+      .btn-primary {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+      }
+      .btn-primary.btn-cta {
+        font-size: 0.9375rem;
+        padding: 0.6875rem 1.375rem;
+      }
+      .btn-secondary {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+      }
+      .cta { 
+        font-size: 0.9375rem; 
+        padding: 0.6875rem 1.375rem; 
+      }
+      .bouncy-btn { 
+        font-size: 0.875rem; 
+        padding: 0.625rem 1.25rem; 
+      }
     }
 
     /* Image responsiveness */
@@ -193,11 +267,11 @@
     @media (min-width: 577px) and (max-width: 768px) { .responsive-img { height: 240px; } }
     @media (min-width: 769px) { .responsive-img { height: 256px; } }
 
-    /* Container spacing optimization */
-    .responsive-container { padding: 1rem; }
-    @media (min-width: 576px) { .responsive-container { padding: 1.5rem; } }
-    @media (min-width: 768px) { .responsive-container { padding: 2rem; } }
-    @media (min-width: 1024px) { .responsive-container { padding: 2.5rem; } }
+    /* Container spacing optimization - Compact */
+    .responsive-container { padding: 0.75rem; }
+    @media (min-width: 576px) { .responsive-container { padding: 1rem; } }
+    @media (min-width: 768px) { .responsive-container { padding: 1.25rem; } }
+    @media (min-width: 1024px) { .responsive-container { padding: 1.5rem; } }
 
     /* Touch target improvements for mobile devices */
     @media (hover: none) and (pointer: coarse) {
@@ -251,21 +325,21 @@
   </header>
 
   <main>
-    <section class="max-w-7xl mx-auto px-4 py-10 md:py-16">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
+    <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
         <div>
           <h1 class="responsive-text-4xl md:responsive-text-5xl font-black leading-tight">Become an IUFP Student</h1>
-          <p class="mt-4 responsive-text-lg opacity-95">
+          <p class="mt-3 responsive-text-lg opacity-95">
             A one-year, intensive foundation programme that equips you for direct entry to first-year degree study—without a two-year A‑Levels route.
           </p>
-          <div class="mt-6">
-            <a href="/students/apply" class="crystal cta cta--apply rounded-2xl px-8 py-4 responsive-text-xl block w-fit">APPLY NOW</a>
+          <div class="mt-4">
+            <a href="/students/apply" class="crystal cta cta--apply rounded-2xl block w-fit">APPLY NOW</a>
           </div>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="universities.html" class="crystal bouncy-btn rounded-2xl px-6 py-4 responsive-text-lg shadow-lg">See Universities</a>
-            <a href="admissions.html" class="crystal bouncy-btn rounded-2xl px-6 py-4 responsive-text-lg shadow-lg">Admissions by Country</a>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <a href="universities.html" class="crystal bouncy-btn rounded-2xl shadow-lg">See Universities</a>
+            <a href="admissions.html" class="crystal bouncy-btn rounded-2xl shadow-lg">Admissions by Country</a>
           </div>
-          <div class="mt-6 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit">
+          <div class="mt-4 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit">
             <img src="athe-logo.png" class="h-9 w-auto" alt="ATHE Endorsed Programme" />
             <p class="text-sm leading-snug">
               <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by Ofqual (UK). Certificates of Completion are issued to successful IUFP students.
@@ -282,25 +356,25 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-6">
+    <section class="max-w-7xl mx-auto px-4 pb-4">
       <div class="responsive-grid md:grid-cols-3">
-        <div class="crystal p-5 rounded-xl" style="background:var(--tint-a)">
-          <h3 class="font-extrabold text-xl">Fast-Track</h3>
-          <p class="text-sm mt-1 opacity-80">6–12 months to prepare for first-year degree entry.</p>
+        <div class="crystal p-4 rounded-xl" style="background:var(--tint-a)">
+          <h3 class="font-extrabold text-lg">Fast-Track</h3>
+          <p class="text-xs mt-1 opacity-80">6–12 months to prepare for first-year degree entry.</p>
         </div>
-        <div class="crystal p-5 rounded-xl" style="background:var(--tint-b)">
-          <h3 class="font-extrabold text-xl">Focused</h3>
-          <p class="text-sm mt-1 opacity-80">3 Core + 3 Electives mapped to your chosen degree.</p>
+        <div class="crystal p-4 rounded-xl" style="background:var(--tint-b)">
+          <h3 class="font-extrabold text-lg">Focused</h3>
+          <p class="text-xs mt-1 opacity-80">3 Core + 3 Electives mapped to your chosen degree.</p>
         </div>
-        <div class="crystal p-5 rounded-xl" style="background:var(--tint-c)">
-          <h3 class="font-extrabold text-xl">Supported</h3>
-          <p class="text-sm mt-1 opacity-80">Placement guidance and progress tracking every term.</p>
+        <div class="crystal p-4 rounded-xl" style="background:var(--tint-c)">
+          <h3 class="font-extrabold text-lg">Supported</h3>
+          <p class="text-xs mt-1 opacity-80">Placement guidance and progress tracking every term.</p>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-10">
-      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-3">Course Structure</h2>
+    <section class="max-w-7xl mx-auto px-4 pb-6">
+      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-2">Course Structure</h2>
       <div class="table-wrap crystal rounded-2xl p-2" style="background:var(--tint-d)">
         <table class="fancy">
           <thead><tr><th>Component</th><th>Detail</th></tr></thead>
@@ -315,18 +389,18 @@
       <p class="text-xs text-slate-500 mt-2">Source: IUFP Students page — structure, assessments, methods.</p>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-10">
-      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-3">Subjects</h2>
+    <section class="max-w-7xl mx-auto px-4 pb-6">
+      <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-2">Subjects</h2>
       <div class="responsive-grid md:grid-cols-2">
-        <div class="crystal rounded-2xl p-6" style="background:var(--tint-a)">
-          <h3 class="font-bold text-lg mb-2">Core</h3>
-          <ul class="list-disc list-inside space-y-1 font-semibold text-sm">
+        <div class="crystal rounded-2xl p-4" style="background:var(--tint-a)">
+          <h3 class="font-bold text-base mb-2">Core</h3>
+          <ul class="list-disc list-inside space-y-1 font-semibold text-xs">
             <li>Academic English</li><li>Study Skills</li><li>IT Applications</li>
           </ul>
         </div>
-        <div class="crystal rounded-2xl p-6" style="background:var(--tint-b)">
-          <h3 class="font-bold text-lg mb-2">Electives (choose 3)</h3>
-          <ul class="grid grid-cols-2 gap-x-6 gap-y-1 font-semibold text-sm">
+        <div class="crystal rounded-2xl p-4" style="background:var(--tint-b)">
+          <h3 class="font-bold text-base mb-2">Electives (choose 3)</h3>
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-1 font-semibold text-xs">
             <li>Accounting</li><li>Biology</li><li>Business Studies</li><li>Chemistry</li>
             <li>Computing</li><li>Economics</li><li>Government & Politics</li><li>Law</li>
             <li>Mathematics</li><li>Physics</li><li>Psychology</li><li>Sociology</li>
@@ -336,10 +410,10 @@
       <p class="text-xs text-slate-500 mt-2">Source: IUFP Students page — subjects list.</p>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-10">
+    <section class="max-w-7xl mx-auto px-4 pb-6">
       <div class="responsive-grid md:grid-cols-2">
         <div>
-          <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-3">Admissions Criteria</h2>
+          <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-2">Admissions Criteria</h2>
           <div class="table-wrap crystal rounded-2xl p-2" style="background:var(--tint-d)">
             <table class="fancy">
               <thead><tr><th>Requirement</th><th>Details</th></tr></thead>
@@ -352,7 +426,7 @@
           </div>
         </div>
         <div>
-          <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-3">Start Dates & Exams</h2>
+          <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-2">Start Dates & Exams</h2>
           <div class="table-wrap crystal rounded-2xl p-2" style="background:var(--tint-d)">
             <table class="fancy">
               <thead><tr><th>Item</th><th>When</th></tr></thead>
@@ -368,32 +442,32 @@
       <p class="text-xs text-slate-500 mt-2">Source: IUFP Students page — admissions, intakes & examinations.</p>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-10">
+    <section class="max-w-7xl mx-auto px-4 pb-6">
       <div class="responsive-grid md:grid-cols-2">
-        <div class="crystal rounded-2xl p-6" style="background:var(--tint-c)">
-          <h3 class="font-bold text-xl mb-2">Student Support</h3>
-          <p class="text-sm opacity-90">Programme Directors supervise academic progress and advise on university applications. Tutors provide ongoing feedback; progress charts are issued each term.</p>
+        <div class="crystal rounded-2xl p-4" style="background:var(--tint-c)">
+          <h3 class="font-bold text-lg mb-2">Student Support</h3>
+          <p class="text-xs opacity-90">Programme Directors supervise academic progress and advise on university applications. Tutors provide ongoing feedback; progress charts are issued each term.</p>
         </div>
-        <div class="crystal rounded-2xl p-6" style="background:var(--tint-a)">
-          <h3 class="font-bold text-xl mb-2">Award & Benchmark</h3>
-          <p class="text-sm opacity-90">On completion, students receive an IUFP Completion Certificate. Elective subjects are benchmarked on OCR specifications and aligned with UK A‑Level standards.</p>
+        <div class="crystal rounded-2xl p-4" style="background:var(--tint-a)">
+          <h3 class="font-bold text-lg mb-2">Award & Benchmark</h3>
+          <p class="text-xs opacity-90">On completion, students receive an IUFP Completion Certificate. Elective subjects are benchmarked on OCR specifications and aligned with UK A‑Level standards.</p>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="crystal rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4" style="background:linear-gradient(180deg, rgba(255,196,0,.2), rgba(255,138,0,.15))">
+    <section class="max-w-7xl mx-auto px-4 pb-8">
+      <div class="crystal rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3" style="background:linear-gradient(180deg, rgba(255,196,0,.2), rgba(255,138,0,.15))">
         <div>
-          <h3 class="text-2xl font-extrabold">Ready to apply?</h3>
-          <p class="text-sm opacity-80">Choose your electives and intake season; complete the online application.</p>
+          <h3 class="text-xl font-extrabold">Ready to apply?</h3>
+          <p class="text-xs opacity-80">Choose your electives and intake season; complete the online application.</p>
         </div>
-        <a href="/students/apply" class="crystal cta cta--apply rounded-xl px-6 py-3 text-lg">APPLY NOW</a>
+        <a href="/students/apply" class="crystal cta cta--apply rounded-xl">APPLY NOW</a>
       </div>
     </section>
   </main>
 
   <footer class="brand-footer">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <div class="max-w-7xl mx-auto px-4 py-6 grid md:grid-cols-3 gap-6">
       <div>
         <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
         <p class="opacity-95 text-sm">
@@ -412,9 +486,9 @@
       </div>
       <div>
         <h4 class="font-semibold mb-2">Start Your Application</h4>
-        <div class="flex gap-3">
-          <a href="/students/apply" class="crystal cta cta--apply rounded-xl px-5 py-3">APPLY NOW</a>
-          <a href="partner-schools.html" class="crystal rounded-xl px-5 py-3">Partner School</a>
+        <div class="flex gap-2">
+          <a href="/students/apply" class="crystal cta cta--apply rounded-xl">APPLY NOW</a>
+          <a href="partner-schools.html" class="crystal btn-secondary rounded-xl">Partner School</a>
         </div>
       </div>
     </div>

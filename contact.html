@@ -30,16 +30,88 @@
     .cta{font-weight:900;border:1px solid rgba(255,255,255,.25)}
     .cta--apply{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
     .cta--apply:hover{filter:saturate(115%); box-shadow:0 14px 30px rgba(0,0,0,.22); transform:translateY(-3px) scale(1.02)}
-    .field{display:flex;flex-direction:column;gap:.375rem}
+    .field{display:flex;flex-direction:column;gap:.25rem}
     .label{font-weight:700}
     input[type=text],input[type=email],input[type=tel],select,textarea{
-      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;outline:none;min-height:44px;font-size:16px
+      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.7rem .85rem;outline:none;min-height:40px;font-size:15px
     }
     input:focus,select:focus,textarea:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
-    button,a.cta{min-height:44px;min-width:44px}
+    button,a.cta{min-height:40px;min-width:40px}
+    
+    /* Responsive Font System */
+    .responsive-text-5xl { font-size: 2.5rem; line-height: 1.1; }
+    .responsive-text-4xl { font-size: 1.875rem; line-height: 1.15; }
+    .responsive-text-3xl { font-size: 1.5rem; line-height: 1.2; }
+    .responsive-text-2xl { font-size: 1.25rem; line-height: 1.25; }
+    .responsive-text-xl { font-size: 1rem; line-height: 1.3; }
+    .responsive-text-lg { font-size: 0.9375rem; line-height: 1.4; }
+    
+    /* Button System */
+    .btn-primary {
+      background-color: var(--brand-primary);
+      color: var(--brand-on-primary);
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      min-height: 40px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: var(--brand-nav-text);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      backdrop-filter: blur(8px);
+      min-height: 40px;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+    .btn-cta {
+      background: linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95));
+      color: #0b2447;
+      font-size: 1rem;
+      font-weight: 900;
+      padding: 0.7rem 1.4rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-height: 44px;
+    }
+    .btn-cta:hover {
+      filter: saturate(115%);
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+      transform: translateY(-2px) scale(1.01);
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-text-5xl { font-size: 3.5rem; }
+      .responsive-text-4xl { font-size: 3rem; }
+      .responsive-text-3xl { font-size: 2.25rem; }
+      .responsive-text-2xl { font-size: 1.75rem; }
+      .responsive-text-xl { font-size: 1.5rem; }
+      .responsive-text-lg { font-size: 1.375rem; }
+    }
+    
     @media (max-width: 768px) {
-      input[type=text],input[type=email],input[type=tel],select,textarea{font-size:16px;padding:1rem}
-      button,a.cta{padding:1rem 1.5rem}
+      input[type=text],input[type=email],input[type=tel],select,textarea{font-size:16px;padding:0.8rem 0.9rem}
+      .btn-primary { font-size: 0.8rem; padding: 0.55rem 1rem; }
+      .btn-secondary { font-size: 0.8rem; padding: 0.55rem 1rem; }
+      .btn-cta { font-size: 0.9rem; padding: 0.65rem 1.2rem; }
     }
   </style>
 </head>
@@ -50,7 +122,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
       </a>
-      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+      <nav class="hidden md:flex gap-5 text-base md:responsive-text-lg font-semibold">
         <a class="brand-link hover:opacity-90" href="index.html">Home</a>
         <a class="brand-link hover:opacity-90" href="students.html">Students</a>
         <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
@@ -62,7 +134,7 @@
               onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
     </div>
     <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
-      <div class="crystal rounded-xl p-3 flex flex-col gap-2">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
         <a class="brand-link" href="index.html">Home</a>
         <a class="brand-link" href="students.html">Students</a>
         <a class="brand-link" href="universities.html">Universities</a>
@@ -75,32 +147,32 @@
 
   <main>
     <!-- Hero -->
-    <section class="max-w-7xl mx-auto px-4 py-10 md:py-16">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
+    <section class="max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
         <div>
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">Contact IUFP</h1>
-          <p class="mt-4 text-lg opacity-95">
+          <h1 class="responsive-text-4xl md:responsive-text-5xl font-black leading-tight">Contact IUFP</h1>
+          <p class="mt-3 responsive-text-lg opacity-95">
             We’re here to help with admissions, partner schools, and general enquiries. Reach us directly or use the form and we’ll get back to you.
           </p>
-          <div class="mt-6 grid sm:grid-cols-2 gap-4">
-            <div class="crystal p-4 rounded-xl" style="background:var(--tint-a)">
-              <div class="text-2xl mb-2">📞</div>
-              <div class="text-sm uppercase tracking-wide opacity-70">Call Us</div>
-              <div class="font-extrabold text-lg mt-1">+44 020 8133 6420</div>
+          <div class="mt-4 grid sm:grid-cols-2 gap-3">
+            <div class="crystal p-3 rounded-xl" style="background:var(--tint-a)">
+              <div class="text-xl mb-1.5">📞</div>
+              <div class="text-xs uppercase tracking-wide opacity-70">Call Us</div>
+              <div class="font-extrabold responsive-text-lg mt-0.5">+44 020 8133 6420</div>
             </div>
-            <div class="crystal p-4 rounded-xl" style="background:var(--tint-b)">
-              <div class="text-2xl mb-2">📧</div>
-              <div class="text-sm uppercase tracking-wide opacity-70">Email</div>
-              <div class="font-extrabold text-lg mt-1">info@iufp.co.uk</div>
+            <div class="crystal p-3 rounded-xl" style="background:var(--tint-b)">
+              <div class="text-xl mb-1.5">📧</div>
+              <div class="text-xs uppercase tracking-wide opacity-70">Email</div>
+              <div class="font-extrabold responsive-text-lg mt-0.5">info@iufp.co.uk</div>
             </div>
-            <div class="crystal p-4 rounded-xl md:col-span-2" style="background:var(--tint-c)">
-              <div class="text-2xl mb-2">📍</div>
-              <div class="text-sm uppercase tracking-wide opacity-70">Address</div>
-              <div class="font-semibold mt-1">Beaufort House Rm 1134,<br>15 St. Botolph Street, Aldgate, London EC3A 7BB</div>
+            <div class="crystal p-3 rounded-xl md:col-span-2" style="background:var(--tint-c)">
+              <div class="text-xl mb-1.5">📍</div>
+              <div class="text-xs uppercase tracking-wide opacity-70">Address</div>
+              <div class="font-semibold mt-0.5 text-sm">Beaufort House Rm 1134,<br>15 St. Botolph Street, Aldgate, London EC3A 7BB</div>
             </div>
           </div>
-          <div class="mt-6">
-            <a href="students.html" class="crystal cta cta--apply rounded-2xl px-6 py-3 text-lg">APPLY NOW</a>
+          <div class="mt-4">
+            <a href="students.html" class="btn-cta inline-block">APPLY NOW</a>
           </div>
         </div>
         <!-- Framed photo -->
@@ -115,13 +187,13 @@
     </section>
 
     <!-- Fancy Contact Form -->
-    <section class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2 crystal rounded-2xl p-6">
-          <h2 class="text-2xl md:text-3xl font-extrabold mb-1">Send us a message</h2>
-          <p class="text-sm opacity-80 mb-4">Complete the form and we’ll reply within 2–3 working days.</p>
+    <section class="max-w-7xl mx-auto px-4 pb-8">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 crystal rounded-2xl p-4">
+          <h2 class="responsive-text-2xl md:responsive-text-3xl font-extrabold mb-1">Send us a message</h2>
+          <p class="text-sm opacity-80 mb-3">Complete the form and we'll reply within 2–3 working days.</p>
           <form action="mailto:info@iufp.co.uk" method="post" enctype="text/plain" onsubmit="return validateForm()" id="contactForm">
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid md:grid-cols-2 gap-3">
               <div class="field">
                 <label class="label" for="first">First name *</label>
                 <input type="text" id="first" name="First name" required>
@@ -165,21 +237,21 @@
                 <label for="consent" class="text-sm">I consent to IUFP storing my details for the purpose of responding to this enquiry.</label>
               </div>
               <div class="md:col-span-2">
-                <button class="brand-primary rounded-xl px-6 py-3 font-bold">Send Message</button>
+                <button class="btn-primary">Send Message</button>
                 <p class="text-xs opacity-70 mt-2">By submitting this form, you agree to our <a class="underline" href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
               </div>
             </div>
           </form>
         </div>
         <!-- Sidebar: quick info & map -->
-        <aside class="space-y-4">
-          <div class="crystal rounded-2xl p-5" style="background:var(--tint-a)">
-            <h3 class="font-bold text-lg mb-2">Office Hours</h3>
+        <aside class="space-y-3">
+          <div class="crystal rounded-2xl p-4" style="background:var(--tint-a)">
+            <h3 class="font-bold responsive-text-lg mb-1.5">Office Hours</h3>
             <p class="text-sm opacity-90">Mon–Fri: 9:00 – 18:00 (UK time)<br>Sat–Sun: Closed</p>
           </div>
-          <div class="crystal rounded-2xl p-5" style="background:var(--tint-b)">
-            <h3 class="font-bold text-lg mb-2">Need to apply?</h3>
-            <a href="students.html" class="crystal cta cta--apply rounded-xl px-5 py-3 inline-block">APPLY NOW</a>
+          <div class="crystal rounded-2xl p-4" style="background:var(--tint-b)">
+            <h3 class="font-bold responsive-text-lg mb-1.5">Need to apply?</h3>
+            <a href="students.html" class="btn-cta inline-block">APPLY NOW</a>
           </div>
           <div class="crystal rounded-2xl p-2 overflow-hidden" style="background:var(--tint-c)">
             <iframe title="Map" width="100%" height="220" style="border:0;border-radius:14px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
@@ -192,7 +264,7 @@
 
   <!-- Footer -->
   <footer class="brand-footer">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <div class="max-w-7xl mx-auto px-4 py-6 grid md:grid-cols-3 gap-6">
       <div>
         <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
         <p class="opacity-95 text-sm">
@@ -203,7 +275,7 @@
       </div>
       <div>
         <h4 class="font-semibold mb-2">Quick Links</h4>
-        <ul class="space-y-2 text-sm">
+        <ul class="space-y-1.5 text-sm">
           <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
           <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
           <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
@@ -212,16 +284,16 @@
       </div>
       <div>
         <h4 class="font-semibold mb-2">Start Your Application</h4>
-        <div class="flex gap-3">
-          <a href="students.html" class="crystal cta cta--apply rounded-xl px-5 py-3">APPLY NOW</a>
-          <a href="partner-schools.html" class="crystal rounded-xl px-5 py-3">Partner School</a>
+        <div class="flex gap-2">
+          <a href="students.html" class="btn-cta">APPLY NOW</a>
+          <a href="partner-schools.html" class="btn-secondary">Partner School</a>
         </div>
       </div>
     </div>
     <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="max-w-7xl mx-auto px-4 py-3 text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
         <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4">
+        <div class="space-x-3">
           <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
           <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
           <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
