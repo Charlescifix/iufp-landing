@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Student Application (Modern UX)</title>
+  <meta name="description" content="A modern, single-page, multi-step IUFP application with segmented answer tabs, floating labels, autosave, and clear validation." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+      --ok:#16a34a; --warn:#b45309; --err:#dc2626;
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-1px) scale(1.005)}
+    /* Floating label inputs */
+    .fl{position:relative}
+    .fl input,.fl select,.fl textarea{width:100%;background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:1.15rem 1rem .85rem;outline:none}
+    .fl input:focus,.fl select:focus,.fl textarea:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+    .fl label{position:absolute;left:12px;top:.95rem;padding:0 .35rem;background:#fff;border-radius:6px;color:#475569;
+      font-weight:700;pointer-events:none;transition:all .12s ease}
+    .fl input::placeholder{opacity:0} .fl textarea::placeholder{opacity:0}
+    .fl input:focus+label,.fl input:not(:placeholder-shown)+label,
+    .fl select:focus+label,.fl select:not([value=""])+label,
+    .fl textarea:focus+label,.fl textarea:not(:placeholder-shown)+label{
+      top:-.6rem; font-size:.72rem; color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.08)
+    }
+    /* Segmented answer tabs */
+    .seg{display:flex;flex-wrap:wrap;gap:.4rem}
+    .seg input{display:none}
+    .seg label{cursor:pointer;border:1px solid rgba(0,0,0,.12);border-radius:9999px;padding:.55rem .9rem;font-weight:800;background:#fff}
+    .seg input:checked+label{background:#19376d;color:#fff;border-color:transparent}
+    /* Elective cards */
+    .choice{border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:.8rem 1rem;background:#fff;display:flex;gap:.6rem;align-items:center}
+    .choice input{width:1.1rem;height:1.1rem}
+    .choice:hover{box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    .step{display:none}
+    .step.active{display:block}
+    .btn{border-radius:12px;padding:.9rem 1.15rem;font-weight:900}
+    .btn-next{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-prev{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    .pill{border:1px solid rgba(0,0,0,.08); border-radius:9999px; padding:.25rem .6rem; font-weight:700; background:#fff}
+    /* Sticky progress bar */
+    .stickybar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,.92));backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .progress{height:6px;background:#e5e7eb;border-radius:9999px;overflow:hidden}
+    .progress>span{display:block;height:100%;background:linear-gradient(90deg,#19376d,#6477c4)}
+    /* Inline hints & errors */
+    .hint{font-size:.8rem;color:#475569}
+    .err{font-size:.8rem;color:var(--err);display:none}
+    .invalid{border-color:var(--err)!important; box-shadow:0 0 0 3px rgba(220,38,38,.12)!important}
+    /* Table */
+    .table-wrap{overflow-x:auto}
+    table.fancy{width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    table.fancy thead th{text-align:left; font-weight:800; background:var(--brand-nav-bg); color:#fff; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.1)}
+    table.fancy tbody td{padding:12px 14px; border-bottom:1px solid rgba(0,0,0,.06)}
+    table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
+    /* Sticky footer actions */
+    .sticky-actions{position:sticky;bottom:0;z-index:40;background:linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,.9));backdrop-filter:blur(6px);border-top:1px solid rgba(0,0,0,.06)}
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- HEADER -->
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="/" class="flex items-center gap-3">
+        <img src="image001.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="/">Home</a>
+        <a class="brand-link hover:opacity-90" href="/students/">Students</a>
+        <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
+        <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
+        <a class="brand-link hover:opacity-90" href="/contact-us/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- STICKY PROGRESS -->
+  <div class="stickybar">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
+      <div class="flex items-center gap-2 text-sm font-bold">
+        <span id="stepLabel">Step 1 of 7</span>
+        <span class="text-slate-500" id="autosave">(saved)</span>
+      </div>
+      <div class="flex-1">
+        <div class="progress rounded-full"><span id="prog" style="width:14%"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-4 pt-8 pb-6">
+      <div class="flex items-center justify-between gap-6 flex-wrap">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">IUFP Application</h1>
+          <p class="mt-3 text-lg opacity-95">A guided, step-by-step form with smart suggestions, autosave, and a clear review before submission.</p>
+          <div class="mt-3 flex gap-2 flex-wrap">
+            <span class="pill">ATHE-endorsed</span><span class="pill">Direct & IY1 pathways</span><span class="pill">Global partner network</span>
+          </div>
+        </div>
+        <div class="crystal rounded-2xl p-3 flex items-center gap-4 w-fit">
+          <img src="image001.jpg" alt="IUFP logo" class="h-14 w-auto">
+          <img src="image003.png" alt="ATHE logo" class="h-12 w-auto">
+        </div>
+      </div>
+    </section>
+
+    <form id="appForm" class="max-w-7xl mx-auto px-4 pb-24">
+      <!-- STEP 1: PERSONAL -->
+      <section class="step active" data-step="1">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="fl">
+            <div class="seg" role="radiogroup" aria-label="Title">
+              <input type="radio" name="title" id="t-mr" value="Mr" checked><label for="t-mr">Mr</label>
+              <input type="radio" name="title" id="t-mrs" value="Mrs"><label for="t-mrs">Mrs</label>
+              <input type="radio" name="title" id="t-miss" value="Miss"><label for="t-miss">Miss</label>
+              <input type="radio" name="title" id="t-ms" value="Ms"><label for="t-ms">Ms</label>
+              <input type="radio" name="title" id="t-oth" value="Other"><label for="t-oth">Other</label>
+            </div>
+            <div class="hint mt-1">Tap a tab to select.</div>
+          </div>
+
+          <div class="fl">
+            <div class="seg" role="radiogroup" aria-label="Commencement Intake">
+              <input type="radio" name="intake" id="i-jan" value="January / February" checked><label for="i-jan">Jan/Feb</label>
+              <input type="radio" name="intake" id="i-apr" value="April / May"><label for="i-apr">Apr/May</label>
+              <input type="radio" name="intake" id="i-sep" value="September / October"><label for="i-sep">Sep/Oct</label>
+            </div>
+          </div>
+
+          <div class="fl"><input placeholder=" " name="first" required><label>First Name *</label><div class="err">First name is required</div></div>
+          <div class="fl"><input placeholder=" " name="last" required><label>Surname *</label><div class="err">Surname is required</div></div>
+          <div class="fl"><input placeholder=" " name="middle"><label>Middle Name</label></div>
+          <div class="fl"><input placeholder=" " type="date" name="dob" required><label>Date of Birth *</label><div class="err">Date of birth is required</div></div>
+          <div class="fl md:col-span-2"><input placeholder=" " name="address" required><label>Address *</label><div class="err">Address is required</div></div>
+          <div class="fl"><input placeholder=" " name="city" required><label>City *</label><div class="err">City is required</div></div>
+          <div class="fl"><input placeholder=" " name="country" required><label>Country *</label><div class="err">Country is required</div></div>
+          <div class="fl"><input placeholder=" " name="nationality" required><label>Nationality *</label><div class="err">Nationality is required</div></div>
+          <div class="fl"><input placeholder=" " type="tel" name="phone" required><label>Telephone *</label><div class="err">Phone is required</div></div>
+          <div class="fl"><input placeholder=" " type="email" name="email" required><label>Email *</label><div class="err">Valid email is required</div></div>
+          <div class="fl md:col-span-2"><input placeholder=" " type="file" name="photo" accept="image/*"><label>Passport Photo</label></div>
+        </div>
+      </section>
+
+      <!-- STEP 2: SUBJECTS -->
+      <section class="step" data-step="2">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="crystal rounded-xl p-4" style="background:var(--tint-a)">
+            <h3 class="font-extrabold">Core Subjects</h3>
+            <ul class="list-disc list-inside text-sm mt-2">
+              <li>Academic English</li><li>Study Skills</li><li>IT Applications</li>
+            </ul>
+            <p class="text-xs mt-2 opacity-70">Fixed for all students.</p>
+          </div>
+          <div class="md:col-span-2 crystal rounded-xl p-4" style="background:var(--tint-b)">
+            <h3 class="font-extrabold">Electives — choose <span id="selCount">0</span> / 3</h3>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+              <!-- Elective choices as modern cards -->
+              <label class="choice"><input type="checkbox" name="electives" value="Accounting" onchange="updateElectives()"> Accounting</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Biology" onchange="updateElectives()"> Biology</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Business Studies" onchange="updateElectives()"> Business Studies</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Chemistry" onchange="updateElectives()"> Chemistry</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Computing" onchange="updateElectives()"> Computing</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Economics" onchange="updateElectives()"> Economics</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Government & Politics" onchange="updateElectives()"> Government & Politics</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Law" onchange="updateElectives()"> Law</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Mathematics" onchange="updateElectives()"> Mathematics</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Physics" onchange="updateElectives()"> Physics</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Psychology" onchange="updateElectives()"> Psychology</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Sociology" onchange="updateElectives()"> Sociology</label>
+              <label class="choice"><input type="checkbox" name="electives" value="Fine Art" onchange="updateElectives()"> Fine Art</label>
+            </div>
+            <p class="hint mt-2">Tip: choose three that align with your intended degree.</p>
+            <div id="electiveError" class="err mt-1">Please select exactly 3 electives.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: DEGREE -->
+      <section class="step" data-step="3">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="crystal rounded-xl p-4" style="background:var(--tint-c)">
+            <h3 class="font-extrabold">Suggested Pathways</h3>
+            <div id="suggestions" class="mt-2 text-sm opacity-90">Choose electives first to see suggestions.</div>
+          </div>
+          <div class="crystal rounded-xl p-4" style="background:var(--tint-d)">
+            <h3 class="font-extrabold">Your Degree Preference</h3>
+            <div class="fl mt-2"><input placeholder=" " name="degree_intent"><label>Intended Degree (e.g., Computer Science)</label></div>
+            <div class="fl mt-2"><input placeholder=" " name="uni_prefs"><label>University Preferences (max 3; comma‑separated)</label></div>
+            <div class="fl mt-2">
+              <input placeholder=" " list="schools" name="partner_school"><label>Partner School (if via a centre)</label>
+              <datalist id="schools">
+                <option value="Concord Business College (Ghana)"><option value="St. Elizabeth Academy - Karen (Kenya)"><option value="High End Study Centre (Kenya)">
+                <option value="Atlantic Hall School (Nigeria)"><option value="D-Ivy Sixth Form College (Nigeria)"><option value="Olumawu School (Nigeria)">
+                <option value="Topfaith University (Nigeria)"><option value="Redemption Gate Secondary School (Nigeria)"><option value="Noble Guide Academy (Nigeria)">
+                <option value="Starfield College (Nigeria)"><option value="Prince Charles International Schools (Nigeria)"><option value="Distinct Star International College (Nigeria)">
+                <option value="Taidob College (Nigeria)"><option value="Cambridgeshire Career Academy (India)"><option value="Innova Training Institute (UAE)">
+                <option value="Study Connect International (Zambia)">
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: QUALIFICATIONS -->
+      <section class="step" data-step="4">
+        <div class="crystal rounded-xl p-4" style="background:var(--tint-a)">
+          <h3 class="font-extrabold">Educational Qualifications</h3>
+          <div class="table-wrap mt-3">
+            <table class="fancy" id="quals">
+              <thead><tr><th>Year</th><th>Exam Body</th><th>Subjects</th><th>Level</th><th>Grades</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-3 items-center">
+            <button type="button" class="btn btn-prev" onclick="addRow()">+ Add Row</button>
+            <div class="fl min-w-[260px]"><input placeholder=" " type="file" name="uploads" multiple><label>Upload certificates/results</label></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5: SPECIAL -->
+      <section class="step" data-step="5">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="crystal rounded-xl p-4" style="background:var(--tint-b)">
+            <h3 class="font-extrabold">Special Information</h3>
+            <div class="seg mt-2" role="radiogroup" aria-label="Disability">
+              <input type="radio" name="disability" id="d-no" value="No" checked><label for="d-no">No</label>
+              <input type="radio" name="disability" id="d-yes" value="Yes"><label for="d-yes">Yes</label>
+            </div>
+            <div class="fl mt-3" id="disDetails" style="display:none"><textarea placeholder=" " rows="4" name="disability_details"></textarea><label>Provide details (if Yes)</label></div>
+          </div>
+          <div class="crystal rounded-xl p-4" style="background:var(--tint-c)">
+            <h3 class="font-extrabold">English & Referral</h3>
+            <div class="seg mt-2" role="radiogroup" aria-label="IELTS taken?">
+              <input type="radio" name="ielts_taken" id="ielts-no" value="No" checked><label for="ielts-no">IELTS not taken</label>
+              <input type="radio" name="ielts_taken" id="ielts-yes" value="Yes"><label for="ielts-yes">IELTS taken</label>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 mt-3" id="ieltsFields" style="display:none">
+              <div class="fl"><input placeholder=" " name="ielts_overall"><label>IELTS Overall</label></div>
+              <div class="fl"><input placeholder=" " name="ielts_bands"><label>IELTS Each Band</label></div>
+            </div>
+            <div class="seg mt-3" role="radiogroup" aria-label="How did you hear about IUFP?">
+              <input type="radio" name="hear" id="h-ps" value="Partner School" checked><label for="h-ps">Partner School</label>
+              <input type="radio" name="hear" id="h-f" value="Friend/Family"><label for="h-f">Friend/Family</label>
+              <input type="radio" name="hear" id="h-web" value="Web Search"><label for="h-web">Web Search</label>
+              <input type="radio" name="hear" id="h-bc" value="British Council"><label for="h-bc">British Council</label>
+              <input type="radio" name="hear" id="h-ad" value="Advertisement"><label for="h-ad">Advertisement</label>
+              <input type="radio" name="hear" id="h-oth" value="Other"><label for="h-oth">Other</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 6: TERMS -->
+      <section class="step" data-step="6">
+        <div class="crystal rounded-xl p-4" style="background:var(--tint-d)">
+          <h3 class="text-2xl font-extrabold">Terms & Conditions</h3>
+          <p class="hint">Scroll through and read. Acceptance is required to continue.</p>
+          <div class="mt-3 p-4 bg-white/80 border border-black/10 rounded-xl max-h-72 overflow-auto text-sm leading-relaxed">
+            <em>(Insert official IUFP Terms &amp; Conditions here.)</em><br><br>
+            Acceptance fees, refunds, attendance rules, IELTS minimums, behaviour policy, data protection, and all other conditions apply.
+          </div>
+          <div class="mt-4 flex items-start gap-2">
+            <input id="accept" type="checkbox" required>
+            <label for="accept" class="text-sm">I have read and accept the Terms & Conditions.</label>
+          </div>
+          <div class="mt-4">
+            <label class="font-bold">Signature (draw)</label>
+            <canvas id="sig" width="600" height="170" class="border border-black/10 rounded-xl bg-white"></canvas>
+            <div class="mt-2 flex gap-2">
+              <button type="button" class="btn btn-prev" onclick="clearSig()">Clear</button>
+              <button type="button" class="btn btn-prev" onclick="saveSig()">Save Signature</button>
+              <input type="hidden" name="signatureData" id="signatureData">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 7: REVIEW -->
+      <section class="step" data-step="7">
+        <div class="crystal rounded-xl p-4" style="background:var(--tint-a)">
+          <h3 class="text-2xl font-extrabold">Review your application</h3>
+          <p class="hint">Edit any step before submission. A confirmation copy will be generated.</p>
+          <pre id="review" class="mt-3 p-3 bg-white/90 border border-black/10 rounded-xl text-xs overflow-auto"></pre>
+        </div>
+      </section>
+
+      <!-- STICKY ACTIONS -->
+      <div class="sticky-actions mt-8">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+          <button type="button" class="btn btn-prev" onclick="prevStep()">Back</button>
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-slate-600" id="saveMsg" aria-live="polite">All changes saved</span>
+            <button type="button" class="btn btn-next" onclick="nextStep()" id="nextBtn">Continue</button>
+            <button type="button" class="btn brand-primary" style="display:none" id="submitBtn" onclick="submitApp()">Submit Application</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="image001.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
+        <p class="opacity-95 text-sm">IUFP Global Education UK<br>Aldgate Beaufort House Rm 1134,<br>15 St. Botolph Street, London EC3A 7BB</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Need help?</h4>
+        <div class="flex gap-3">
+          <a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold">Contact Admissions</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Wizard state
+    let step = 1;
+    const maxStep = 7;
+    const form = document.getElementById('appForm');
+    const stepLabel = document.getElementById('stepLabel');
+    const prog = document.getElementById('prog');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const saveMsg = document.getElementById('saveMsg');
+    const autosave = document.getElementById('autosave');
+
+    function updateProgress(){
+      stepLabel.textContent = `Step ${step} of ${maxStep}`;
+      const pct = Math.round((step-1)/(maxStep-1)*100);
+      prog.style.width = Math.max(14,pct)+'%';
+      nextBtn.style.display = (step<maxStep) ? 'inline-block' : 'none';
+      submitBtn.style.display = (step===maxStep) ? 'inline-block' : 'none';
+      if(step===maxStep) buildReview();
+      window.scrollTo({top:0,behavior:'smooth'});
+      saveDraft();
+    }
+
+    function showStep(n){
+      document.querySelectorAll('.step').forEach(s=> s.classList.remove('active'));
+      document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
+      step = n; updateProgress();
+    }
+    function nextStep(){
+      if(step===2 && document.querySelectorAll('input[name="electives"]:checked').length!==3){
+        document.getElementById('electiveError').style.display = 'block';
+        return;
+      } else { document.getElementById('electiveError').style.display = 'none'; }
+      if(step<maxStep) showStep(step+1);
+    }
+    function prevStep(){ if(step>1) showStep(step-1); }
+
+    // Electives + suggestions
+    const pathways = {
+      "Business & Management": ["Accounting","Business Studies","Economics","Mathematics"],
+      "Computing & IT": ["Computing","Mathematics","Physics"],
+      "Engineering (Mechanical/Civil/Electrical)": ["Mathematics","Physics","Chemistry"],
+      "Law & Politics": ["Law","Government & Politics","Business Studies","Sociology"],
+      "Social Sciences (Psychology/Sociology)": ["Psychology","Sociology","Biology","Mathematics"],
+      "Life Sciences (Biomed/Biology)": ["Biology","Chemistry","Mathematics","Psychology"],
+      "Health & Pharmacy": ["Chemistry","Biology","Mathematics"],
+      "Humanities & Arts": ["Fine Art","Sociology","Law"]
+    };
+    function updateElectives(){
+      const sel = [...document.querySelectorAll('input[name="electives"]:checked')].map(c=>c.value);
+      document.getElementById('selCount').textContent = sel.length;
+      const sug = [];
+      for(const [p, req] of Object.entries(pathways)){
+        const overlap = req.filter(x=> sel.includes(x));
+        if(overlap.length>=2) sug.push(`• ${p} <span class="pill">${overlap.join(', ')}</span>`);
+      }
+      document.getElementById('suggestions').innerHTML = sug.length? sug.map(x=>`<div class="mt-1">${x}</div>`).join('') : 'Choose electives first to see suggestions.';
+      saveDraft();
+    }
+
+    // Qualifications table
+    function addRow(){
+      const tbody = document.querySelector('#quals tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><input class="w-full" name="q_year" placeholder="YYYY"></td>
+        <td><input class="w-full" name="q_body" placeholder="Exam body"></td>
+        <td><input class="w-full" name="q_subjects" placeholder="Subjects"></td>
+        <td><input class="w-full" name="q_level" placeholder="e.g., O/L, A/L, SSC, HSC"></td>
+        <td><input class="w-full" name="q_grades" placeholder="e.g., A1, B2, 75%"></td>
+        <td><button type="button" onclick="this.closest('tr').remove()">Remove</button></td>`;
+      tbody.appendChild(tr);
+      saveDraft();
+    }
+    addRow();
+
+    // Toggleable fields
+    const disRadios = document.querySelectorAll('input[name="disability"]');
+    disRadios.forEach(r=> r.addEventListener('change', ()=>{
+      document.getElementById('disDetails').style.display = (document.getElementById('d-yes').checked?'block':'none');
+    }));
+    const ieltsRadios = document.querySelectorAll('input[name="ielts_taken"]');
+    ieltsRadios.forEach(r=> r.addEventListener('change', ()=>{
+      document.getElementById('ieltsFields').style.display = (document.getElementById('ielts-yes').checked?'grid':'none');
+    }));
+
+    // Signature pad
+    const canvas = document.getElementById('sig');
+    const ctx = canvas.getContext('2d');
+    let drawing=false,lastX=0,lastY=0;
+    function pos(e){ const r=canvas.getBoundingClientRect(); const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left; const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top; return [x,y]; }
+    function start(e){ drawing=true; [lastX,lastY]=pos(e); }
+    function draw(e){ if(!drawing) return; const [x,y]=pos(e); ctx.lineWidth=2; ctx.lineCap='round'; ctx.strokeStyle='#111827'; ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; e.preventDefault(); }
+    function end(){ drawing=false; }
+    canvas.addEventListener('mousedown', start); canvas.addEventListener('mousemove', draw); window.addEventListener('mouseup', end);
+    canvas.addEventListener('touchstart', start, {passive:false}); canvas.addEventListener('touchmove', draw, {passive:false}); canvas.addEventListener('touchend', end);
+    function clearSig(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+    function saveSig(){ document.getElementById('signatureData').value = canvas.toDataURL('image/png'); alert('Signature captured.'); }
+
+    // Review
+    function buildReview(){
+      const data = new FormData(form);
+      data.set('electives', [...document.querySelectorAll('input[name="electives"]:checked')].map(x=>x.value).join(', '));
+      const rows = [...document.querySelectorAll('#quals tbody tr')].map(r=>{
+        const cells = r.querySelectorAll('input');
+        return {year: cells[0].value, body: cells[1].value, subjects: cells[2].value, level: cells[3].value, grades: cells[4].value};
+      });
+      const obj = Object.fromEntries(data.entries());
+      obj['qualifications'] = rows;
+      document.getElementById('review').textContent = JSON.stringify(obj, null, 2);
+    }
+
+    // Autosave (localStorage)
+    let saveTimer;
+    function markSaving(){ autosave.textContent='(saving...)'; saveMsg.textContent='Saving...'; }
+    function markSaved(){ autosave.textContent='(saved)'; saveMsg.textContent='All changes saved'; }
+    function saveDraft(){
+      if(saveTimer) clearTimeout(saveTimer);
+      markSaving();
+      saveTimer = setTimeout(()=>{
+        const data = new FormData(form);
+        const obj = Object.fromEntries(data.entries());
+        obj['electives'] = [...document.querySelectorAll('input[name="electives"]:checked')].map(x=>x.value);
+        obj['qualifications'] = [...document.querySelectorAll('#quals tbody tr')].map(r=>{
+          const cells = r.querySelectorAll('input');
+          return {year: cells[0].value, body: cells[1].value, subjects: cells[2].value, level: cells[3].value, grades: cells[4].value};
+        });
+        localStorage.setItem('iufpAppDraft', JSON.stringify(obj));
+        markSaved();
+      }, 400);
+    }
+    form.addEventListener('input', saveDraft);
+
+    function restoreDraft(){
+      const raw = localStorage.getItem('iufpAppDraft');
+      if(!raw) return;
+      try{
+        const obj = JSON.parse(raw);
+        for(const [k,v] of Object.entries(obj)){
+          if(k==='electives' || k==='qualifications') continue;
+          const el = form.querySelector(`[name="${k}"]`);
+          if(el) el.value = v;
+        }
+        if(obj.electives){ obj.electives.forEach(val=>{ const cb = form.querySelector(`input[name="electives"][value="${val}"]`); if(cb) cb.checked = true; }); }
+        updateElectives();
+        const tbody = document.querySelector('#quals tbody'); tbody.innerHTML='';
+        if(obj.qualifications && obj.qualifications.length){
+          obj.qualifications.forEach(q=>{
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td><input class="w-full" name="q_year" value="${q.year||''}"></td>
+              <td><input class="w-full" name="q_body" value="${q.body||''}"></td>
+              <td><input class="w-full" name="q_subjects" value="${q.subjects||''}"></td>
+              <td><input class="w-full" name="q_level" value="${q.level||''}"></td>
+              <td><input class="w-full" name="q_grades" value="${q.grades||''}"></td>
+              <td><button type="button" onclick="this.closest('tr').remove()">Remove</button></td>`;
+            tbody.appendChild(tr);
+          });
+        } else addRow();
+        // Toggle visibility
+        document.getElementById('disDetails').style.display = (document.getElementById('d-yes').checked?'block':'none');
+        document.getElementById('ieltsFields').style.display = (document.getElementById('ielts-yes').checked?'grid':'none');
+      }catch(e){console.warn(e);}
+    }
+    restoreDraft();
+
+    // Submission (prototype)
+    function submitApp(){
+      if(step!==maxStep) showStep(maxStep);
+      if(!document.getElementById('accept').checked){ alert('Please accept the Terms & Conditions.'); return; }
+      buildReview();
+      const blob = new Blob([document.getElementById('review').textContent], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'iufp-application.json'; a.click();
+      alert('Application captured (prototype). In production, this posts securely to Admissions.');
+    }
+
+    // Init
+    function init(){ showStep(1); document.getElementById('y').textContent = new Date().getFullYear(); }
+    init();
+  </script>
+</body>
+</html>
