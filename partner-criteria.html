@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IUFP — Criteria for Selecting Partner Schools</title>
+  <meta name="description" content="IUFP criteria for selecting Partner Schools and the information required for centre approval, presented in a clear, modern layout." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .badge{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .55rem;font-weight:800;background:#fff}
+    .badge.mand{background:linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.10));}
+    .badge.des{background:linear-gradient(180deg, rgba(234,179,8,.18), rgba(234,179,8,.10));}
+    .dot{width:12px;height:12px;border-radius:9999px;display:inline-block;margin-right:.35rem}
+    .dot.mand{background:#16a34a}.dot.des{background:#d97706}
+    .table-wrap{overflow-x:auto;border-radius:12px;-webkit-overflow-scrolling:touch}
+    table.fancy{width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06);min-width:700px}
+    table.fancy thead th{text-align:left; font-weight:800; background:var(--brand-nav-bg); color:#fff; padding:14px 18px; border-bottom:1px solid rgba(255,255,255,.1)}
+    table.fancy tbody td{padding:14px 18px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align:top; line-height:1.5}
+    table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
+    /* Mobile table improvements */
+    @media (max-width: 768px) {
+      table.fancy{min-width:650px}
+      table.fancy thead th{padding:12px 10px;font-size:14px}
+      table.fancy tbody td{padding:12px 10px;font-size:14px;line-height:1.4}
+    }
+    /* Mobile hamburger menu */
+    .hamburger{display:none;flex-direction:column;cursor:pointer;gap:4px}
+    .hamburger span{width:24px;height:2px;background:var(--brand-nav-text);transition:all 0.3s ease}
+    .mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--brand-nav-bg);z-index:50}
+    .mobile-nav.active{display:block}
+    .mobile-nav a{display:block;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+    @media (max-width: 768px) {
+      .hamburger{display:flex}
+      .desktop-nav{display:none}
+    }
+    /* Enhanced responsive utilities */
+    @media (max-width: 640px) {
+      .crystal{margin:0 -8px;border-radius:12px}
+      .grid.md\:grid-cols-2{grid-template-columns:1fr;gap:16px}
+      .grid.md\:grid-cols-3{grid-template-columns:1fr;gap:16px}
+      .grid.lg\:grid-cols-3{grid-template-columns:1fr;gap:16px}
+      .grid.sm\:grid-cols-2.lg\:grid-cols-4{grid-template-columns:1fr;gap:12px}
+      .text-4xl{font-size:1.875rem}
+      .text-5xl{font-size:2.25rem}
+      .px-4{padding-left:12px;padding-right:12px}
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- Header -->
+  <header class="brand-header">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-3">
+      <a href="/" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold desktop-nav">
+        <a class="brand-link hover:opacity-90" href="/">Home</a>
+        <a class="brand-link hover:opacity-90" href="/students/">Students</a>
+        <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
+        <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="/vle/">VLE</a>
+        <a class="brand-link hover:opacity-90" href="/contact-us/">Contact</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="/">Home</a>
+        <a href="/students/">Students</a>
+        <a href="/universities/">Universities</a>
+        <a href="/partner-schools/">Partner Schools</a>
+        <a href="/vle/">VLE</a>
+        <a href="/contact-us/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-4 py-8 md:py-12">
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">Criteria for Selecting Partner Schools</h1>
+          <p class="mt-4 text-base sm:text-lg opacity-95">
+            IUFP works with high-quality centres capable of delivering outstanding student outcomes.
+            Below are the selection criteria and the information required for centre approval.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Quality Teaching</span>
+            <span class="badge">Secure Exams</span>
+            <span class="badge">Policies & Governance</span>
+            <span class="badge">Marketing Readiness</span>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <div class="crystal rounded-xl p-4 max-w-sm w-full">
+            <div class="flex items-center justify-center gap-4 mb-3">
+              <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 w-auto">
+              <div class="w-px h-10 bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
+              <img src="athe-logo.png" alt="ATHE logo" class="h-10 w-auto">
+            </div>
+            <p class="text-xs text-center opacity-80 leading-relaxed">IUFP is an ATHE Endorsed Programme<br><span class="opacity-60">(Ofqual-regulated awarding organisation)</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Criteria list -->
+    <section class="max-w-5xl mx-auto px-4 pb-8">
+      <div class="crystal rounded-xl p-5 md:p-6" style="background:var(--tint-d)">
+        <div class="flex items-center gap-4 mb-3">
+          <div><span class="dot mand"></span><span class="text-sm font-bold">Mandatory</span></div>
+          <div><span class="dot des"></span><span class="text-sm font-bold">Desirable</span></div>
+        </div>
+        <ol class="space-y-3 list-decimal list-inside text-sm sm:text-[0.98rem] leading-relaxed">
+          <li>
+            Prior experience teaching <strong>GCE A levels</strong> or equivalent Level 3 courses.
+            <span class="badge des ml-2">Desirable</span>
+          </li>
+          <li>
+            <strong>Basic teaching & classroom facilities</strong> in place, suitable for high‑quality delivery of the IUFP course.
+            <span class="badge mand ml-2">Mandatory</span>
+          </li>
+          <li>
+            <strong>Qualified teaching staff</strong> to deliver the IUFP curriculum (first degree in specialist subject).
+            CVs of Teachers will be requested.
+            <span class="badge mand ml-2">Mandatory</span>
+          </li>
+          <li>
+            <strong>Mechanisms to secure IUFP examinations</strong> (e.g., invigilation facilities, examination rooms; CCTV desirable) and
+            a <strong>secure safe</strong> for exam materials.
+            <span class="badge mand ml-2">Mandatory</span>
+          </li>
+          <li>
+            <strong>Commitment of financial resources</strong> for marketing and promotion of the IUFP brand upon centre approval.
+            <span class="badge mand ml-2">Mandatory</span>
+          </li>
+          <li>
+            <strong>Institutional policies</strong> covering Health & Safety; Equality & Diversity; Quality & Standards; Student Welfare;
+            Student Recruitment; Disability; Staff Training; and <strong>Anti‑Bribery</strong> activities, among others.
+            <span class="badge mand ml-2">Mandatory</span>
+          </li>
+        </ol>
+        <p class="mt-3 text-xs opacity-70">Summarised from the official IUFP criteria document.</p>
+      </div>
+    </section>
+
+    <!-- Information required -->
+    <section class="max-w-5xl mx-auto px-3 pb-8 md:pb-12">
+      <div class="space-y-6">
+        <div class="crystal rounded-xl p-5 md:p-6" style="background:var(--tint-a)">
+          <h2 class="text-xl sm:text-2xl font-extrabold">Information Required with Application</h2>
+          <div class="table-wrap mt-4">
+            <table class="fancy">
+              <thead>
+                <tr><th style="width:30%">Item</th><th>Details</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>School Name</td><td>Full legal name of the prospective Partner School.</td></tr>
+                <tr><td>School Address</td><td>Physical address and primary contact details.</td></tr>
+                <tr><td>School Profile</td><td>Brief overview (including experience delivering Level 3 programmes such as GCE A levels or equivalent).</td></tr>
+                <tr><td>School Principal/Head</td><td>Name and role.</td></tr>
+                <tr><td>IUFP Lead</td><td>Designated Person who will lead IUFP delivery (Programme Leader/Course Director).</td></tr>
+                <tr><td>Teaching Team</td><td>Details of staff who will deliver the IUFP (if available); CVs requested.</td></tr>
+                <tr><td>Projected Enrolment</td><td>Likely number of IUFP students per year.</td></tr>
+                <tr><td>Other Relevant Info</td><td>Any additional information in support of the application.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+        <aside class="crystal rounded-xl p-4 sm:p-5" style="background:var(--tint-c)">
+          <h3 class="text-lg sm:text-xl font-extrabold">Application Tips</h3>
+          <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+            <li>Attach key <strong>policies</strong> and <strong>staff CVs</strong> early to speed up approval.</li>
+            <li>Describe your <strong>exam security setup</strong> (invigilation, rooms, storage).</li>
+            <li>Share examples of <strong>Level 3 track record</strong> (if applicable).</li>
+            <li>Outline your <strong>marketing plan</strong> for the IUFP brand.</li>
+          </ul>
+          <div class="mt-4">
+            <a href="/partner-schools/apply" class="crystal rounded-xl px-5 py-3 font-bold inline-block"
+               style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">
+               Apply to become a Partner School
+            </a>
+          </div>
+        </aside>
+        <div class="crystal rounded-xl p-4 sm:p-5" style="background:var(--tint-b)">
+          <h3 class="text-lg sm:text-xl font-extrabold">Next Steps</h3>
+          <p class="mt-2 text-sm opacity-90">Ready to join our network of Partner Schools? We're here to guide you through the process.</p>
+          <div class="mt-4">
+            <a href="/contact-us/" class="crystal rounded-xl px-4 py-3 font-bold inline-block mr-3 mb-2">
+              Get More Information
+            </a>
+            <a href="/partner-schools/" class="crystal rounded-xl px-4 py-3 font-bold inline-block" 
+               style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">
+               View Partner Schools
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process steps -->
+    <section class="max-w-5xl mx-auto px-4 pb-8 md:pb-12">
+      <div class="crystal rounded-xl p-5 md:p-6" style="background:var(--tint-b)">
+        <h2 class="text-xl sm:text-2xl font-extrabold">Approval Process (at a glance)</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5 text-sm">
+          <div class="crystal rounded-lg p-3">
+            <div class="text-xs font-bold opacity-70">STEP 1</div>
+            <div class="font-extrabold">Initial enquiry</div>
+            <p class="mt-1 opacity-90">School submits enquiry + profile and contact person.</p>
+          </div>
+          <div class="crystal rounded-lg p-3">
+            <div class="text-xs font-bold opacity-70">STEP 2</div>
+            <div class="font-extrabold">Document review</div>
+            <p class="mt-1 opacity-90">IUFP reviews policies, staffing, facilities and exam security.</p>
+          </div>
+          <div class="crystal rounded-lg p-3">
+            <div class="text-xs font-bold opacity-70">STEP 3</div>
+            <div class="font-extrabold">Centre interview</div>
+            <p class="mt-1 opacity-90">Online/onsite meeting to validate readiness and plans.</p>
+          </div>
+          <div class="crystal rounded-lg p-3">
+            <div class="text-xs font-bold opacity-70">STEP 4</div>
+            <div class="font-extrabold">Approval & onboarding</div>
+            <p class="mt-1 opacity-90">Agreement, branding assets, staff access to VLE and QA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="max-w-5xl mx-auto px-4 pb-8 md:pb-12">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="crystal rounded-xl p-5 md:p-6" style="background:var(--tint-a)">
+          <h3 class="text-lg sm:text-xl font-extrabold">FAQs</h3>
+          <div class="mt-3 space-y-2 text-sm">
+            <details class="crystal rounded-lg p-3 bg-white/70">
+              <summary class="font-bold">Is prior A‑level (or equivalent) delivery mandatory?</summary>
+              <p class="mt-2 opacity-90">It is <strong>desirable</strong> but not mandatory. Strong facilities, policies and staffing remain essential.</p>
+            </details>
+            <details class="crystal rounded-lg p-3 bg-white/70">
+              <summary class="font-bold">Do we need CCTV for exams?</summary>
+              <p class="mt-2 opacity-90">CCTV is noted as desirable; however, secure invigilation spaces and a safe for exam materials are <strong>mandatory</strong>.</p>
+            </details>
+            <details class="crystal rounded-lg p-3 bg-white/70">
+              <summary class="font-bold">What qualifications do teachers need?</summary>
+              <p class="mt-2 opacity-90">Teachers should hold at least a <strong>first degree</strong> in the specialist subject they teach.</p>
+            </details>
+            <details class="crystal rounded-lg p-3 bg-white/70">
+              <summary class="font-bold">What documents should we send with our application?</summary>
+              <p class="mt-2 opacity-90">See the “Information Required” table above — include policies, staffing details, projected enrolment and any other relevant info.</p>
+            </details>
+          </div>
+        </div>
+        <div class="crystal rounded-xl p-5 md:p-6" style="background:var(--tint-c)">
+          <h3 class="text-lg sm:text-xl font-extrabold">Talk to the IUFP Team</h3>
+          <p class="mt-2 text-sm opacity-90">Not sure about a requirement? Reach out — we can advise on readiness and next steps.</p>
+          <div class="mt-4 flex flex-col sm:flex-row gap-2">
+            <a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold">Contact Us</a>
+            <a href="/partner-schools/apply" class="crystal rounded-xl px-5 py-3 font-bold"
+               style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">
+               Start Application
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="brand-footer">
+    <div class="max-w-5xl mx-auto px-3 py-8 grid md:grid-cols-3 gap-6">
+      <div>
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16">
+        <p class="opacity-95 text-sm">
+          IUFP Global Education UK<br>
+          Aldgate Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, London EC3A 7BB
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Partner with IUFP</h4>
+        <div class="flex gap-3">
+          <a href="/partner-schools/apply" class="crystal rounded-xl px-5 py-3 font-bold"
+             style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">
+             Apply Now
+          </a>
+          <a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
