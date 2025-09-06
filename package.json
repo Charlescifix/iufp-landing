@@ -1,20 +1,15 @@
 {
   "name": "iufp-landing",
   "version": "1.0.0",
-  "description": "IUFP Landing Pages - Static website with responsive design",
+  "description": "IUFP Landing Page",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server.js"
   },
-  "keywords": ["iufp", "landing", "static", "website"],
-  "author": "IUFP Team",
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "path": "^0.12.7"
+    "express": "^4.18.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16"
   }
 }

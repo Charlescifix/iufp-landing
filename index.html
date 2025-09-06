@@ -107,6 +107,21 @@
     }
     .bot-open .bot-panel{display:block}
     
+    /* Chatbot iframe responsive styles */
+    .bot-panel iframe {
+      transform: scale(1);
+      transform-origin: top left;
+    }
+    
+    @media (max-width: 480px) {
+      .bot-panel iframe {
+        transform: scale(0.9);
+        transform-origin: top left;
+        width: 111%;
+        height: 111%;
+      }
+    }
+    
     /* Enhanced Responsive Design System - Optimized */
     
     /* Mobile First - Base styles (320px+) */
@@ -285,21 +300,21 @@
   </header>
 
   <main class="relative z-10">
-    <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
-      <div class="grid md:grid-cols-2 gap-6 items-center">
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10">
+      <div class="grid md:grid-cols-2 gap-4 md:gap-6 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">Fast-Track Entry to Prestigious Universities</h1>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">Fast-Track Entry to Prestigious Universities</h1>
           <p class="mt-3 responsive-text-lg opacity-95">
             The IUFP is a pre-degree, full-time university foundation course offering a <strong>fast-track alternative route</strong>
             to first-year degree entry after <strong>9–12 months</strong> of intensive study — without the need to undertake the GCE A-Levels course.
           </p>
 
-          <div class="mt-4 flex flex-wrap gap-3">
+          <div class="mt-4 flex flex-col sm:flex-row flex-wrap gap-3">
             <a href="students.html" class="crystal cta cta--student btn-cta bouncy rounded-2xl">IUFP Student</a>
             <a href="partner-schools.html" class="crystal cta cta--partner btn-secondary bouncy rounded-2xl">IUFP Partner Schools</a>
           </div>
 
-          <div class="mt-4 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit">
+          <div class="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 crystal rounded-xl p-3 sm:px-3 sm:py-2">
             <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE Endorsed Programme" />
             <p class="text-sm leading-snug">
               <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by OFQUAL (UK). ATHE Certificates of Completion are issued to successful IUFP students.
@@ -307,7 +322,7 @@
           </div>
         </div>
 
-        <div class="crystal rounded-2xl p-2 shadow-lg">
+        <div class="crystal rounded-2xl p-2 shadow-lg order-first md:order-last">
           <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" alt="Students collaborating" class="rounded-2xl w-full h-full object-cover"/>
         </div>
       </div>
@@ -326,13 +341,13 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-4 pb-3">
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Why Choose IUFP?</h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 md:mb-6">Why Choose IUFP?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-4">
         <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
           Direct entry to first year of degree courses at prestigious Universities.
         </div>
         <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
-          6–12 month intensive pathway that equips you with skills to thrive at university.
+          9–12 months intensive pathway that equips you with skills to thrive at university.
         </div>
         <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
           Significant cost savings vs. other routes, plus a dedicated University Placement Service.
@@ -341,7 +356,7 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-4 py-10">
-      <div class="grid lg:grid-cols-3 gap-6 mt-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
         <div class="crystal rounded-xl p-6 shadow" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
           <h3 class="font-bold text-xl mb-2">Admissions</h3>
           <ul class="opacity-95 list-disc list-inside space-y-1"><li>Age 16+ and completion of secondary school</li><li>5 credits including English & Mathematics</li><li>International equivalents accepted</li></ul>
@@ -360,7 +375,7 @@
     <section class="max-w-7xl mx-auto px-4 pb-10">
       <div class="crystal rounded-2xl p-6 shadow-lg">
         <h3 class="text-2xl md:text-3xl font-extrabold mb-3">Curriculum Snapshot</h3>
-        <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
             <div class="text-sm uppercase tracking-wide opacity-70">Term 1 · Core</div>
             <ul class="mt-2 space-y-1 font-semibold">
@@ -372,14 +387,14 @@
           <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.06));">
             <div class="text-sm uppercase tracking-wide opacity-70">Terms 2–3 · Electives</div>
             <ul class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 font-semibold text-sm">
-              <li>Accounting</li><li>Biology</li><li>Business</li><li>Computing</li>
-              <li>Economics</li><li>Law</li><li>Mathematics</li><li>Physics</li>
-              <li>Psychology</li><li>Sociology</li>
+              <li>Accounting</li><li>Biology</li><li>Business</li><li>Chemistry</li>
+              <li>Computing</li><li>Economics</li><li>Government and Politics</li><li>Law</li>
+              <li>Mathematics</li><li>Physics</li><li>Psychology</li><li>Sociology</li>
             </ul>
           </div>
           <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
             <div class="text-sm uppercase tracking-wide opacity-70">Duration</div>
-            <p class="mt-2 font-semibold">Standard: 9–12 months<br>Intensive: 6–9 months</p>
+            <p class="mt-2 font-semibold">Standard: 12 months<br>Intensive: 9 months</p>
             <div class="mt-3 text-xs opacity-70">Designed as a focused, tech-forward preparation for Year 1 entry.</div>
           </div>
         </div>
@@ -393,7 +408,7 @@
 
     <section class="max-w-7xl mx-auto px-4 pb-12">
       <h3 class="text-2xl font-bold mb-4">9 Degree Progression Pathways</h3>
-      <div class="grid md:grid-cols-3 gap-6 text-sm">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-sm">
         <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">Accounting, Banking, Business, Finance & Management</div>
         <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">Computing, Information Systems & Mathematics</div>
         <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">Engineering</div>
@@ -425,25 +440,25 @@
 
     <!-- FAQs -->
     <section class="max-w-7xl mx-auto px-4 pb-12">
-      <h2 class="text-3xl font-extrabold mb-6">Frequently Asked Questions</h2>
-      <div class="space-y-3">
-        <details class="crystal rounded-xl p-4 shadow">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 md:mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-2 sm:space-y-3">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
           <summary class="font-semibold">Who is eligible to apply?</summary>
           <p class="mt-2 text-sm">Students aged 16+ who have completed secondary school with at least five credits including English and Mathematics (or overseas equivalents).</p>
         </details>
-        <details class="crystal rounded-xl p-4 shadow">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
           <summary class="font-semibold">How long does the programme take?</summary>
           <p class="mt-2 text-sm">Standard route is 9–12 months; intensive route 6–9 months, depending on elective choices and study pace.</p>
         </details>
-        <details class="crystal rounded-xl p-4 shadow">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
           <summary class="font-semibold">Do I need IELTS?</summary>
-          <p class="mt-2 text-sm">Students are expected to achieve IELTS 6.5 overall (6.0 in each sub-test) by completion.</p>
+          <p class="mt-2 text-sm">IELTS may be required from students from a number of countries but it does not apply to all students applying to study in the UK. Please check the information on 'Admissions Criteria by Countries' for more information.</p>
         </details>
-        <details class="crystal rounded-xl p-4 shadow">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
           <summary class="font-semibold">Where are exams held?</summary>
-          <p class="mt-2 text-sm">Examinations are conducted at IUFP Partner Schools, typically four times a year.</p>
+          <p class="mt-2 text-sm">Examinations are conducted at IUFP Partner Schools.</p>
         </details>
-        <details class="crystal rounded-xl p-4 shadow">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
           <summary class="font-semibold">What degree pathways can I progress to?</summary>
           <p class="mt-2 text-sm">A wide range including Business & Finance, Computing & IT, Engineering, Law, Social Sciences, Medical and Life Sciences, Media & Culture, and more.</p>
         </details>
@@ -453,45 +468,6 @@
       </div>
     </section>
 
-    <!-- LCBL Section -->
-    <section class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="crystal rounded-2xl p-8 shadow-lg">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div class="text-center md:text-left">
-            <img src="LCBL Logo.jpg" alt="LCBL Logo" class="h-20 w-auto mx-auto md:mx-0 mb-4 md:h-24" />
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">LCBL — Our Academic Partner</h2>
-            <p class="text-lg opacity-95 leading-relaxed">
-              <strong>London College of Business and Law (LCBL)</strong> owns the intellectual property rights to the IUFP curriculum and maintains all progression agreements with our university partners.
-            </p>
-          </div>
-          <div class="crystal rounded-xl p-6" style="background:linear-gradient(135deg, rgba(25,55,109,.08), rgba(20,184,166,.06));">
-            <div class="grid gap-4">
-              <div class="flex items-start gap-3">
-                <div class="text-2xl">📚</div>
-                <div>
-                  <div class="font-bold text-lg mb-1">Curriculum Development</div>
-                  <div class="text-sm opacity-90">LCBL develops and maintains the IUFP academic framework, ensuring quality and consistency across all partner schools.</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="text-2xl">🎓</div>
-                <div>
-                  <div class="font-bold text-lg mb-1">University Partnerships</div>
-                  <div class="text-sm opacity-90">All progression agreements with UK and international universities are negotiated and maintained by LCBL.</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="text-2xl">📋</div>
-                <div>
-                  <div class="font-bold text-lg mb-1">Examination & Certification</div>
-                  <div class="text-sm opacity-90">LCBL is the official examining body that issues IUFP examination results and academic certifications.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="brand-footer relative z-10 mt-8">
@@ -542,8 +518,9 @@
         <button onclick="document.body.classList.remove('bot-open')" aria-label="Close" class="underline">Close</button>
       </div>
       <iframe title="IUFP Assistant Chat"
-              srcdoc='<style>body{font-family:system-ui,Segoe UI,Arial;padding:12px;background:#0f172a;color:#e2e8f0}a{color:#93c5fd}h3{margin:0 0 6px 0}p{margin:0 0 10px 0;opacity:.9}</style><h3>How can we help?</h3><p>Try: “Am I eligible?”, “When do intakes open?”, or “Which electives fit Computer Science?”</p><form onsubmit="event.preventDefault(); const q=this.q.value; parent.postMessage({q}, "*"); this.q.value="";"><input name="q" placeholder="Type your question…" style="width:100%;padding:10px;border-radius:10px;border:1px solid #334155;background:#111827;color:#e5e7eb"><button type="submit" style="margin-top:8px;padding:10px 14px;border-radius:10px;border:1px solid #334155;background:#1f2937;color:#e5e7eb">Send</button></form><div id="resp" style="margin-top:10px;font-size:14px;opacity:.9;color:#cbd5e1"></div>'
-              style="width:100%;height:100%;border:0;background:transparent"></iframe>
+              src="https://iufp.up.railway.app/chat?embedded=true&width=360&compact=true"
+              style="width:100%;height:100%;border:0;background:transparent;overflow:hidden"
+              sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
     </div>
   </div>
 
