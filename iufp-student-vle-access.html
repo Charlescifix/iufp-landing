@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Student VLE Access</title>
+  <meta name="description" content="Official VLE access for successful IUFP students with Acceptance Letters and fee confirmation. Apply now if you're just getting started." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .pill{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .6rem;font-weight:800;background:#fff}
+    .btn{border-radius:12px;padding:.9rem 1.15rem;font-weight:900;min-height:44px;min-width:44px}
+    .btn-primary{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    .field{display:flex;flex-direction:column;gap:.35rem}
+    .field input{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.9rem 1rem;outline:none;min-height:44px;font-size:16px}
+    .field input:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+    @media (max-width: 768px) {
+      .field input{font-size:16px;padding:1rem}
+      .btn{padding:1rem 1.5rem}
+      .brand-header nav { gap: 0.75rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- Header -->
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="/aboutus/">About IUFP</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+        <a class="brand-link" href="/payment/">Payments</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 md:py-10 lg:py-14">
+      <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-center">
+        <div class="lg:col-span-2 text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight">Student VLE Access</h1>
+          <p class="mt-3 text-base sm:text-lg md:text-xl opacity-95">
+            This portal is for <strong>successful IUFP students</strong> who have completed the application,
+            received their <strong>Acceptance Letters</strong> and <strong>paid</strong> (either directly or via a Partner School).
+            Use your issued credentials to access e‑books, timetables, assessments, and support.
+          </p>
+          <div class="mt-4 flex flex-wrap justify-center lg:justify-start gap-1.5 sm:gap-2">
+            <span class="pill text-xs sm:text-sm">ATHE‑endorsed</span>
+            <span class="pill text-xs sm:text-sm">Bespoke VLE e‑books</span>
+            <span class="pill text-xs sm:text-sm">Secure Assessments</span>
+          </div>
+        </div>
+        <div class="justify-self-center lg:justify-self-end">
+          <div class="crystal rounded-2xl p-3 flex items-center gap-3 sm:gap-4 w-fit">
+            <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 sm:h-14 w-auto">
+            <img src="athe-logo.png" alt="ATHE logo" class="h-10 sm:h-12 w-auto">
+          </div>
+          <p class="text-xs opacity-70 mt-2 text-center lg:text-left">IUFP is an ATHE Endorsed Programme (Ofqual‑regulated awarding organisation).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access + CTA section -->
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 pb-8 sm:pb-12 lg:pb-16">
+      <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
+        <!-- Sign-in card -->
+        <div class="lg:col-span-2 crystal rounded-2xl p-4 sm:p-6 md:p-7" style="background:var(--tint-a)">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <h2 class="text-xl sm:text-2xl font-extrabold">Sign in (Accepted Students)</h2>
+            <span class="pill text-xs sm:text-sm">Acceptance &amp; Payment Confirmed</span>
+          </div>
+          <p class="text-xs sm:text-sm opacity-80 mt-2">
+            Access is for students with Acceptance Letters and confirmed fees. If you registered through a Partner School,
+            use the credentials provided by your School or the IUFP Admissions team.
+          </p>
+          <form class="mt-4 sm:mt-5 grid md:grid-cols-2 gap-3 sm:gap-4 lg:gap-5" action="/vle/login" method="post">
+            <div class="field md:col-span-2">
+              <label class="font-bold text-sm sm:text-base">Email</label>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field md:col-span-2">
+              <label class="font-bold text-sm sm:text-base">Password</label>
+              <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <button class="btn btn-primary w-full sm:w-auto" type="submit">Sign In</button>
+              <a class="btn btn-ghost w-full sm:w-auto text-center" href="/vle/forgot-password">Forgot password?</a>
+            </div>
+            <p class="text-xs opacity-70 md:col-span-2">By signing in you agree to the IUFP terms of use and data privacy policies.</p>
+          </form>
+        </div>
+
+        <!-- Apply CTA -->
+        <aside class="crystal rounded-2xl p-4 sm:p-6 md:p-7" style="background:var(--tint-c)">
+          <h3 class="text-lg sm:text-xl font-extrabold">Ready to apply?</h3>
+          <p class="mt-2 text-xs sm:text-sm opacity-90">
+            Choose your <strong>electives</strong> and <strong>intake season</strong>; complete the online application.
+          </p>
+          <div class="mt-4">
+            <a href="apply.html" class="btn btn-primary text-center w-full text-sm sm:text-base">APPLY NOW</a>
+          </div>
+          <ul class="list-disc list-inside text-xs sm:text-sm mt-4 sm:mt-5 space-y-1 sm:space-y-2">
+            <li>Three core subjects + three electives</li>
+            <li>January or September intakes</li>
+            <li>Progress to top university pathways</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features snapshot -->
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 pb-10 sm:pb-16 lg:pb-20">
+      <div class="crystal rounded-2xl p-4 sm:p-6 md:p-7" style="background:var(--tint-d)">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-center lg:text-left">What you can do on the VLE</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mt-3 sm:mt-4 text-xs sm:text-sm">
+          <div class="crystal rounded-xl p-3 sm:p-4 bg-white">
+            <div class="text-xs font-bold opacity-70 text-center md:text-left">LEARNING MATERIALS</div>
+            <p class="mt-1 opacity-90 text-center md:text-left">Access bespoke e‑books, lesson content, and study guides tailored to IUFP modules.</p>
+          </div>
+          <div class="crystal rounded-xl p-3 sm:p-4 bg-white">
+            <div class="text-xs font-bold opacity-70 text-center md:text-left">TIMETABLES &amp; ASSESSMENTS</div>
+            <p class="mt-1 opacity-90 text-center md:text-left">Check schedules, sit assessments, and view results when released.</p>
+          </div>
+          <div class="crystal rounded-xl p-3 sm:p-4 bg-white">
+            <div class="text-xs font-bold opacity-70 text-center md:text-left">SUPPORT &amp; ADMISSIONS</div>
+            <p class="mt-1 opacity-90 text-center md:text-left">Get study help and manage university application steps with guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:py-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div class="text-center md:text-left">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 sm:h-14 lg:h-16 w-auto mb-2 sm:mb-3 mx-auto md:mx-0">
+        <p class="opacity-95 text-xs sm:text-sm">
+          IUFP Global Education UK<br>
+          Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, Aldgate, London EC3A 7BB
+        </p>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Quick Links</h4>
+        <ul class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Need help?</h4>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+          <a href="contact.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm">Contact Admissions</a>
+          <a href="apply.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">Apply Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-3 sm:py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
