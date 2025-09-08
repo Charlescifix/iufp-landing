@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Partner School VLE Welcome</title>
+  <meta name="description" content="Welcome to the IUFP Partner School VLE. Access operational guidance, recruitment strategy, exam conduct, and application/payment process." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth; overflow-x:hidden}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .btn{border-radius:14px;padding:1.2rem 1.5rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:48px;min-width:48px;font-size:1.1rem}
+    .btn-gold{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    
+    /* Sophisticated Resource Tile Styling */
+    .resource-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      padding: 0.75rem 0.5625rem;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+      border: 1px solid transparent;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+      color: inherit;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      aspect-ratio: 1;
+      text-align: center;
+      max-width: 250px;
+      max-height: 250px;
+    }
+    
+    .resource-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .resource-tile:hover::before {
+      left: 100%;
+    }
+    
+    .resource-tile:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 25px 50px rgba(0,0,0,0.15),
+        0 12px 24px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    
+    .resource-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.1875rem;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .resource-tile:hover .resource-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .resource-title {
+      font-size: 0.9rem;
+      line-height: 1.2;
+      font-weight: 900;
+      margin: 0;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .resource-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      font-weight: 700;
+      margin: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .resource-tile:hover .resource-subtitle {
+      opacity: 1;
+    }
+    
+    /* Individual tile sophisticated styling */
+    .tile-ops {
+      background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(99, 102, 241, 0.15) 50%,
+        rgba(139, 92, 246, 0.1) 100%);
+      border-color: rgba(59, 130, 246, 0.2);
+      color: #1e40af;
+    }
+    
+    .tile-ops:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.15) 0%,
+        rgba(99, 102, 241, 0.2) 50%,
+        rgba(139, 92, 246, 0.15) 100%);
+    }
+    
+    .tile-recruitment {
+      background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.1) 0%,
+        rgba(5, 150, 105, 0.15) 50%,
+        rgba(6, 120, 85, 0.1) 100%);
+      border-color: rgba(16, 185, 129, 0.2);
+      color: #047857;
+    }
+    
+    .tile-recruitment:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.15) 0%,
+        rgba(5, 150, 105, 0.2) 50%,
+        rgba(6, 120, 85, 0.15) 100%);
+    }
+    
+    .tile-exam {
+      background: linear-gradient(135deg, 
+        rgba(168, 85, 247, 0.1) 0%,
+        rgba(147, 51, 234, 0.15) 50%,
+        rgba(126, 34, 206, 0.1) 100%);
+      border-color: rgba(168, 85, 247, 0.2);
+      color: #7c2d92;
+    }
+    
+    .tile-exam:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: linear-gradient(135deg, 
+        rgba(168, 85, 247, 0.15) 0%,
+        rgba(147, 51, 234, 0.2) 50%,
+        rgba(126, 34, 206, 0.15) 100%);
+    }
+    
+    .tile-payment {
+      background: linear-gradient(135deg, 
+        rgba(245, 101, 101, 0.1) 0%,
+        rgba(239, 68, 68, 0.15) 50%,
+        rgba(220, 38, 38, 0.1) 100%);
+      border-color: rgba(245, 101, 101, 0.2);
+      color: #b91c1c;
+    }
+    
+    .tile-payment:hover {
+      border-color: rgba(245, 101, 101, 0.4);
+      background: linear-gradient(135deg, 
+        rgba(245, 101, 101, 0.15) 0%,
+        rgba(239, 68, 68, 0.2) 50%,
+        rgba(220, 38, 38, 0.15) 100%);
+    }
+    
+    .arrow-wrap{position:relative; display:flex; align-items:center; gap:1rem}
+    .arrow{width:120px; height:60px}
+    
+    /* Enhanced Responsive Design */
+    @media (max-width: 640px) {
+      .btn{padding:1rem 1.4rem;font-size:16px;gap:0.6rem}
+      .brand-header nav { gap: 0.5rem; }
+      .brand-header .brand-link { font-size: 0.8rem; }
+      .arrow{display:none}
+      .resource-tile {
+        padding: 1.1rem 0.8rem;
+        max-width: 195px;
+        max-height: 195px;
+        gap: 0.375rem;
+      }
+      .resource-icon {
+        font-size: 1.25rem;
+      }
+      .resource-title {
+        font-size: 0.75rem;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+      .resource-subtitle {
+        font-size: 0.65rem;
+        line-height: 1.1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .btn{padding:1.1rem 1.45rem;font-size:17px}
+      .brand-header nav { gap: 0.75rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+      .arrow{display:none}
+      .resource-tile {
+        padding: 1.15rem 0.9rem;
+        max-width: 220px;
+        max-height: 220px;
+      }
+      .resource-icon {
+        font-size: 1.375rem;
+      }
+      .resource-title {
+        font-size: 0.8rem;
+        font-weight: 900;
+      }
+      .resource-subtitle {
+        font-size: 0.7rem;
+      }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      .resource-tile {
+        min-height: 120px;
+        min-width: 120px;
+      }
+      button[aria-label="Open menu"] {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.75rem;
+      }
+    }
+    
+    /* Additional mobile optimizations */
+    @media (max-width: 480px) {
+      .max-w-5xl { padding-left: 1rem; padding-right: 1rem; }
+      .resource-tile {
+        aspect-ratio: 0.9;
+        max-width: 180px;
+        max-height: 200px;
+      }
+      .grid.grid-cols-2 {
+        gap: 0.5rem;
+      }
+      h1 {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 sm:h-16 md:h-18 lg:h-20 w-auto" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="/aboutus/">About IUFP</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+        <a class="brand-link" href="/payment/">Payments</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pt-6 sm:pt-8 md:pt-10 lg:pt-14 pb-6 sm:pb-8 md:pb-10">
+      <div class="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+        <div class="text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight">Welcome to the IUFP Partner School VLE</h1>
+          <p class="mt-3 text-base sm:text-lg md:text-xl opacity-95">
+            You're signed in as an <strong>approved & onboarded Partner School</strong>. From here you can access key documents and guidance
+            to deliver the IUFP programme with confidence and consistency.
+          </p>
+          <div class="mt-3 sm:mt-4 arrow-wrap justify-center lg:justify-start">
+            <svg class="arrow" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M10,70 C70,20 120,20 180,50" stroke="#19376d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M170,38 L188,52 L168,58" fill="#19376d"/>
+            </svg>
+            <a href="#resources" class="btn btn-gold">Proceed to resources</a>
+          </div>
+        </div>
+        <div class="justify-self-center lg:justify-self-end">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop" alt="Partner school staff collaborating" class="rounded-2xl shadow-xl max-h-[200px] sm:max-h-[240px] md:max-h-[280px] lg:max-h-[320px] w-auto object-cover" />
+          <p class="text-xs opacity-70 mt-2 text-center lg:text-left">Professional collaboration and partnership excellence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="max-w-5xl mx-auto px-3 sm:px-4 pb-8 sm:pb-12 lg:pb-16">
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-3 md:gap-3 lg:gap-4">
+        <a href="iufp-operational-guidelines.html" class="resource-tile tile-ops" rel="noopener" aria-label="Access operational guidelines">
+          <div class="resource-icon">📚</div>
+          <h3 class="resource-title">Operational Guidelines</h3>
+          <p class="resource-subtitle">Comprehensive handbook for partner school operations and quality assurance</p>
+        </a>
+        <a href="iufp-student-recruitment-strategy.html" class="resource-tile tile-recruitment" rel="noopener" aria-label="Access recruitment strategy">
+          <div class="resource-icon">🎓</div>
+          <h3 class="resource-title">Student Recruitment Strategy</h3>
+          <p class="resource-subtitle">Proven methods for attracting and enrolling qualified IUFP candidates</p>
+        </a>
+        <a href="iufp-assessment-exam-regulations.html" class="resource-tile tile-exam" rel="noopener" aria-label="Access assessment and examination regulations">
+          <div class="resource-icon">📝</div>
+          <h3 class="resource-title">Assessment & Examination Regulations</h3>
+          <p class="resource-subtitle">Comprehensive regulations covering assessment principles, conduct, and appeals</p>
+        </a>
+        <a href="iufp-application-payment-process.html" class="resource-tile tile-payment" rel="noopener" aria-label="Access application and payment processes">
+          <div class="resource-icon">💰</div>
+          <h3 class="resource-title">Application & Payment Process</h3>
+          <p class="resource-subtitle">Streamlined workflows for student applications and fee management</p>
+        </a>
+      </div>
+
+      <div class="crystal rounded-2xl p-4 sm:p-6 md:p-7 mt-6 sm:mt-8" style="background:var(--tint-d)">
+        <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 items-center text-center lg:text-left">
+          <div class="lg:col-span-2">
+            <h2 class="text-xl sm:text-2xl font-extrabold">Deliver with Confidence</h2>
+            <p class="mt-2 text-xs sm:text-sm opacity-90">
+              Access consistent operational guidance, secure exam conduct procedures, and clear application/payment flows so your teams
+              and students have a smooth experience from enrolment to progression.
+            </p>
+          </div>
+          <div class="justify-self-center lg:justify-self-end">
+            <a href="/vle/resources" class="btn btn-gold">Open Resource Library</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <div class="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:py-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div class="text-center md:text-left">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto mb-2 sm:mb-3 mx-auto md:mx-0">
+        <p class="opacity-95 text-xs sm:text-sm">
+          IUFP Global Education UK<br>
+          Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, Aldgate, London EC3A 7BB
+        </p>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Quick Links</h4>
+        <ul class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Partner Support</h4>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+          <a href="contact.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm">Contact Support</a>
+          <a href="vle.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">VLE Portal</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-5xl mx-auto px-4 py-3 sm:py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

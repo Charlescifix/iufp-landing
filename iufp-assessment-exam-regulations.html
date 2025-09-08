@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Assessment & Examination Regulations</title>
+  <meta name="description" content="Official assessment and examination regulations for IUFP Partner Schools and students — principles, conduct, adjustments, marking, results and appeals." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth; overflow-x:hidden}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.2s ease}
+    .brand-link:hover{opacity:0.8;transform:translateX(-2px)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.005);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+    .btn{border-radius:12px;padding:.85rem 1.15rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;transition:all 0.2s ease;min-height:44px;text-decoration:none}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .btn-primary{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12);color:#0b2447}
+    .tile{border-radius:16px;padding:1rem 1.1rem;font-weight:700;display:flex;align-items:flex-start;gap:.7rem;border:1px solid rgba(0,0,0,.08);transition:transform 0.2s ease, box-shadow 0.2s ease}
+    .tile:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .tile-a{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.12))}
+    .tile-b{background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.18))}
+    .tile-c{background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.20))}
+    .tile-d{background:linear-gradient(135deg, rgba(11,36,71,.05), rgba(11,36,71,.11))}
+    .accordion summary{cursor:pointer; list-style:none}
+    .accordion summary::-webkit-details-marker{display:none}
+    .badge{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .6rem;font-weight:800;background:#fff;font-size:0.75rem}
+    .table-wrap{overflow-x:auto}
+    table.fancy{width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    table.fancy thead th{text-align:left; font-weight:800; background:var(--brand-nav-bg); color:#fff; padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.1)}
+    table.fancy tbody td{padding:10px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align:top}
+    table.fancy tbody tr:nth-child(odd){background:rgba(11,36,71,.035)}
+    .pager{position:sticky; bottom:0; z-index:30; background:#ffffffee; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-top:1px solid rgba(0,0,0,.08);box-shadow:0 -2px 12px rgba(0,0,0,.06)}
+    .hidden-sec{display:none}
+
+    /* Mobile Responsiveness */
+    @media (max-width: 640px) {
+      .tile{padding:0.8rem 0.9rem;gap:0.6rem;font-size:0.9rem}
+      .tile .text-xl{font-size:1.1rem}
+      .btn{padding:0.75rem 1rem;font-size:0.9rem;gap:0.4rem}
+      .pager .max-w-7xl{padding-left:1rem;padding-right:1rem}
+      .pager .text-sm{font-size:0.8rem}
+      table.fancy{font-size:0.85rem}
+      table.fancy thead th{padding:8px 10px}
+      table.fancy tbody td{padding:8px 10px}
+      .badge{padding:0.2rem 0.5rem;font-size:0.65rem}
+    }
+
+    @media (max-width: 768px) {
+      .crystal{border-radius:12px}
+      .grid.md\\:grid-cols-3{grid-template-columns:1fr}
+      .grid.md\\:grid-cols-2{grid-template-columns:1fr}
+      .grid.lg\\:grid-cols-3{grid-template-columns:1fr}
+    }
+
+    @media (min-width: 640px) and (max-width: 768px) {
+      .grid.sm\\:grid-cols-2{grid-template-columns:repeat(2, 1fr)}
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="/" class="flex items-center gap-2 sm:gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 sm:h-14 md:h-16 w-auto" />
+      </a>
+      <nav class="flex gap-4 md:gap-7 text-sm md:text-base lg:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="iufp-partner-welcome.html">
+          <span class="hidden sm:inline">← Return to Welcome</span>
+          <span class="sm:hidden">← Welcome</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 pt-6 sm:pt-8 md:pt-10 lg:pt-14 pb-4 sm:pb-6">
+      <div class="grid lg:grid-cols-3 gap-6 sm:gap-8 items-start lg:items-center">
+        <div class="lg:col-span-2">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight">Assessment & Examination Regulations</h1>
+          <p class="mt-3 text-base sm:text-lg opacity-95">Principles, responsibilities and rules governing assessment and examinations for the International University Foundation Programme (IUFP).</p>
+          <div class="mt-4 flex flex-wrap gap-2"><span class="badge">ATHE‑endorsed</span><span class="badge">Equity & consistency</span><span class="badge">Secure assessments</span></div>
+        </div>
+        <div class="order-first lg:order-last justify-self-center lg:justify-self-end">
+          <div class="crystal rounded-xl sm:rounded-2xl p-3 flex items-center gap-3 sm:gap-4 w-fit mx-auto lg:mx-0">
+            <img src="iufp-logo.jpg" alt="IUFP logo" class="h-10 sm:h-12 w-auto" />
+            <img src="athe-logo.png" alt="ATHE logo" class="h-8 sm:h-10 w-auto" />
+          </div>
+          <p class="text-xs opacity-70 mt-2 text-center lg:text-left max-w-xs">IUFP is an ATHE Endorsed Programme (Ofqual‑regulated awarding organisation).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 pb-16 sm:pb-20">
+      <article class="crystal rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 sec" id="sec-1" style="background:var(--tint-a)">
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4">Assessment Principles & Responsibilities</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Core Principles</h3>
+          <p class="text-sm sm:text-base mb-4">Assessment enables students to demonstrate achievement of learning outcomes; exam performance is the main evidence used by the Board of Examiners. Principles include validity, promotion of learning with feedback, explicit processes, reliability, equity/inclusion, and just management. One‑tier formal marking applies and students may only be assessed in registered subjects. Regulations form part of the student contract.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">✅</div><div class="text-sm sm:text-base">Valid, reliable & explicit assessment processes</div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">🧑‍⚖️</div><div class="text-sm sm:text-base">Equitable, inclusive & just management</div></div>
+            <div class="tile tile-c"><div class="text-lg sm:text-xl">📚</div><div class="text-sm sm:text-base">Learning‑oriented with clear feedback</div></div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Key Responsibilities</h3>
+          <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+            <div class="p-4 rounded-xl bg-white/60 border border-black/10">
+              <h4 class="font-black text-base sm:text-lg mb-2">IUFP Global</h4>
+              <ul class="list-disc list-inside text-xs sm:text-sm space-y-1">
+                <li>Assess fairly; provide proper invigilation; publish results</li>
+                <li>Investigate malpractice; consider appeals and extenuating circumstances</li>
+                <li>Ensure subject leaders provide outcomes, schemes, and criteria via VLE</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-xl bg-white/60 border border-black/10">
+              <h4 class="font-black text-base sm:text-lg mb-2">Students</h4>
+              <ul class="list-disc list-inside text-xs sm:text-sm space-y-1">
+                <li>Undertake learning activities; attend examinations</li>
+                <li>Keep contact details current; notify special needs in advance</li>
+                <li>Provide information on circumstances affecting assessment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/70 border border-black/10">
+          <div class="text-xs sm:text-sm font-bold opacity-70 mb-2">ASSESSMENT PREPARATION</div>
+          <p class="text-xs sm:text-sm">Subject Leaders provide outcomes, Scheme of Work, exam formats and grading criteria via the VLE. Programme Coordinators ensure students receive regulations, timetables, release procedures, conduct rules, and processes for extenuating circumstances, malpractice and complaints.</p>
+        </div>
+      </article>
+
+      <article class="crystal rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 sec hidden-sec" id="sec-2" style="background:var(--tint-b)">
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4">Exam Conduct & Student Support</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Adjustments for Disabled Students</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4">
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">⏰</div><div class="text-sm sm:text-base"><strong>Extra Time:</strong> +15 mins/hour for documented dyslexia</div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">🏠</div><div class="text-sm sm:text-base"><strong>Separate Room:</strong> Quiet environment & rest breaks</div></div>
+            <div class="tile tile-c"><div class="text-lg sm:text-xl">🛠️</div><div class="text-sm sm:text-base"><strong>Assistive Tech:</strong> Alternative formats & amanuensis</div></div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/60 border border-black/10 text-xs sm:text-sm">
+            <strong>Process:</strong> Students must notify IUFP in good time with supporting evidence. Programme Coordinator advises on reasonable adjustments. If late notification prevents timely adjustment, exam taken as scheduled with re-sit option when available.
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Examination Conduct Rules</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">📜</div><div><div class="font-black text-sm sm:text-base">General Rules</div><p class="text-xs sm:text-sm mt-1">Observe invigilator instructions; bring Student ID; offences trigger disciplinary procedures</p></div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">🚪</div><div><div class="font-black text-sm sm:text-base">Entry & Exit</div><p class="text-xs sm:text-sm mt-1">Admit ≤15 mins before; no entry >30 mins after; no leaving within first/last 30 mins</p></div></div>
+            <div class="tile tile-c"><div class="text-lg sm:text-xl">⏱️</div><div><div class="font-black text-sm sm:text-base">Timing</div><p class="text-xs sm:text-sm mt-1">Start/stop only when directed; remain seated until scripts collected</p></div></div>
+            <div class="tile tile-d"><div class="text-lg sm:text-xl">✏️</div><div><div class="font-black text-sm sm:text-base">Materials</div><p class="text-xs sm:text-sm mt-1">Use provided answer books; calculators per rubric; phones off and stored away</p></div></div>
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">🤫</div><div><div class="font-black text-sm sm:text-base">Behaviour</div><p class="text-xs sm:text-sm mt-1">Maintain silence; water only; no communication with others</p></div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">🩺</div><div><div class="font-black text-sm sm:text-base">Illness</div><p class="text-xs sm:text-sm mt-1">Notify invigilator; escorted breaks; submit extenuating form if leaving</p></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="crystal rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 sec hidden-sec" id="sec-3" style="background:var(--tint-c)">
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4">Marking & Assessment Standards</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Assessment Design Principles</h3>
+          <p class="text-sm sm:text-base mb-4">Learning outcomes, internal assessments and marking criteria align to subject level and IUFP's generic grading criteria. Assessment type and load are appropriate and practicable for students and staff.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6">
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">🎯</div><div class="text-sm sm:text-base">Outcome‑aligned tasks</div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">🧭</div><div class="text-sm sm:text-base">Transparent criteria</div></div>
+            <div class="tile tile-c"><div class="text-lg sm:text-xl">⏱️</div><div class="text-sm sm:text-base">Practicable workload</div></div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Grading System</h3>
+          <p class="text-sm sm:text-base mb-4">Criterion‑referenced marking distinguishes categories of achievement across seven grade boundaries.</p>
+          <div class="table-wrap">
+            <table class="fancy">
+              <thead><tr><th>Grade</th><th>Mark Range</th><th>Status</th><th class="hidden sm:table-cell">Description</th></tr></thead>
+              <tbody>
+                <tr><td class="font-bold">A*</td><td>≥ 80%</td><td class="text-green-700 font-semibold">Pass</td><td class="text-xs sm:text-sm hidden sm:table-cell">Exceptional achievement</td></tr>
+                <tr><td class="font-bold">A</td><td>70–79%</td><td class="text-green-700 font-semibold">Pass</td><td class="text-xs sm:text-sm hidden sm:table-cell">Excellent achievement</td></tr>
+                <tr><td class="font-bold">B</td><td>60–69%</td><td class="text-green-700 font-semibold">Pass</td><td class="text-xs sm:text-sm hidden sm:table-cell">Good achievement</td></tr>
+                <tr><td class="font-bold">C</td><td>50–59%</td><td class="text-green-700 font-semibold">Pass</td><td class="text-xs sm:text-sm hidden sm:table-cell">Satisfactory achievement</td></tr>
+                <tr><td class="font-bold">D</td><td>40–49%</td><td class="text-orange-600 font-semibold">Pass (min)</td><td class="text-xs sm:text-sm hidden sm:table-cell">Threshold achievement</td></tr>
+                <tr><td class="font-bold">E</td><td>30–39%</td><td class="text-red-600 font-semibold">Fail</td><td class="text-xs sm:text-sm hidden sm:table-cell">Below threshold</td></tr>
+                <tr><td class="font-bold">F</td><td>0–29%</td><td class="text-red-600 font-semibold">Fail</td><td class="text-xs sm:text-sm hidden sm:table-cell">Significant gaps</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Board of Examiners</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div class="tile tile-a"><div class="text-lg sm:text-xl">🎓</div><div><span class="font-black text-sm sm:text-base">Purpose</span><br><span class="text-xs sm:text-sm">Oversees assessment and recommends awards; meets annually + re‑sit committees</span></div></div>
+            <div class="tile tile-b"><div class="text-lg sm:text-xl">👥</div><div><span class="font-black text-sm sm:text-base">Membership</span><br><span class="text-xs sm:text-sm">Chief Examiner, Subject Leaders, Board Secretary</span></div></div>
+            <div class="tile tile-d"><div class="text-lg sm:text-xl">🗂️</div><div><span class="font-black text-sm sm:text-base">Results</span><br><span class="text-xs sm:text-sm">Chair signs decisions; published within 5 working days by Student Number</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="crystal rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 sec hidden-sec" id="sec-4" style="background:var(--tint-d)">
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4">Appeals & Academic Integrity</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Assessment Penalties</h3>
+          <div class="p-4 rounded-xl bg-white/60 border border-black/10">
+            <p class="text-sm sm:text-base">Penalties are applied by the Board of Examiners when determining final marks. These may be waived based on valid extenuating circumstances or, exceptionally, at the Board's discretion with reasons recorded.</p>
+            <div class="mt-3 text-xs sm:text-sm opacity-75">
+              <strong>Note:</strong> All penalty decisions are subject to the appeals process outlined below.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Review of Marks (Appeals Process)</h3>
+          <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+            <div class="p-4 sm:p-5 rounded-xl bg-white/70 border border-black/10">
+              <div class="text-xs sm:text-sm font-bold opacity-70 mb-2">VALID GROUNDS FOR APPEAL</div>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 mb-3">
+                <li class="text-xs sm:text-sm"><strong>Material/significant administrative error</strong> in the assessment process</li>
+                <li class="text-xs sm:text-sm"><strong>Procedural irregularity</strong> that affected the assessment outcome</li>
+              </ul>
+              <div class="p-2 sm:p-3 rounded-lg bg-red-50 border border-red-200">
+                <p class="text-xs text-red-800 font-semibold">IMPORTANT: Academic judgement cannot be appealed.</p>
+              </div>
+            </div>
+            
+            <div class="p-4 sm:p-5 rounded-xl bg-white/70 border border-black/10">
+              <div class="text-xs sm:text-sm font-bold opacity-70 mb-2">APPEALS PROCESS</div>
+              <ol class="list-decimal list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                <li>Write to the <strong>Chief Examiner</strong> within <strong>10 working days</strong> of result publication</li>
+                <li>Attach the original assessed work to your appeal</li>
+                <li>If valid grounds exist, remark by independent academic</li>
+                <li>Final mark may increase, decrease, or remain unchanged</li>
+                <li>No further appeal permitted after remarking</li>
+                <li>Systemic issues trigger review of all subject scripts</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="mt-4 p-4 rounded-xl bg-blue-50 border border-blue-200">
+            <div class="text-xs sm:text-sm font-bold text-blue-800 mb-1">EXTENUATING CIRCUMSTANCES</div>
+            <p class="text-xs sm:text-sm text-blue-700">Students experiencing circumstances beyond their control that may affect assessment performance should submit extenuating circumstances forms as soon as possible. The Board will consider these when making final decisions.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="pager">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3 flex items-center justify-between gap-2 sm:gap-3">
+      <a href="iufp-partner-welcome.html" class="btn btn-ghost text-xs sm:text-sm">← Return to Welcome</a>
+      <div class="text-xs sm:text-sm opacity-80 text-center font-medium">Section <span id="secNo">1</span> of <span id="secTotal">4</span></div>
+      <button id="nextBtn" class="btn btn-primary text-xs sm:text-sm">Next →</button>
+    </div>
+  </div>
+
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 text-xs opacity-80 text-center sm:text-left">© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const sections = Array.from(document.querySelectorAll('.sec'));
+    let cur = 0;
+    const secNo = document.getElementById('secNo');
+    const total = document.getElementById('secTotal');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    function show(i){
+      sections.forEach((s,idx)=>{ 
+        s.classList.toggle('hidden-sec', idx!==i); 
+      });
+      secNo.textContent = (i+1);
+      nextBtn.textContent = (i === sections.length-1) ? 'Return to Welcome' : 'Next →';
+    }
+    
+    nextBtn.addEventListener('click', ()=>{
+      if(cur === sections.length-1){ 
+        window.location.href = 'iufp-partner-welcome.html';
+      } else { 
+        cur++; 
+        show(cur);
+        window.scrollTo({top:0, behavior:'smooth'});
+      }
+    });
+    
+    total.textContent = sections.length;
+    show(cur);
+
+    // Touch gesture support for mobile
+    let startX = 0;
+    let startY = 0;
+    
+    document.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchend', e => {
+      if (!startX || !startY) return;
+      
+      let endX = e.changedTouches[0].clientX;
+      let endY = e.changedTouches[0].clientY;
+      
+      let diffX = startX - endX;
+      let diffY = startY - endY;
+      
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0 && cur < sections.length - 1) {
+          // Swipe left - next
+          cur++;
+          show(cur);
+          window.scrollTo({top:0, behavior:'smooth'});
+        } else if (diffX < 0 && cur > 0) {
+          // Swipe right - previous
+          cur--;
+          show(cur);
+          window.scrollTo({top:0, behavior:'smooth'});
+        }
+      }
+      
+      startX = 0;
+      startY = 0;
+    });
+  </script>
+</body>
+</html>

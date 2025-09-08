@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Operational Guidelines for Partner Schools</title>
+  <meta name="description" content="Comprehensive operational guidance for IUFP Partner Schools covering applications, course structure, examinations, results, admissions, grading and quality assurance." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .btn{border-radius:14px;padding:1rem 1.2rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;min-width:44px}
+    .btn-gold{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    
+    .section-card{border-radius:20px; padding:1.5rem 1.25rem; border:2px solid rgba(0,0,0,.06); margin-bottom:1.5rem}
+    .section-a{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.12)); border-color: rgba(25,55,109,.15)}
+    .section-b{background:linear-gradient(135deg, rgba(20,184,166,.08), rgba(20,184,166,.15)); border-color: rgba(20,184,166,.15)}
+    .section-c{background:linear-gradient(135deg, rgba(167,139,250,.08), rgba(167,139,250,.15)); border-color: rgba(167,139,250,.15)}
+    .section-d{background:linear-gradient(135deg, rgba(11,36,71,.04), rgba(11,36,71,.10)); border-color: rgba(11,36,71,.12)}
+    .info-box{border-radius:12px; padding:1rem; border:1px solid rgba(0,0,0,.08); background:#fff}
+    .bank-details{background:#fff;border:1px dashed rgba(0,0,0,.25); border-radius:12px; padding:1rem; font-family:monospace}
+    
+    /* Enhanced Responsive Design */
+    @media (max-width: 768px) {
+      .btn{padding:1rem 1.5rem;font-size:16px}
+      .brand-header nav { gap: 0.75rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+      .section-card { padding: 1rem 0.875rem; }
+      h1 { font-size: 2rem !important; }
+      h2 { font-size: 1.5rem !important; }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+      }
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="iufp-partner-welcome.html">← Partner Welcome</a>
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="iufp-partner-welcome.html">← Partner Welcome</a>
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-6">
+      <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 items-center">
+        <div class="lg:col-span-2 text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">Operational Guidelines for Partner Schools</h1>
+          <div class="mt-2 flex items-center gap-2">
+            <span class="btn btn-ghost text-xs px-2 py-1">Page 1 of 2</span>
+          </div>
+          <p class="mt-3 text-base sm:text-lg opacity-95">
+            Comprehensive guidance for approved IUFP Partner Schools covering student applications, course delivery, examinations, results, university admissions and quality assurance.
+          </p>
+          <div class="mt-4 sm:mt-5 flex flex-wrap gap-2 justify-center lg:justify-start">
+            <span class="btn btn-ghost text-xs">ATHE‑endorsed</span>
+            <span class="btn btn-ghost text-xs">Secure Exams</span>
+            <span class="btn btn-ghost text-xs">University Admissions</span>
+          </div>
+        </div>
+        <div class="justify-self-center lg:justify-self-end">
+          <div class="crystal rounded-2xl p-4 flex items-center justify-center gap-4 max-w-xs">
+            <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 w-auto flex-shrink-0">
+            <img src="athe-logo.png" alt="ATHE logo" class="h-10 w-auto flex-shrink-0">
+          </div>
+          <p class="text-xs opacity-70 mt-2 text-center lg:text-left max-w-xs">IUFP is an ATHE Endorsed Programme (Ofqual‑regulated awarding organisation).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pb-8 sm:pb-12">
+      
+      <!-- Admissions Criteria & Applications -->
+      <div class="section-card section-a">
+        <h2 class="text-xl sm:text-2xl font-extrabold mb-3">Admissions Criteria & Application Process</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="info-box">
+            <h3 class="font-bold text-sm mb-2 opacity-70">ADMISSIONS CRITERIA</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Minimum age <strong>16</strong>; completed secondary/high school</li>
+              <li><strong>5 Credits</strong> including English and Mathematics at GCSE 'O' Level (or equivalent)</li>
+            </ul>
+            <p class="text-xs opacity-70 mt-2">Late applications may be accepted in exceptional cases.</p>
+          </div>
+          <div class="info-box">
+            <h3 class="font-bold text-sm mb-2 opacity-70">APPLICATION PROCESS</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Apply online via <a class="underline text-blue-600" href="https://www.iufp.co.uk/students/">iufp.co.uk/students</a> or download paper form</li>
+              <li>Partner Schools forward completed applications to IUFP Global Head Office</li>
+              <li>IUFP confirms acceptance to Partner School by email</li>
+            </ul>
+            <p class="text-xs opacity-70 mt-2">Submit by the <strong>third Friday in September</strong> for September/October starts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Structure -->
+      <div class="section-card section-b">
+        <h2 class="text-xl sm:text-2xl font-extrabold mb-3">Course Structure & Subjects</h2>
+        <p class="mb-4 text-sm">Six subjects completed over one academic year: <strong>3 Core subjects</strong> (September–December) and <strong>3 Elective subjects</strong> (January–March & April–June).</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="info-box">
+            <h3 class="font-bold text-sm mb-2 opacity-70">CORE SUBJECTS</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Academic English</li>
+              <li>Study Skills</li>
+              <li>IT Applications</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h3 class="font-bold text-sm mb-2 opacity-70">ELECTIVE SUBJECTS</h3>
+            <p class="text-sm">Accounting, Biology, Business Studies, Chemistry, Computing, Economics, Fine Art, Government & Politics, Law, Mathematics, Physics, Psychology, Sociology.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acceptance Fee & Payment -->
+      <div class="section-card section-c">
+        <h2 class="text-xl sm:text-2xl font-extrabold mb-3">Acceptance Fee & Payment</h2>
+        <p class="mb-4 text-sm">Remit <strong>at least 1 week before</strong> Partner School classes start (January/September). Confirm remittance with student names list.</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="md:col-span-2">
+            <h3 class="font-bold text-sm mb-2 opacity-70">BANK DETAILS</h3>
+            <div class="bank-details text-sm">
+              <div><strong>Account Name:</strong> IUFP Global Limited</div>
+              <div><strong>Account Number:</strong> 29584868</div>
+              <div><strong>Sort Code:</strong> 30-90-99</div>
+              <div><strong>Bank:</strong> Lloyds Bank Plc.</div>
+              <div><strong>BIC:</strong> LOYDGB21368</div>
+              <div><strong>IBAN:</strong> GB94LOYD30909929584868</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <h3 class="font-bold text-sm mb-2 opacity-70">TIP</h3>
+            <p class="text-sm">Email remittance confirmation and student list to speed up VLE activation. International transfers accepted.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="crystal rounded-2xl p-4 sm:p-6 md:p-7 mt-6 sm:mt-8" style="background:var(--tint-c)">
+        <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 items-center text-center lg:text-left">
+          <div class="lg:col-span-2">
+            <h2 class="text-xl sm:text-2xl font-extrabold">Continue to Page 2</h2>
+            <p class="mt-2 text-xs sm:text-sm opacity-90">
+              Examination conduct, assessment & grading, university admissions, and quality assurance guidelines.
+            </p>
+          </div>
+          <div class="justify-self-center lg:justify-self-end flex gap-3">
+            <a href="iufp-partner-welcome.html" class="btn btn-ghost">← Return</a>
+            <a href="iufp-operational-guidelines-2.html" class="btn btn-gold">Next Page →</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <div class="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:py-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div class="text-center md:text-left">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 sm:h-14 lg:h-16 w-auto mb-2 sm:mb-3 mx-auto md:mx-0">
+        <p class="opacity-95 text-xs sm:text-sm">
+          IUFP Global Education UK<br>
+          Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, Aldgate, London EC3A 7BB
+        </p>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Quick Links</h4>
+        <ul class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-semibold mb-2 text-sm sm:text-base">Partner Support</h4>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+          <a href="contact.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm">Contact Support</a>
+          <a href="iufp-partner-welcome.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">VLE Portal</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-5xl mx-auto px-4 py-3 sm:py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
+          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
+          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

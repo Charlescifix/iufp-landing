@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Application & Payment Process (Partner Schools)</title>
+  <meta name="description" content="A streamlined workflow for IUFP student applications and fee management at Partner Schools." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .pill{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .6rem;font-weight:800;background:#fff}
+    .btn{border-radius:14px;padding:1rem 1.2rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;min-width:44px}
+    .btn-primary{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    .step{border-radius:16px; padding:1rem 1.1rem; border:1px solid rgba(0,0,0,.08)}
+    .step-a{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.12))}
+    .step-b{background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.18))}
+    .step-c{background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.20))}
+    .step-d{background:linear-gradient(135deg, rgba(11,36,71,.05), rgba(11,36,71,.11))}
+    .bank{background:#fff;border:1px dashed rgba(0,0,0,.25); border-radius:14px; padding:1rem}
+    
+    /* Enhanced Responsive Design */
+    @media (max-width: 768px) {
+      .btn{padding:1rem 1.5rem;font-size:16px}
+      .brand-header nav { gap: 0.75rem; }
+      .brand-header .brand-link { font-size: 0.875rem; }
+      .step { padding: 0.75rem 0.875rem; }
+      h1 { font-size: 2rem !important; }
+      .pill { padding: 0.2rem 0.5rem; font-size: 0.75rem; }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .brand-header nav { gap: 1rem; }
+      .brand-header .brand-link { font-size: 1rem; }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+      }
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="/aboutus/">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+        <a class="brand-link hover:opacity-90" href="/payment/">Payments</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="/aboutus/">About IUFP</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+        <a class="brand-link" href="/payment/">Payments</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-4 sm:pb-6">
+      <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 items-center">
+        <div class="lg:col-span-2 text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-black leading-tight">Application & Payment Process</h1>
+          <p class="mt-3 text-base sm:text-lg opacity-95">A streamlined, step‑by‑step workflow for IUFP student applications and fee management at Partner Schools.</p>
+          <div class="mt-4 sm:mt-5 flex flex-wrap gap-2 justify-center lg:justify-start"><span class="pill">ATHE‑endorsed</span><span class="pill">VLE‑ready</span><span class="pill">Secure Admissions</span></div>
+        </div>
+        <div class="justify-self-center lg:justify-self-end">
+          <div class="crystal rounded-2xl p-4 flex items-center justify-center gap-4 max-w-xs">
+            <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 w-auto flex-shrink-0">
+            <img src="athe-logo.png" alt="ATHE logo" class="h-10 w-auto flex-shrink-0">
+          </div>
+          <p class="text-xs opacity-70 mt-2 text-center lg:text-left max-w-xs">IUFP is an ATHE Endorsed Programme (Ofqual‑regulated awarding organisation).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pb-8 sm:pb-12">
+      <div class="grid sm:grid-cols-2 gap-4">
+            <div class="step step-a"><div class="text-xs font-bold opacity-70">STEP 1</div>
+              <h3 class="font-extrabold text-lg">Complete Application Form</h3>
+              <p class="text-sm opacity-90 mt-1">Students complete the <strong>Paper</strong> or <strong>Online</strong> Application (via <a class="underline" href="https://www.iufp.co.uk/students/">iufp.co.uk/students</a>). Attach:</p>
+              <ul class="list-disc list-inside text-sm mt-2 space-y-1"><li>Recent passport photo</li><li>‘O’ Level/IGCSE results — <strong>5 Credits incl. English & Mathematics</strong></li><li>IELTS (if required by progression university)</li><li>Passport biodata page</li></ul>
+            </div>
+            <div class="step step-b"><div class="text-xs font-bold opacity-70">STEP 2</div>
+              <h3 class="font-extrabold text-lg">IUFP Acknowledgement</h3>
+              <p class="text-sm opacity-90 mt-1">IUFP London acknowledges receipt of the completed application within <strong>48 hours</strong>.</p>
+            </div>
+            <div class="step step-c"><div class="text-xs font-bold opacity-70">STEP 3</div>
+              <h3 class="font-extrabold text-lg">Acceptance Letter & Invoice</h3>
+              <p class="text-sm opacity-90 mt-1">Successful students receive an <strong>Acceptance Letter</strong> via the Partner School contact. The letter includes the <strong>Acceptance Fee: £895.00</strong> (excludes UCAS £28.95 & ATHE certificate £20.00).</p>
+            </div>
+            <div class="step step-d"><div class="text-xs font-bold opacity-70">STEP 4</div>
+              <h3 class="font-extrabold text-lg">Payment (within 3 working days)</h3>
+              <p class="text-sm opacity-90 mt-1">Pay into the IUFP Global Limited (UK) account:</p>
+              <div class="bank mt-2 text-sm">
+                <div><strong>Account Name:</strong> IUFP Global Limited</div>
+                <div><strong>Account Number:</strong> 29584868</div>
+                <div><strong>Sort Code:</strong> 30-90-99</div>
+                <div><strong>Bank:</strong> Lloyds Bank Plc.</div>
+                <div><strong>BIC:</strong> LOYDGB21368</div>
+                <div><strong>IBAN:</strong> GB94LOYD30909929584868</div>
+              </div>
+              <p class="text-xs opacity-70 mt-2">Payment window: up to <strong>3 working days</strong> from invoice date.</p>
+            </div>
+            <div class="step step-a"><div class="text-xs font-bold opacity-70">STEP 5</div>
+              <h3 class="font-extrabold text-lg">Receipt & VLE Access</h3>
+              <p class="text-sm opacity-90 mt-1">Upon full payment, IUFP issues a receipt and grants immediate <strong>VLE access</strong> (syllabuses, scheme of work, e‑books, past papers).</p>
+            </div>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-3 sm:px-4 pb-8 sm:pb-12">
+      <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-c)">
+        <div class="grid lg:grid-cols-3 gap-6 items-center">
+          <div class="lg:col-span-2">
+            <h2 class="text-2xl font-extrabold">Ready to proceed?</h2>
+            <p class="mt-2 text-sm opacity-90">Partner Schools can submit completed applications and remittance confirmations directly to IUFP. Students can apply online or via their Partner School, then activate VLE access once payment is confirmed.</p>
+          </div>
+          <div class="justify-self-end flex flex-col gap-3"><a href="/students/apply" class="btn btn-primary text-center">Apply Online</a><a href="/contact-us/" class="btn btn-ghost text-center">Ask Admissions</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <div class="max-w-5xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div><img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16"><p class="opacity-95 text-sm">IUFP Global Education UK<br>Beaufort House Rm 1134,<br>15 St. Botolph Street, Aldgate, London EC3A 7BB</p></div>
+      <div><h4 class="font-semibold mb-2">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li><li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li><li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li><li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li></ul></div>
+      <div><h4 class="font-semibold mb-2">Need help?</h4><div class="flex gap-3"><a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold">Contact Support</a></div></div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-5xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4"><a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a><a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a><a href="/terms/" class="underline-offset-4 hover:underline">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
