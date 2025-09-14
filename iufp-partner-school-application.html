@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Partner School Application (v2025)</title>
+  <meta name="description" content="Apply to become an IUFP Partner School. Organised, multi‑step form aligned to the official 2025 application requirements." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447;           
+      --brand-nav-text:#ffffff;
+      --brand-primary:#19376d;          
+      --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447;
+      --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); 
+      --tint-b: rgba(20,184,166,.12); 
+      --tint-c: rgba(167,139,250,.14); 
+      --tint-d: rgba(11,36,71,.05);
+      --accent: linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95));
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    
+    .jelly-bg{position:fixed;inset:0;overflow:hidden;z-index:0;
+      background:
+        radial-gradient(60vw 60vw at 10% -10%, rgba(25,55,109,.08), transparent 60%),
+        radial-gradient(50vw 50vw at 90% 10%, rgba(11,36,71,.10), transparent 60%);
+      filter:saturate(115%);
+    }
+    .blob{position:absolute;border-radius:9999px;opacity:.5;filter:blur(40px);mix-blend-mode:screen}
+    .blob:nth-child(1){width:28rem;height:28rem;left:-6rem;top:-4rem;background:rgba(25,55,109,.08);animation:float1 16s ease-in-out infinite}
+    .blob:nth-child(2){width:24rem;height:24rem;right:-4rem;top:6rem;background:rgba(11,36,71,.10);animation:float2 18s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .card{border-radius:18px; border:1px solid rgba(0,0,0,.08);}
+    
+    /* Button system */
+    .btn{border-radius:12px;padding:.9rem 1.15rem;font-weight:600;display:inline-flex;align-items:center;gap:.55rem;transition:all 0.2s ease;text-decoration:none;cursor:pointer;min-height:48px}
+    .btn-primary{background:var(--accent); color:#0b2447;border:none}
+    .btn-primary:hover{filter:saturate(110%); box-shadow:0 12px 26px rgba(0,0,0,.18);transform:translateY(-2px)}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12);color:#0b2447}
+    .btn-ghost:hover{background:#f8fafc;border-color:rgba(0,0,0,.18);transform:translateY(-1px)}
+    .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+    
+    .field{display:flex;flex-direction:column;gap:.5rem}
+    .field label{font-size:0.875rem;color:#374151;margin-bottom:0.25rem;line-height:1.4}
+    .field input, .field select, .field textarea{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem .95rem;outline:none;font-size:0.875rem;transition:all 0.2s ease}
+    .field input:focus, .field select:focus, .field textarea:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+    .field input:invalid:not(:focus), .field select:invalid:not(:focus), .field textarea:invalid:not(:focus){border-color:#dc2626}
+    .field input[type="file"]{padding:0.5rem;border:2px dashed rgba(0,0,0,.12);background:#f8fafc}
+    .field input[type="file"]:hover{border-color:rgba(0,0,0,.18)}
+    
+    .stepper{height:8px;background:rgba(0,0,0,.06);border-radius:9999px;overflow:hidden}
+    .stepper > div{height:100%;background:var(--accent);width:0%;transition:width 0.3s ease}
+    .badge{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .6rem;font-weight:500;background:#fff}
+    .hidden-sec{display:none}
+    
+    /* Enhanced Responsive Design System */
+    .responsive-text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .responsive-text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .responsive-text-base { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-lg { font-size: 0.9375rem; line-height: 1.375rem; }
+    .responsive-text-xl { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .responsive-text-3xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-4xl { font-size: 1.875rem; line-height: 2rem; }
+    
+    @media (min-width: 576px) {
+      .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
+      .responsive-text-xl { font-size: 1.125rem; line-height: 1.625rem; }
+      .responsive-text-2xl { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-3xl { font-size: 1.75rem; line-height: 2rem; }
+      .responsive-text-4xl { font-size: 2.25rem; line-height: 1; }
+    }
+    
+    @media (min-width: 768px) {
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-xl { font-size: 1.375rem; line-height: 1.75rem; }
+      .responsive-text-2xl { font-size: 1.625rem; line-height: 2rem; }
+      .responsive-text-3xl { font-size: 2rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 2.75rem; line-height: 1; }
+    }
+    
+    @media (min-width: 1024px) {
+      .responsive-text-lg { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 1.875rem; }
+      .responsive-text-2xl { font-size: 1.75rem; line-height: 1; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
+    }
+    
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 640px) {
+      .brand-header .max-w-7xl { padding: 0.75rem 1rem; }
+      .brand-header img { height: 3.5rem; }
+      .crystal { padding: 0.75rem 1rem !important; }
+      .field input, .field select, .field textarea { font-size: 16px; /* Prevent zoom on iOS */ }
+      .card { border-radius: 12px; }
+      
+      /* Form sections on mobile */
+      .sec { margin-top: 1rem !important; padding: 1rem !important; }
+      .sec h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+      
+      /* Grid adjustments */
+      .grid.md\:grid-cols-2 { grid-template-columns: 1fr; gap: 1rem; }
+      .grid.md\:grid-cols-3 { grid-template-columns: 1fr; gap: 1rem; }
+      .grid.lg\:grid-cols-3 { grid-template-columns: 1fr; gap: 1rem; }
+      
+      /* Button improvements */
+      .btn { padding: 0.75rem 1rem; font-size: 0.875rem; min-height: 44px; }
+      .field .grid.grid-cols-2 { gap: 0.5rem; }
+      .field .grid.grid-cols-3 { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+      .responsive-text-4xl { font-size: 1.75rem; line-height: 1.2; }
+      .stepper { height: 6px; }
+      
+      /* Tighter spacing on very small screens */
+      .sec { padding: 0.75rem !important; }
+      .field { gap: 0.25rem; }
+      .crystal.p-4 { padding: 0.75rem !important; }
+      
+      /* Stack checkboxes and radios vertically */
+      .field .grid.grid-cols-2:has(input[type="checkbox"]), 
+      .field .grid.grid-cols-2:has(input[type="radio"]) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .field .grid.grid-cols-3:has(input[type="radio"]) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .field .grid.grid-cols-4 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 768px) {
+      .brand-header img { height: 4.5rem; }
+      .sec { padding: 1.25rem !important; }
+      .grid.md\:grid-cols-2 { gap: 1.25rem; }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .sec { padding: 1.5rem !important; }
+      .grid.md\:grid-cols-2, .grid.md\:grid-cols-3 { gap: 1.5rem; }
+    }
+    
+    .bot-bubble{position:fixed;right:20px;bottom:80px;z-index:45}
+    .bot-panel{position:fixed;right:20px;bottom:152px;width:360px;max-width:calc(100vw - 40px);height:520px;max-height:calc(100vh - 180px);z-index:45;display:none}
+    @media (max-width: 480px) {
+      .bot-panel{right:10px;bottom:132px;width:calc(100vw - 20px);max-width:none;height:calc(100vh - 160px);max-height:none}
+      .bot-bubble{right:10px;bottom:70px}
+    }
+    .bot-open .bot-panel{display:block}
+    
+    @media print{
+      .no-print{display:none !important}
+      .card{box-shadow:none !important}
+      body{background:#fff}
+      .jelly-bg{display:none}
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen relative">
+  <div aria-hidden="true" class="jelly-bg"><span class="blob"></span><span class="blob"></span></div>
+  <header class="brand-header relative z-20 no-print">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto md:h-28" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+                onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+      </div>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section class="max-w-7xl mx-auto px-4 pt-8 md:pt-12">
+      <div class="grid lg:grid-cols-3 gap-6 items-start">
+        <div class="lg:col-span-2">
+          <h1 class="responsive-text-4xl font-bold leading-tight">Application to become an IUFP Partner School</h1>
+          <p class="mt-3 responsive-text-lg opacity-95">
+            IUFP Global Education UK • Beaufort House, Room 1134, 15 St. Botolph Street, London EC3A 7BB •
+            Tel: +44 20 8133-6420 • Email: <a class="underline" href="mailto:info@iufp.co.uk">info@iufp.co.uk</a> •
+            Web: <a class="underline" href="https://www.iufp.co.uk">www.iufp.co.uk</a>
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="badge">ATHE‑endorsed</span>
+            <span class="badge">Secure Exams</span>
+            <span class="badge">Quality Assured</span>
+          </div>
+        </div>
+        <aside class="crystal card p-4">
+          <div class="text-sm opacity-85">
+            <div class="font-semibold mb-1">📋 Application Notes</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Please complete all sections truthfully.</li>
+              <li>Upload the required policy documents.</li>
+              <li>Processing time: typically <strong>48 hours</strong> from receipt.</li>
+            </ul>
+            <div class="text-xs opacity-70 mt-2">Fields & sections based on the official 2025 Partner School Application. Source: IUFP - Application Form for IUFP Partner Schools - v2025.</div>
+          </div>
+          
+          <!-- ATHE Logo in white space below -->
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <div class="flex items-center justify-center mb-2">
+              <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE Logo">
+            </div>
+            <div class="text-center">
+              <div class="font-semibold text-sm text-gray-800">ATHE Endorsed Programme</div>
+              <div class="text-xs text-gray-600 opacity-80">Trusted Quality Assurance</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="mt-6 stepper no-print"><div id="bar"></div></div>
+      <div class="mt-2 text-sm opacity-80 no-print">Section <span id="secNo">1</span> of <span id="secTotal">7</span></div>
+    </section>
+
+    <form class="max-w-7xl mx-auto px-4 pb-32 md:pb-28" action="/partner-schools/apply" method="post" enctype="multipart/form-data">
+      <section class="crystal card p-6 md:p-7 mt-6 sec" id="sec-1" style="background:var(--tint-a)">
+        <h2 class="text-2xl font-semibold mb-4">1) Your School</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="field"><label class="font-medium">School Name <span class="text-red-500">*</span></label><input name="school_name" required placeholder="Enter your school's full name"></div>
+          <div class="field"><label class="font-medium">Website</label><input name="school_website" type="url" placeholder="https://www.yourschool.edu"></div>
+          <div class="field md:col-span-2"><label class="font-medium">Address <span class="text-red-500">*</span></label><textarea name="school_address" rows="2" required placeholder="Complete school address including street, city, and region"></textarea></div>
+          <div class="field"><label class="font-medium">Post Code (if any)</label><input name="school_postcode" placeholder="Postal/ZIP code"></div>
+          <div class="field"><label class="font-medium">Country <span class="text-red-500">*</span></label><input name="school_country" required placeholder="Country where school is located"></div>
+          <div class="field"><label class="font-medium">Telephone <span class="text-red-500">*</span></label><input name="school_tel" type="tel" required placeholder="+44 20 1234 5678"></div>
+          <div class="field"><label class="font-medium">Mobile</label><input name="school_mobile" type="tel" placeholder="+44 7700 123456"></div>
+          <div class="field md:col-span-2"><label class="font-medium">Email <span class="text-red-500">*</span></label><input type="email" name="school_email" required placeholder="info@yourschool.edu"></div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-2" style="background:var(--tint-b)">
+        <h2 class="text-2xl font-semibold mb-4">2) Contact Details</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="crystal p-4 rounded-xl bg-white/70 border border-black/10">
+            <div class="text-xs font-semibold opacity-70">HEAD OF SCHOOL</div>
+            <div class="grid gap-4 mt-2">
+              <div class="field"><label class="font-medium">Title</label>
+                <select name="hos_title"><option value="">Select Title</option><option>Dr.</option><option>Mr.</option><option>Mrs.</option><option>Miss</option><option>Ms.</option><option>Prof.</option><option>Other</option></select>
+              </div>
+              <div class="field"><label class="font-medium">Surname <span class="text-red-500">*</span></label><input name="hos_surname" required placeholder="Family name"></div>
+              <div class="field"><label class="font-medium">First & Other Names <span class="text-red-500">*</span></label><input name="hos_firstnames" required placeholder="Given names"></div>
+              <div class="field"><label class="font-medium">Nationality</label><input name="hos_nationality" placeholder="e.g., British, Nigerian, etc."></div>
+              <div class="field"><label class="font-medium">Telephone</label><input name="hos_tel" type="tel" placeholder="+44 20 1234 5678"></div>
+              <div class="field"><label class="font-medium">Mobile</label><input name="hos_mobile" type="tel" placeholder="+44 7700 123456"></div>
+              <div class="field"><label class="font-medium">Email <span class="text-red-500">*</span></label><input type="email" name="hos_email" required placeholder="head@yourschool.edu"></div>
+            </div>
+          </div>
+          <div class="crystal p-4 rounded-xl bg-white/70 border border-black/10">
+            <div class="text-xs font-semibold opacity-70">PROGRAMME DIRECTOR</div>
+            <div class="grid gap-4 mt-2">
+              <div class="field"><label class="font-medium">Title</label>
+                <select name="pd_title"><option value="">Select Title</option><option>Dr.</option><option>Mr.</option><option>Mrs.</option><option>Miss</option><option>Ms.</option><option>Prof.</option><option>Other</option></select>
+              </div>
+              <div class="field"><label class="font-medium">Surname <span class="text-red-500">*</span></label><input name="pd_surname" required placeholder="Family name"></div>
+              <div class="field"><label class="font-medium">First & Other Names <span class="text-red-500">*</span></label><input name="pd_firstnames" required placeholder="Given names"></div>
+              <div class="field"><label class="font-medium">Nationality</label><input name="pd_nationality" placeholder="e.g., British, Nigerian, etc."></div>
+              <div class="field"><label class="font-medium">Telephone/Mobile</label><input name="pd_telmobile" type="tel" placeholder="+44 7700 123456"></div>
+              <div class="field"><label class="font-medium">Email <span class="text-red-500">*</span></label><input type="email" name="pd_email" required placeholder="director@yourschool.edu"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-3" style="background:var(--tint-c)">
+        <h2 class="text-2xl font-semibold mb-4">3) About Your School</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="field">
+            <label class="font-medium">Date of Establishment</label>
+            <div class="grid grid-cols-2 gap-3">
+              <select name="est_month">
+                <option value="">Select Month</option>
+                <option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option>
+                <option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
+              </select>
+              <input name="est_year" type="number" min="1800" max="2024" placeholder="Year (e.g., 1995)">
+            </div>
+          </div>
+          <div class="field">
+            <label class="font-medium">Type of Establishment</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="type_secondary"> <span>Secondary School</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="type_college"> <span>College</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="type_centre"> <span>Educational Centre</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="font-medium">Ownership</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="ownership" value="Private"> <span>Private</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="ownership" value="Government"> <span>Government Owned</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="font-medium">GCE A Level Offered</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="alevel_none"> <span>None at Present</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="alevel_edexcel"> <span>Edexcel</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="alevel_aqa"> <span>AQA</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="alevel_ocr"> <span>OCR</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">Do you charge tuition fees?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="fees" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="fees" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">If Yes, amount</label><input name="fees_amount" placeholder="e.g., 1,500 USD/term or 500 GBP/month"></div>
+          <div class="field"><label class="font-medium">Day or Boarding?</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="boarding" value="Day"> <span>Day</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="boarding" value="Boarding"> <span>Boarding</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="boarding" value="Both"> <span>Both</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">Number of current Students</label><input name="num_students" type="number" min="0" placeholder="Total enrolled students"></div>
+          <div class="field"><label class="font-medium">Number of Classrooms</label><input name="num_classrooms" type="number" min="0" placeholder="Available classrooms"></div>
+          <div class="field"><label class="font-medium">Library/Reading Room?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="library" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="library" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div class="field md:col-span-2"><label class="font-medium">Other student facilities (e.g., Common Room)</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="common_room" value="Yes"> <span>Common Room: Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="common_room" value="No"> <span>Common Room: No</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">Teaching Aids</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="aid_ppt"> <span>PowerPoint</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="aid_cd"> <span>CD Player/TV (English)</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="aid_ohp"> <span>Overhead Projectors</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">Computer facilities?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="computers" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="computers" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">If Yes, how many?</label><input name="computers_count" type="number" min="0" placeholder="Number of computers"></div>
+          <div class="field"><label class="font-medium">Has your school taught GCE A Levels or similar before?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="taught_alevels" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="taught_alevels" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">If Yes, for how many years?</label><input name="taught_alevels_years" type="number" min="0" max="50" placeholder="Years of experience"></div>
+          <div class="field md:col-span-2"><label class="font-medium">Do you have qualified staff to teach IUFP?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="qualified_staff" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="qualified_staff" value="No"> <span>No</span></label>
+            </div>
+            <textarea name="qualified_staff_details" rows="2" placeholder="Please provide details"></textarea>
+          </div>
+          <div class="field md:col-span-2"><label class="font-medium">Mechanism to secure IUFP examination papers?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="exam_security" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="exam_security" value="No"> <span>No</span></label>
+            </div>
+            <textarea name="exam_security_details" rows="2" placeholder="Please provide details"></textarea>
+          </div>
+          <div class="field md:col-span-2"><label class="font-medium">Resources for marketing & student recruitment?</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="marketing_commit" value="Yes"> <span>Yes</span></label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="marketing_commit" value="No"> <span>No</span></label>
+            </div>
+            <textarea name="marketing_details" rows="2" placeholder="Please provide details"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-4" style="background:var(--tint-d)">
+        <h2 class="text-2xl font-semibold mb-4">4) Special Needs & Commencement</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="field md:col-span-2"><label class="font-medium">Do you have a Disability Strategy?</label><textarea name="disability_strategy" rows="3"></textarea></div>
+          <div class="field md:col-span-2"><label class="font-medium">Any other relevant information</label><textarea name="other_info" rows="3"></textarea></div>
+          <div class="field">
+            <label class="font-medium">When do you wish to start classes?</label>
+            <div class="grid grid-cols-2 gap-3">
+              <select name="start_month">
+                <option value="">Select Month</option>
+                <option value="January">January</option><option value="February">February</option><option value="March">March</option><option value="April">April</option><option value="May">May</option><option value="June">June</option>
+                <option value="July">July</option><option value="August">August</option><option value="September">September</option><option value="October">October</option><option value="November">November</option><option value="December">December</option>
+              </select>
+              <input name="start_year" type="number" min="2024" max="2030" placeholder="Year (e.g., 2025)">
+            </div>
+          </div>
+          <div class="field"><label class="font-medium">Expected number of IUFP students</label><input name="expected_students" type="number" min="1" max="500" placeholder="Estimated first-year intake"></div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-5" style="background:var(--tint-a)">
+        <h2 class="text-2xl font-semibold mb-4">5) About the IUFP</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="field md:col-span-2">
+            <label class="font-medium">How did you hear about the IUFP?</label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="hear_email"> <span>Email</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="hear_wom"> <span>Word of Mouth</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="hear_social"> <span>Social Media</span></label>
+              <label class="inline-flex items-center gap-2"><input type="checkbox" name="hear_other"> <span>Others</span></label>
+            </div>
+          </div>
+          <div class="field md:col-span-2"><label class="font-medium">If Other, please specify</label><input name="hear_other_text" placeholder="Please specify"></div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-6" style="background:var(--tint-b)">
+        <h2 class="text-2xl font-semibold mb-2">6) Checklist of Documents</h2>
+        <p class="text-sm opacity-80 mb-4">Upload or provide links to the following policies (PDF preferred).</p>
+        <div class="grid md:grid-cols-2 gap-6 mt-2">
+          <div class="field"><label class="font-medium">Health & Safety Policy</label><input type="file" name="doc_hs" accept=".pdf,.doc,.docx"></div>
+          <div class="field"><label class="font-medium">Equal Opportunity Policy</label><input type="file" name="doc_eo" accept=".pdf,.doc,.docx"></div>
+          <div class="field"><label class="font-medium">Staff Handbook</label><input type="file" name="doc_staff" accept=".pdf,.doc,.docx"></div>
+          <div class="field"><label class="font-medium">Student Recruitment Policy</label><input type="file" name="doc_recruit" accept=".pdf,.doc,.docx"></div>
+          <div class="field"><label class="font-medium">Student Welfare Policy</label><input type="file" name="doc_welfare" accept=".pdf,.doc,.docx"></div>
+        </div>
+      </section>
+
+      <section class="crystal card p-6 md:p-7 mt-6 sec hidden-sec" id="sec-7" style="background:var(--tint-c)">
+        <h2 class="text-2xl font-semibold mb-4">7) Declaration</h2>
+        <ol class="list-decimal list-inside text-sm space-y-2 mt-2">
+          <li>To the best of my knowledge, the institution is financially stable and able to meet commitments to staff and students.</li>
+          <li>All information provided is correct and supporting documents are genuine and accurate.</li>
+          <li>Claims made by staff regarding qualifications and experience have been reasonably verified.</li>
+          <li>I accept the final decision of IUFP regarding the outcome of the inspection.</li>
+          <li>I agree to indemnify IUFP against claims arising from inaccuracies in the information provided.</li>
+        </ol>
+        <div class="grid md:grid-cols-3 gap-5 mt-4">
+          <div class="field md:col-span-2"><label class="font-medium">Signed by Head of School or Programme Director</label><input name="sign_name" placeholder="Type full name" required></div>
+          <div class="field"><label class="font-medium">Date</label><input type="date" name="sign_date" required></div>
+        </div>
+        <p class="text-xs opacity-70 mt-3">Next Step: Scan & email the completed form to <a class="underline" href="mailto:info@iufp.co.uk">info@iufp.co.uk</a>. Typical response time is 48 hours from receipt.</p>
+
+        <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 no-print">
+          <a href="iufp-partner-welcome.html" class="btn btn-ghost text-center">← Return to Welcome</a>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="button" id="saveDraft" class="btn btn-ghost">💾 Save Draft (Local)</button>
+            <button type="submit" class="btn btn-primary">📤 Submit Application</button>
+          </div>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <div class="no-print" style="position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border-top:1px solid rgba(0,0,0,.08); box-shadow:0 -4px 12px rgba(0,0,0,.08)">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
+      <div class="flex items-center justify-between gap-2 sm:gap-3">
+        <button id="prevBtn" class="btn btn-ghost flex-shrink-0 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3">← Back</button>
+        <div class="text-xs sm:text-sm opacity-80 text-center font-medium px-2">
+          <div class="hidden sm:block">Section <span id="secNo2">1</span> of <span id="secTotal2">7</span></div>
+          <div class="sm:hidden"><span id="secNo2Mobile">1</span>/<span id="secTotal2Mobile">7</span></div>
+        </div>
+        <button id="nextBtn" class="btn btn-primary flex-shrink-0 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="brand-footer relative z-10 mt-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto mb-3 md:h-24">
+        <p class="opacity-95">
+          IUFP Global Education UK<br>
+          Beaufort House Rm 1134,<br>
+          15 St. Botolph Street, Aldgate, London EC3A 7BB
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
+          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
+          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Start Your Application</h4>
+        <div class="flex gap-3">
+          <a href="students.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e">IUFP Student</a>
+          <a href="partner-schools.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442">Partner School</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
+        <div class="space-x-4">
+          <span class="opacity-50">Privacy Policy</span>
+          <span class="opacity-50">Cookie Policy</span>
+          <span class="opacity-50">Terms</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="bot" class="bot-container no-print">
+    <div class="bot-bubble">
+      <button id="botToggle" aria-label="Open IUFP Assistant" class="rounded-full p-3 shadow-lg brand-primary"><span style="font-size:32px;line-height:1">🤖</span></button>
+    </div>
+    <div class="bot-panel rounded-2xl overflow-hidden" id="botPanel" role="dialog" aria-label="IUFP Assistant" style="background:linear-gradient(180deg, #0b2447, #19376d); border:1px solid rgba(255,255,255,.12)">
+      <div class="brand-primary px-4 py-3 flex items-center justify-between">
+        <strong>IUFP Assistant</strong>
+        <button onclick="document.body.classList.remove('bot-open')" aria-label="Close" class="underline">Close</button>
+      </div>
+      <iframe title="IUFP Assistant Chat"
+              src="https://iufp.up.railway.app/chat"
+              style="width:100%;height:100%;border:0;background:transparent;overflow:hidden"
+              sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const sections = Array.from(document.querySelectorAll('.sec'));
+    const bar = document.getElementById('bar');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const secNo = document.getElementById('secNo');
+    const secNo2 = document.getElementById('secNo2');
+    const total = sections.length;
+    document.getElementById('secTotal').textContent = total;
+    document.getElementById('secTotal2').textContent = total;
+    if(document.getElementById('secTotal2Mobile')) document.getElementById('secTotal2Mobile').textContent = total;
+    let cur = 0;
+
+    function show(i){
+      sections.forEach((s,idx)=> s.classList.toggle('hidden-sec', idx !== i));
+      const pct = Math.round(((i+1)/total)*100);
+      bar.style.width = pct + '%';
+      secNo.textContent = i+1;
+      secNo2.textContent = i+1;
+      if(document.getElementById('secNo2Mobile')) document.getElementById('secNo2Mobile').textContent = i+1;
+      prevBtn.disabled = (i===0);
+      nextBtn.textContent = (i===total-1) ? 'Finish' : 'Next →';
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    nextBtn.addEventListener('click', ()=>{
+      if(cur < total-1){ cur++; show(cur); } else { /* finished */ }
+    });
+    prevBtn.addEventListener('click', ()=>{
+      if(cur > 0){ cur--; show(cur); }
+    });
+
+    // simple local draft save
+    const form = document.querySelector('form');
+    const saveBtn = document.getElementById('saveDraft');
+    function saveDraft(){
+      const data = new FormData(form);
+      const obj = {};
+      data.forEach((v,k)=>{ if(!(v instanceof File)) obj[k]=v; });
+      localStorage.setItem('iufp_ps_application', JSON.stringify(obj));
+      alert('Draft saved locally in this browser.');
+    }
+    function loadDraft(){
+      try{
+        const obj = JSON.parse(localStorage.getItem('iufp_ps_application')||'{}');
+        for(const [k,v] of Object.entries(obj)){
+          const el = form.elements[k];
+          if(!el) continue;
+          if(el.type==='checkbox' || el.type==='radio'){
+            const els = form.querySelectorAll(`[name="${k}"]`);
+            els.forEach(e=>{ if(e.value===v || v==='on') e.checked=true; });
+          }else{
+            el.value = v;
+          }
+        }
+      }catch(e){}
+    }
+    if(saveBtn){ saveBtn.addEventListener('click', saveDraft); }
+    loadDraft();
+
+    show(cur);
+
+    // Chatbot functionality
+    document.getElementById('botToggle').addEventListener('click',()=>document.body.classList.toggle('bot-open'));
+    
+    // Form validation improvements
+    const requiredFields = form.querySelectorAll('[required]');
+    function validateStep(stepIndex) {
+      const currentSection = sections[stepIndex];
+      const stepFields = currentSection.querySelectorAll('[required]');
+      let isValid = true;
+      
+      stepFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#dc2626';
+          isValid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      return isValid;
+    }
+    
+    // Enhanced next button functionality
+    const originalNextHandler = nextBtn.onclick;
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      if (cur < total - 1) {
+        if (validateStep(cur)) {
+          cur++; 
+          show(cur);
+        } else {
+          alert('Please fill in all required fields before continuing.');
+        }
+      } else {
+        // On final step, validate entire form
+        let allValid = true;
+        for (let i = 0; i < total; i++) {
+          if (!validateStep(i)) {
+            allValid = false;
+            break;
+          }
+        }
+        
+        if (allValid) {
+          if (confirm('Are you ready to submit your application? This will send your application for review.')) {
+            form.submit();
+          }
+        } else {
+          alert('Please complete all required fields in all sections before submitting.');
+        }
+      }
+    });
+    
+    // Auto-save progress
+    let autoSaveTimer;
+    form.addEventListener('input', () => {
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(() => {
+        const formData = new FormData(form);
+        const obj = {};
+        formData.forEach((v,k) => { if(!(v instanceof File)) obj[k] = v; });
+        localStorage.setItem('iufp_ps_application_autosave', JSON.stringify(obj));
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
