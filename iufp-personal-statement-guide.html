@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP Students — Guide for Writing Personal Statements</title>
+  <meta name="description" content="A polished, student-first guide to crafting UK university personal statements, aligned with IUFP style and structure." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
+      --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
+      --accent: linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95));
+    }
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+    .crystal{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 32px rgba(0,0,0,.10);transition:transform .12s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .btn{border-radius:14px;padding:0.95rem 1.25rem;font-weight:900;display:inline-flex;align-items:center;gap:.55rem;transition:transform .12s ease, box-shadow .2s ease}
+    .btn-primary{background:var(--accent); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(0,0,0,.10)}
+    .pill{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.3rem .7rem;font-weight:800;background:#fff}
+    .tile{border-radius:18px;padding:1.15rem 1.2rem;font-weight:700;display:flex;align-items:flex-start;gap:.8rem;border:1px solid rgba(0,0,0,.08)}
+    .tile-a{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.12))}
+    .tile-b{background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.18))}
+    .tile-c{background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.20))}
+    .tile-d{background:linear-gradient(135deg, rgba(11,36,71,.05), rgba(11,36,71,.11))}
+    .accordion summary{cursor:pointer; list-style:none}
+    .accordion summary::-webkit-details-marker{display:none}
+    .badge{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.25rem .6rem;font-weight:800;background:#fff}
+    .tip{border-left:4px solid #19376d; padding-left:.75rem}
+    .hero-img{border-radius:22px; overflow:hidden; border:1px solid rgba(0,0,0,.06); box-shadow:0 20px 40px rgba(0,0,0,.12)}
+
+    /* Enhanced responsive design */
+    @media (max-width: 640px) {
+      .brand-header .max-w-7xl { padding: 0.75rem 1rem; }
+      .brand-header img { height: 4rem; }
+      .crystal { padding: 0.75rem 1rem !important; }
+    }
+
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .brand-header img { height: 5rem; }
+    }
+
+    /* Touch target improvements for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+
+      .brand-link::before {
+        display: none; /* Remove hover effects on touch devices */
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <header class="brand-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="iufp-about.html">About</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="iufp-about.html">About</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-6">
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">Guide for Writing Personal Statements (UK Universities)</h1>
+          <p class="mt-3 text-lg opacity-95">
+            A structured, step‑by‑step approach to telling your story powerfully — adapted from the official IUFP guide. fileciteturn13file0
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="pill">Clear structure</span>
+            <span class="pill">Course motivation</span>
+            <span class="pill">Career focus</span>
+          </div>
+          <div class="mt-5 flex gap-3 flex-wrap">
+            <a href="#template" class="btn btn-primary">Use the Template</a>
+            <a href="#examples" class="btn btn-ghost">See Examples</a>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60" alt="Students writing personal statements" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-12">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-a)">
+          <h2 class="text-2xl font-extrabold">What admissions want to see</h2>
+          <ul class="list-disc list-inside mt-2 space-y-2 text-[0.98rem]">
+            <li>Why you want to study your chosen course (e.g., Business, Computing, Engineering). fileciteturn13file0</li>
+            <li>How your background, subjects and experiences support your choice. fileciteturn13file0</li>
+            <li>Reasons for choosing a specific university — based on location, reputation, or course strength. fileciteturn13file0</li>
+            <li>Why the UK, and how the degree fits your career plans. fileciteturn13file0</li>
+          </ul>
+        </div>
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-d)">
+          <h2 class="text-2xl font-extrabold">Pro tips</h2>
+          <div class="grid gap-3">
+            <div class="tile tile-a"><div>🧭</div><div>Keep it focused and specific to your course.</div></div>
+            <div class="tile tile-b"><div>🔍</div><div>Reference a couple of relevant modules you’re excited about.</div></div>
+            <div class="tile tile-c"><div>🧩</div><div>Connect your past (subjects/activities) to your future ambitions.</div></div>
+            <div class="tile tile-d"><div>🕰️</div><div>Explain any education gaps with brief, honest context. fileciteturn13file0</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="template" class="max-w-7xl mx-auto px-4 pb-12">
+      <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-b)">
+        <h2 class="text-2xl font-extrabold">Personal Statement Template</h2>
+        <p class="text-sm opacity-80">Use these prompts to draft each paragraph, then refine for clarity and flow. Adapted from the IUFP guide. fileciteturn13file0</p>
+        <div class="grid md:grid-cols-2 gap-5 mt-4">
+          <div class="tile tile-a"><div>🔑</div><div><div class="font-black">1) Introduction</div><p class="text-sm">Introduce yourself and your motivation for the degree (and Foundation route, if applicable).</p></div></div>
+          <div class="tile tile-b"><div>📚</div><div><div class="font-black">2) Background & Motivation</div><p class="text-sm">Explain why you want this course and how your school subjects, projects or experiences led here.</p></div></div>
+          <div class="tile tile-c"><div>🧪</div><div><div class="font-black">3) Course Fit</div><p class="text-sm">Mention a few course modules and why they interest you; address any gaps or delays honestly. fileciteturn13file0</p></div></div>
+          <div class="tile tile-d"><div>🏛️</div><div><div class="font-black">4) Why University X</div><p class="text-sm">State your reasons (location, pedigree, course reputation) based on your research. fileciteturn13file0</p></div></div>
+          <div class="tile tile-a"><div>🇬🇧</div><div><div class="font-black">5) Why Study in the UK</div><p class="text-sm">Clarify your motivations for choosing the UK as a study destination. fileciteturn13file0</p></div></div>
+          <div class="tile tile-b"><div>🎯</div><div><div class="font-black">6) Career Plans</div><p class="text-sm">Describe your goals and how this degree will help you achieve them. fileciteturn13file0</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="max-w-7xl mx-auto px-4 pb-12">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-a)">
+          <div class="text-xs font-bold opacity-70">EXAMPLE OPENING</div>
+          <p class="mt-2 text-[0.98rem]">“Design has always been my language; in secondary school I led a robotics club that turned ideas into prototypes. Studying <em>Computer Science with AI</em> at University X will elevate my problem‑solving from concept to impact.”</p>
+        </div>
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-d)">
+          <div class="text-xs font-bold opacity-70">MODULE CONNECTION</div>
+          <p class="mt-2 text-[0.98rem]">“The <em>Data Structures</em> and <em>Ethics in AI</em> modules align with projects I built in Python and my interest in responsible technology.”</p>
+        </div>
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-c)">
+          <div class="text-xs font-bold opacity-70">CAREER LINK</div>
+          <p class="mt-2 text-[0.98rem]">“I plan to specialise in human‑centred AI and contribute to health‑tech startups, where algorithmic decisions must be explainable and fair.”</p>
+        </div>
+      </div>
+      <p class="mt-4 text-xs opacity-70">Examples are illustrative; tailor to your own voice and experience.</p>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="crystal rounded-2xl p-6 md:p-7 accordion" style="background:var(--tint-b)">
+          <h2 class="text-2xl font-extrabold">Frequently Asked Questions</h2>
+          <details class="mt-3"><summary class="font-black">How long should it be?</summary><p class="text-sm mt-2">Keep it concise and compelling; focus on relevance and clarity rather than length.</p></details>
+          <details class="mt-3"><summary class="font-black">Can I reuse text for multiple universities?</summary><p class="text-sm mt-2">Keep your core story consistent, but tailor the “Why University X” paragraph to each institution. fileciteturn13file0</p></details>
+          <details class="mt-3"><summary class="font-black">How do I explain a gap?</summary><p class="text-sm mt-2">Briefly and honestly state the reason (work, travel, responsibilities) and the skills or perspective gained. fileciteturn13file0</p></details>
+        </div>
+        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-a)">
+          <h2 class="text-2xl font-extrabold">Final Checklist</h2>
+          <ul class="list-disc list-inside mt-2 space-y-2 text-[0.98rem]">
+            <li>Course motivation is clear and authentic. fileciteturn13file0</li>
+            <li>University and UK reasons are specific (not generic). fileciteturn13file0</li>
+            <li>Career plans connect naturally to the degree. fileciteturn13file0</li>
+            <li>Any education gaps briefly explained with context. fileciteturn13file0</li>
+          </ul>
+          <div class="tip mt-3 text-sm opacity-85">Share a draft with your IUFP advisor/teacher for feedback. Fresh eyes catch unclear claims or missing links.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-xs opacity-80">
+      © <span id="y"></span> International University Foundation Programme (IUFP) • <a class="underline" href="privacy-policy.html">Privacy</a> • <a class="underline" href="cookie-policy.html">Cookies</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
