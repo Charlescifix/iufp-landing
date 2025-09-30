@@ -21,7 +21,10 @@
     }
     html,body{scroll-behavior:smooth}
     .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
-    .brand-link{color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
     .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
     .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
     .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);

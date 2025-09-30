@@ -20,7 +20,10 @@
     }
     html,body{scroll-behavior:smooth}
     .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
-    .brand-link{color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
     .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
     .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
     .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -209,7 +212,7 @@
       <a href="index.html" class="flex items-center gap-3">
         <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
       </a>
-      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+      <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
         <a class="brand-link hover:opacity-90" href="index.html">Home</a>
         <a class="brand-link hover:opacity-90" href="iufp-about.html">About</a>
         <a class="brand-link hover:opacity-90" href="students.html">Students</a>

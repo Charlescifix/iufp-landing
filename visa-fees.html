@@ -15,6 +15,10 @@
     }
     html,body{scroll-behavior:smooth}
     .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
     .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
     .crystal{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
       background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
@@ -36,6 +40,21 @@
     @media (max-width: 480px) {
       .bullet{padding:0.875rem 0.75rem;font-size:0.85rem;gap:.5rem;min-height:3rem}
     }
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem 1.5rem;
+      }
+      .brand-link::before {
+        display: none;
+      }
+      button[aria-label="Open menu"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.875rem;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -45,33 +64,30 @@
         <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
       </a>
       <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
-        <a class="hover:opacity-90" href="index.html">Home</a>
-        <a class="hover:opacity-90" href="iufp-about.html">About</a>
-        <a class="hover:opacity-90" href="students.html">Students</a>
-        <a class="hover:opacity-90" href="universities.html">Universities</a>
-        <a class="hover:opacity-90" href="partner-schools.html">Partner Schools</a>
-        <a class="hover:opacity-90" href="vle.html">VLE</a>
-        <a class="hover:opacity-90" href="contact.html">Contact Us</a>
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="iufp-about.html">About</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
       </nav>
       <div class="flex items-center gap-3">
-        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+        <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+                onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
       </div>
     </div>
-    <nav id="mobileMenu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-      <div class="px-4 py-2 space-y-1">
-        <a class="block py-2 hover:bg-slate-700 rounded" href="index.html">Home</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="iufp-about.html">About</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="students.html">Students</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="universities.html">Universities</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="partner-schools.html">Partner Schools</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="vle.html">VLE</a>
-        <a class="block py-2 hover:bg-slate-700 rounded" href="contact.html">Contact Us</a>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="iufp-about.html">About</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
@@ -134,10 +150,6 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
   </script>
 </body>
 </html>
