@@ -73,8 +73,8 @@
         <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
       </nav>
       <div class="flex items-center gap-3">
-        <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
-                onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+        <button type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden crystal px-3 py-2 rounded-lg"
+                onclick="const m=document.getElementById('mnav');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">Menu</button>
       </div>
     </div>
     <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
@@ -91,51 +91,65 @@
   </header>
 
   <main>
-    <section class="max-w-5xl mx-auto px-4 pt-10 md:pt-14 pb-6">
-      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-        <div class="flex-1">
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">
-            <span class="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Student Visa</span>
-            <span class="text-slate-800"> & </span>
-            <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Application Fees</span>
-          </h1>
-          <p class="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-4xl">
-            Quick access to <span class="font-semibold text-slate-800">essential visa guidance</span> and
-            <span class="font-semibold text-slate-800">fee information</span> for IUFP students.
-            Click any link below to access detailed information.
-          </p>
+    <section class="max-w-6xl mx-auto px-4 pt-12 md:pt-16 pb-8">
+      <div class="relative">
+        <div class="hidden md:block absolute left-0 top-0">
+          <div class="crystal rounded-2xl p-4 bg-gradient-to-br from-slate-50 to-blue-50 border border-slate-200">
+            <img src="athe-logo.png" alt="ATHE - Ofqual Regulated Awarding Organisation" class="h-16 w-16 object-contain" />
+          </div>
         </div>
-        <div class="flex justify-center md:justify-end md:mt-4">
-          <img src="athe-logo.png" alt="ATHE logo" class="h-10 md:h-12 w-auto opacity-60" />
+        <div class="flex flex-col items-center justify-center gap-6 mb-10">
+          <div class="text-center max-w-4xl">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5">
+              <span class="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Student Visa</span>
+              <span class="text-slate-800"> & </span>
+              <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Application Fees</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-3">
+              Your complete guide to UK student visa requirements and application costs. Access <span class="font-bold text-slate-900">comprehensive resources</span> covering financial requirements, documentation checklists, official fees, and healthcare surcharges.
+            </p>
+            <p class="text-base md:text-lg font-semibold text-slate-800 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-3 rounded-xl border border-amber-100 inline-block">
+              Click any link below to access detailed guidance →
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-4 pb-16 space-y-4 md:space-y-5">
-      <a class="bullet b1 linkcard" href="uk-student-visa-financial.html">
-        <span>Financial Requirements for Student Visa Applications</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="bullet b2 linkcard" href="#tier4-checklist">
-        <span>Student Visa Application Checklist</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="bullet b3 linkcard" href="#ukvi-fees">
-        <span>UKVI Fees for UK Student Visa Applications</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="bullet b4 linkcard" href="#ihs">
-        <span>Immigration Health Surcharge Information</span>
-        <span class="arrow">→</span>
-      </a>
+    <section class="max-w-6xl mx-auto px-4 pb-16">
+      <div class="grid md:grid-cols-2 gap-4 md:gap-5">
+        <a class="bullet b1 linkcard" href="uk-student-visa-financial.html">
+          <span class="flex-1">Financial Requirements for Student Visa Applications</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="bullet b2 linkcard" href="#tier4-checklist">
+          <span class="flex-1">Student Visa Application Checklist</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="bullet b3 linkcard" href="#ukvi-fees">
+          <span class="flex-1">UKVI Fees for UK Student Visa Applications</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="bullet b4 linkcard" href="#ihs">
+          <span class="flex-1">Immigration Health Surcharge Information</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
 
-      <div class="crystal rounded-2xl p-4 md:p-6 text-sm md:text-base opacity-90 mt-8" style="background:var(--tint-d)">
-        <div class="flex items-start gap-3">
-          <div class="text-blue-600 text-xl flex-shrink-0">ℹ️</div>
+      <div class="mt-10 crystal rounded-2xl p-5 md:p-7 bg-gradient-to-br from-blue-50/50 to-slate-50/50 border border-slate-100">
+        <div class="flex items-start gap-4">
+          <div class="text-2xl flex-shrink-0">ℹ️</div>
           <div>
-            <div class="font-black mb-2 text-slate-800">Important Information</div>
-            <p class="text-slate-700 leading-relaxed">These links provide essential guidance for UK student visa applications. For the most up-to-date information, always refer to the official UK government websites and consult with qualified immigration advisors.</p>
+            <h3 class="font-bold text-lg mb-3 text-slate-900">Important Information</h3>
+            <p class="text-slate-700 leading-relaxed text-sm md:text-base">These resources provide essential guidance for UK student visa applications. For the most current information, always consult the official UK government websites and seek advice from qualified immigration advisors. IUFP recommends reviewing all requirements carefully before submitting your application.</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Mobile ATHE Logo -->
+      <div class="md:hidden mt-8 flex justify-center">
+        <div class="crystal rounded-2xl p-4 bg-gradient-to-br from-slate-50 to-blue-50 border border-slate-200 inline-block">
+          <img src="athe-logo.png" alt="ATHE - Ofqual Regulated Awarding Organisation" class="h-14 w-14 object-contain" />
         </div>
       </div>
     </section>
