@@ -31,81 +31,24 @@
       background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
       border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease, box-shadow .2s ease}
     .crystal:hover{transform:translateY(-2px) scale(1.01)}
-    .cta{font-weight:900;border:1px solid rgba(255,255,255,.25)}
+    .cta{font-weight:900;border:1px solid rgba(255,255,255,.25);font-size:1rem;padding:0.75rem 1.5rem}
     .cta--apply{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447}
     .cta--apply:hover{filter:saturate(115%); box-shadow:0 14px 30px rgba(0,0,0,.22); transform:translateY(-3px) scale(1.02)}
     .cta--visa{background:linear-gradient(180deg, rgba(16,185,129,.85), rgba(5,150,105,.75)); color:#ffffff; box-shadow: 0 4px 20px rgba(16,185,129,.15), inset 0 1px 0 rgba(255,255,255,.2); font-size: 0.75rem; padding: 0.5rem 1rem;}
     .cta--visa:hover{filter:saturate(115%); box-shadow:0 14px 30px rgba(16,185,129,.25), inset 0 1px 0 rgba(255,255,255,.3); transform:translateY(-3px) scale(1.02)}
 
-    /* Enhanced Responsive Design System - Optimized */
-    .responsive-text-4xl { font-size: 1.875rem; line-height: 2rem; }
-    .responsive-text-5xl { font-size: 2.5rem; line-height: 1; }
-    .responsive-text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
-    .responsive-text-3xl { font-size: 1.5rem; line-height: 2rem; }
-    .responsive-text-xl { font-size: 1rem; line-height: 1.5rem; }
-    .responsive-text-lg { font-size: 0.9375rem; line-height: 1.375rem; }
+    /* Responsive text system */
+    .responsive-text-4xl{font-size:1.875rem;line-height:2rem}
+    .responsive-text-5xl{font-size:2.5rem;line-height:1}
+    .responsive-text-2xl{font-size:1.25rem;line-height:1.75rem}
+    .responsive-text-xl{font-size:1rem;line-height:1.5rem}
+    @media(min-width:576px){.responsive-text-4xl{font-size:2.25rem;line-height:1}.responsive-text-5xl{font-size:2.75rem}.responsive-text-2xl{font-size:1.375rem;line-height:1.875rem}.responsive-text-xl{font-size:1.125rem;line-height:1.625rem}}
+    @media(min-width:640px){.responsive-text-4xl{font-size:2.5rem}.responsive-text-5xl{font-size:3rem}.responsive-text-2xl{font-size:1.5rem;line-height:2rem}.responsive-text-xl{font-size:1.25rem;line-height:1.75rem}}
+    @media(min-width:768px){.responsive-text-4xl{font-size:2.75rem}.responsive-text-5xl{font-size:3.25rem}.responsive-text-2xl{font-size:1.625rem;line-height:2rem}.responsive-text-xl{font-size:1.375rem;line-height:1.75rem}}
+    @media(min-width:1024px){.responsive-text-4xl{font-size:3rem}.responsive-text-5xl{font-size:3.5rem}.responsive-text-2xl{font-size:1.75rem;line-height:1}.responsive-text-xl{font-size:1.5rem;line-height:1.875rem}}
 
-    /* Mobile-first responsive breakpoints - Optimized */
-    @media (min-width: 576px) {
-      .responsive-text-4xl { font-size: 2.25rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 2.75rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 1.375rem; line-height: 1.875rem; }
-      .responsive-text-3xl { font-size: 1.75rem; line-height: 2rem; }
-      .responsive-text-xl { font-size: 1.125rem; line-height: 1.625rem; }
-      .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
-    }
-
-    @media (min-width: 640px) {
-      .responsive-text-4xl { font-size: 2.5rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 3rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
-      .responsive-text-3xl { font-size: 1.875rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-      .responsive-text-lg { font-size: 1.125rem; line-height: 1.625rem; }
-    }
-
-    @media (min-width: 768px) {
-      .responsive-text-4xl { font-size: 2.75rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 3.25rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 1.625rem; line-height: 2rem; }
-      .responsive-text-3xl { font-size: 2rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.375rem; line-height: 1.75rem; }
-      .responsive-text-lg { font-size: 1.25rem; line-height: 1.75rem; }
-    }
-
-    @media (min-width: 1024px) {
-      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
-      .responsive-text-5xl { font-size: 3.5rem; line-height: 1; }
-      .responsive-text-2xl { font-size: 1.75rem; line-height: 1; }
-      .responsive-text-3xl { font-size: 2.25rem; line-height: 1; }
-      .responsive-text-xl { font-size: 1.5rem; line-height: 1.875rem; }
-      .responsive-text-lg { font-size: 1.375rem; line-height: 1.875rem; }
-    }
-
-    /* Button responsiveness */
-    .btn-primary {
-      font-size: 0.875rem;
-      padding: 0.625rem 1.25rem;
-      font-weight: 700;
-      border-radius: 0.75rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary {
-      font-size: 0.875rem;
-      padding: 0.625rem 1.25rem;
-      font-weight: 600;
-      border-radius: 0.75rem;
-      transition: all 0.2s ease;
-    }
-
-    /* Optimized CTA buttons */
-    .cta {
-      font-weight: 900;
-      border: 1px solid rgba(255,255,255,.25);
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-    }
+    /* Buttons */
+    .btn-secondary{font-size:.875rem;padding:.625rem 1.25rem;font-weight:600;border-radius:.75rem;transition:all .2s ease}
 
     /* Custom bullet styles for this page */
     .bullet{display:flex;align-items:flex-start;gap:.75rem;padding:.7rem 1rem;border-radius:14px;font-size:.97rem;font-weight:600;transition:all .12s ease}
@@ -116,9 +59,28 @@
     .b4{background:linear-gradient(135deg,rgba(255,196,0,.10),rgba(255,138,0,.18))}
     .b5{background:linear-gradient(135deg,rgba(11,36,71,.05),rgba(11,36,71,.10))}
 
-    @media (max-width: 768px) {
-      .bullet{font-size:.9rem;padding:.6rem .9rem}
+    @media (max-width: 640px) {
+      .bullet{font-size:.85rem;padding:.6rem .8rem;gap:.5rem}
+      h1{font-size:1.75rem !important}
+      h2{font-size:1.375rem !important}
+      h3{font-size:1.125rem !important}
+      .section-spacing { margin-bottom: 2.5rem !important; }
+      .athe-logo-desktop { display: none !important; }
+      .athe-logo-mobile { display: block !important; margin: 0 auto 1rem; }
+      .mobile-stack { flex-direction: column !important; }
+      .mobile-full-width { max-width: 100% !important; }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+      .bullet{font-size:.9rem;padding:.65rem .9rem}
       h1{font-size:2rem !important}
+      h2{font-size:1.5rem !important}
+      .section-spacing { margin-bottom: 3rem !important; }
+      .mobile-stack { flex-direction: column !important; }
+      .mobile-full-width { max-width: 100% !important; }
+    }
+
+    @media (max-width: 768px) {
       .brand-header nav { gap: 1rem; }
       .brand-header .brand-link { font-size: 0.875rem; }
     }
@@ -126,7 +88,11 @@
     @media (min-width: 768px) and (max-width: 1023px) {
       .brand-header nav { gap: 1.25rem; }
       .brand-header .brand-link { font-size: 1rem; }
+      .section-spacing { margin-bottom: 3.5rem !important; }
     }
+
+    .athe-logo-mobile { display: none; }
+    .section-spacing { margin-bottom: 4rem; }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -144,8 +110,8 @@
         <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
         <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
       </nav>
-      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
-              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+      <button type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="const m=document.getElementById('mnav');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">Menu</button>
     </div>
     <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
       <div class="crystal rounded-xl p-3 flex flex-col gap-2">
@@ -162,50 +128,120 @@
 
 
   <main>
-    <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
-      <div class="max-w-5xl">
-        <h1 class="responsive-text-4xl md:responsive-text-5xl font-black leading-tight mb-6">UK Student Visa Financial Requirements</h1>
-        <p class="responsive-text-lg opacity-90 mb-6">According to UKVI rules, applicants must show evidence of sufficient funds for tuition and living expenses when applying for a UK Student Visa.</p>
-
-        <div class="mb-6 flex items-center gap-3 crystal rounded-xl px-3 py-2 w-fit">
-          <img src="athe-logo.png" class="h-9 w-auto" alt="ATHE logo" />
-          <p class="text-sm leading-snug">
-            <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by Ofqual (UK). Certificates of Completion are issued to successful IUFP students.
-          </p>
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-14">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex mobile-stack items-start justify-between gap-4 md:gap-6 mb-8 md:mb-12">
+          <div class="flex-1 w-full">
+            <img src="athe-logo.png" class="athe-logo-mobile h-12 w-12 object-contain crystal rounded-xl p-2" alt="ATHE - Ofqual Regulated Awarding Organisation" />
+            <h1 class="responsive-text-4xl md:responsive-text-5xl font-black leading-tight mb-3 md:mb-4 text-slate-900 text-center">UK Student Visa Financial Requirements</h1>
+            <p class="responsive-text-xl opacity-80 leading-relaxed text-center px-2 md:px-0">UK Visas and Immigration (UKVI) requires international students to demonstrate adequate financial capacity to cover tuition fees and living expenses throughout their course of study.</p>
+          </div>
+          <div class="athe-logo-desktop hidden md:block flex-shrink-0">
+            <img src="athe-logo.png" class="h-16 w-16 object-contain crystal rounded-xl p-2" alt="ATHE - Ofqual Regulated Awarding Organisation" />
+          </div>
         </div>
 
-      <div class="space-y-4">
-        <div class="bullet b1">
-          <div class="text-2xl">💷</div>
-          <div><strong>Course Fees</strong><br/>Proof of enough money to cover tuition for the first year (or the entire course if less than a year). Your CAS confirms the required amount.</div>
+      <!-- Core Financial Requirements -->
+      <div class="section-spacing crystal rounded-2xl p-4 md:p-6 bg-gradient-to-br from-blue-50/50 to-slate-50/50 border border-slate-100">
+        <h2 class="responsive-text-2xl font-bold mb-4 md:mb-6 text-slate-900 text-center">Essential Financial Evidence</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <div class="bullet b1">
+            <div class="text-xl md:text-2xl flex-shrink-0">💷</div>
+            <div>
+              <strong class="font-bold text-base md:text-lg">Tuition Fees Coverage</strong>
+              <p class="mt-1 text-slate-700 leading-relaxed text-sm md:text-base">You must demonstrate sufficient funds to cover your first year's tuition fees (or the full course if under one year). The exact amount will be specified on your Confirmation of Acceptance for Studies (CAS).</p>
+            </div>
+          </div>
+
+          <div class="bullet b2">
+            <div class="text-xl md:text-2xl flex-shrink-0">🏠</div>
+            <div>
+              <strong class="font-bold text-base md:text-lg">Living Cost Requirements</strong>
+              <p class="mt-1 text-slate-700 leading-relaxed text-sm md:text-base">
+                <span class="font-semibold">Inner London:</span> £1,483/month (9mo = £13,347)<br/>
+                <span class="font-semibold">Outside London:</span> £1,136/month (9mo = £10,224)
+              </p>
+              <p class="mt-2 text-xs md:text-sm text-slate-600">Set by UK Government, reviewed annually.</p>
+            </div>
+          </div>
         </div>
-        <div class="bullet b2">
-          <div class="text-2xl">🏠</div>
-          <div><strong>Living Costs</strong><br/>Inner London: £1,483 per month (up to 9 months = £13,347).<br/>Outside London: £1,136 per month (up to 9 months = £10,224).</div>
+      </div>
+
+      <!-- Permitted Deductions -->
+      <div class="section-spacing crystal rounded-2xl p-4 md:p-6 bg-gradient-to-br from-purple-50/40 to-slate-50/40 border border-slate-100">
+        <h2 class="responsive-text-2xl font-bold mb-4 md:mb-6 text-slate-900 text-center">Permitted Deductions</h2>
+        <div class="mobile-full-width max-w-3xl mx-auto">
+          <div class="bullet b3">
+            <div class="text-xl md:text-2xl flex-shrink-0">➖</div>
+            <div>
+              <strong class="font-bold text-base md:text-lg">What You Can Deduct</strong>
+              <p class="mt-1 text-slate-700 leading-relaxed text-sm md:text-base">You may reduce the required funds by:</p>
+              <ul class="mt-2 space-y-1 text-slate-700 ml-1 text-sm md:text-base">
+                <li>• Course fees already paid to the institution</li>
+                <li>• Up to £1,334 paid for university-provided accommodation</li>
+              </ul>
+              <p class="mt-2 text-xs md:text-sm text-slate-600 italic">Note: Private accommodation payments cannot be deducted from the required amount.</p>
+            </div>
+          </div>
         </div>
-        <div class="bullet b3">
-          <div class="text-2xl">➖</div>
-          <div><strong>Deductions</strong><br/>You may deduct: course fees already paid; up to £1,334 paid for University accommodation. Other housing payments are not deductible.</div>
+      </div>
+
+      <!-- Account Requirements -->
+      <div class="section-spacing crystal rounded-2xl p-4 md:p-6 bg-gradient-to-br from-teal-50/40 to-slate-50/40 border border-slate-100">
+        <h2 class="responsive-text-2xl font-bold mb-4 md:mb-6 text-slate-900 text-center">Account & Documentation Requirements</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <div class="bullet b4">
+            <div class="text-xl md:text-2xl flex-shrink-0">🏦</div>
+            <div>
+              <strong class="font-bold text-base md:text-lg">Acceptable Bank Accounts</strong>
+              <p class="mt-1 text-slate-700 leading-relaxed text-sm md:text-base">Funds must be held in either:</p>
+              <ul class="mt-2 space-y-1 text-slate-700 ml-1 text-sm md:text-base">
+                <li>• The student's personal bank account, or</li>
+                <li>• The biological parent's bank account</li>
+              </ul>
+              <p class="mt-2 text-xs md:text-sm text-slate-600 italic">Corporate, business, or third-party accounts are not acceptable for visa purposes.</p>
+            </div>
+          </div>
+
+          <div class="bullet b5">
+            <div class="text-xl md:text-2xl flex-shrink-0">📑</div>
+            <div>
+              <strong class="font-bold text-base md:text-lg">Using Parent's Account</strong>
+              <p class="mt-1 text-slate-700 leading-relaxed text-sm md:text-base">When using a parent's bank account, you must provide:</p>
+              <ul class="mt-2 space-y-1 text-slate-700 ml-1 text-sm md:text-base">
+                <li>• Original birth certificate proving relationship</li>
+                <li>• Written sponsorship letter from parent</li>
+                <li>• Signed consent letter authorizing fund usage</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="bullet b4">
-          <div class="text-2xl">🏦</div>
-          <div><strong>Bank Accounts</strong><br/>Funds must be in the student's personal account or biological parents' account. Company/corporate accounts are not acceptable.</div>
-        </div>
-        <div class="bullet b5">
-          <div class="text-2xl">📑</div>
-          <div><strong>Using Parent's Account</strong><br/>Provide: original birth certificate, sponsorship letter, and consent letter.</div>
-        </div>
-        </div>
+      </div>
+
+      <!-- Important Reminders -->
+      <div class="mb-6 md:mb-8 crystal rounded-2xl p-4 md:p-6 bg-gradient-to-br from-amber-50/40 to-blue-50/40 border border-slate-200">
+        <h3 class="text-base md:text-lg font-bold mb-3 md:mb-4 flex items-center justify-center gap-2">
+          <span class="text-lg md:text-xl">ℹ️</span>
+          Important Reminders
+        </h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-slate-700 text-xs md:text-sm leading-relaxed">
+          <li>• Funds must have been held for a consecutive 28-day period ending no more than 31 days before your visa application</li>
+          <li>• Bank statements must clearly show your name, account number, and the financial institution's details</li>
+          <li>• All documents must be in English or accompanied by certified translations</li>
+          <li>• UKVI may request additional evidence; ensure all documentation is authentic and verifiable</li>
+        </ul>
+      </div>
+
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-8">
-      <div class="crystal rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3" style="background:linear-gradient(180deg, rgba(255,196,0,.2), rgba(255,138,0,.15))">
+    <section class="max-w-7xl mx-auto px-4 pb-10">
+      <div class="crystal rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4" style="background:linear-gradient(135deg, rgba(255,196,0,.18), rgba(255,138,0,.12))">
         <div>
-          <h3 class="text-xl font-extrabold">Ready to apply?</h3>
-          <p class="text-xs opacity-80">Choose your electives and intake season; complete the online application.</p>
+          <h3 class="responsive-text-2xl font-extrabold mb-1">Ready to Begin Your Application?</h3>
+          <p class="text-sm opacity-85 leading-relaxed">Select your electives, choose your intake season, and complete our online application form.</p>
         </div>
-        <a href="apply.html" class="crystal cta cta--apply rounded-xl">APPLY NOW</a>
+        <a href="apply.html" class="crystal cta cta--apply rounded-xl whitespace-nowrap">APPLY NOW</a>
       </div>
     </section>
   </main>
@@ -239,10 +275,10 @@
     <div class="border-t border-white/10">
       <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4">
-          <span class="opacity-50">Privacy Policy</span>
-          <span class="opacity-50">Cookie Policy</span>
-          <span class="opacity-50">Terms</span>
+        <div class="space-x-4 text-xs">
+          <a href="#" class="opacity-50 hover:opacity-100 transition-opacity">Privacy Policy</a>
+          <a href="#" class="opacity-50 hover:opacity-100 transition-opacity">Cookie Policy</a>
+          <a href="#" class="opacity-50 hover:opacity-100 transition-opacity">Terms</a>
         </div>
       </div>
     </div>
