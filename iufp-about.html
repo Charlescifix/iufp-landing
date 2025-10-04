@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About IUFP — International University Foundation Programme</title>
-  <meta name="description" content="Learn about the International University Foundation Programme (IUFP) — ATHE-endorsed, globally recognized pathways to leading universities.">
+  <meta name="description" content="About the International University Foundation Programme (IUFP) — ATHE-endorsed, globally recognized pathway to leading universities." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
       --brand-nav-bg:#0b2447; --brand-nav-text:#ffffff; --brand-primary:#19376d; --brand-on-primary:#ffffff;
       --brand-footer-bg:#0b2447; --brand-footer-text:#ffffff;
       --tint-a: rgba(25,55,109,.06); --tint-b: rgba(20,184,166,.12); --tint-c: rgba(167,139,250,.14); --tint-d: rgba(11,36,71,.05);
-      --accent: linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95));
     }
     html,body{scroll-behavior:smooth}
+    body{color:#0e1a2b; background:#ffffff}
     .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
     .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
     .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
     .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
     .brand-link:hover::before{width:100%}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
     .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
-    .crystal{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
       background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
-      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 32px rgba(0,0,0,.10)}
-    .btn{border-radius:14px;padding:0.95rem 1.25rem;font-weight:900;display:inline-flex;align-items:center;gap:.55rem;transition:transform .12s ease, box-shadow .2s ease}
-    .btn-primary{background:var(--accent); color:#0b2447}
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:all .25s ease}
+    .crystal:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    .eyebrow{letter-spacing:.12em; text-transform:uppercase; font-weight:800; color:#19376d; font-size:.78rem}
+    .lead{font-size:1.07rem; line-height:1.7; color:#42526b; opacity:.95}
+    .btn{border-radius:14px;padding:.85rem 1.15rem;font-weight:900;display:inline-flex;align-items:center;gap:.55rem;
+      transition:all .25s ease}
+    .btn-primary{background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447; border:1px solid rgba(255,196,0,.25)}
     .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
-    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(0,0,0,.10)}
-    .pill{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.3rem .7rem;font-weight:800;background:#fff}
-    .tile{border-radius:18px;padding:1.15rem 1.2rem;font-weight:700;display:flex;align-items:flex-start;gap:.8rem;border:1px solid rgba(0,0,0,.08)}
-    .tile-a{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.12))}
-    .tile-b{background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.18))}
-    .tile-c{background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.20))}
-    .tile-d{background:linear-gradient(135deg, rgba(11,36,71,.05), rgba(11,36,71,.11))}
-    .hero-img{border-radius:22px; overflow:hidden; border:1px solid rgba(0,0,0,.06); box-shadow:0 20px 40px rgba(0,0,0,.12)}
+    .btn:hover{transform:translateY(-2px) scale(1.02); box-shadow:0 12px 24px rgba(0,0,0,.15)}
+    .btn:active{transform:translateY(0) scale(1)}
+    .tile{border-radius:16px; padding:1.15rem 1.2rem; border:1px solid rgba(0,0,0,.08); background:#fff;
+      transition:all .25s ease}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1)}
+    .tile-soft{background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.03))}
+    .tile-teal{background:linear-gradient(135deg, rgba(20,184,166,.08), rgba(20,184,166,.04))}
+    .tile-purple{background:linear-gradient(135deg, rgba(167,139,250,.10), rgba(167,139,250,.05))}
+    .tile-amber{background:linear-gradient(135deg, rgba(251,146,60,.08), rgba(245,158,11,.04))}
+    .list-check li{display:flex; gap:.6rem; align-items:flex-start; padding:.35rem 0;
+      transition:all .2s ease;cursor:default}
+    .list-check li:hover{transform:translateX(3px)}
+    .list-check li::before{content:"✓"; font-weight:900; color:#14b8a6;transition:all .2s ease}
+    .list-check li:hover::before{transform:scale(1.1)}
+    .kicker{font-weight:900; color:#0b2447}
+    .sig{font-family: Georgia, 'Times New Roman', serif}
+    .hero-card{border-radius:22px; overflow:hidden; border:1px solid rgba(0,0,0,.08); box-shadow:0 24px 46px rgba(0,0,0,.12);
+      transition:all .3s ease}
+    .hero-card:hover{transform:scale(1.02);box-shadow:0 28px 56px rgba(0,0,0,.16)}
+    .hero-card img{transition:transform .3s ease}
+    .hero-card:hover img{transform:scale(1.03)}
+    .ceo-badge{position:relative;display:inline-flex;align-items:center}
+    .ceo-badge::after{content:"★";position:absolute;top:-8px;right:-12px;font-size:0.75rem;color:#f59e0b;
+      filter:drop-shadow(0 2px 4px rgba(245,158,11,.4));animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+    /* Responsive improvements */
+    @media (max-width: 768px) {
+      .hero-card{margin-bottom:1rem}
+      h1{font-size:2rem !important}
+      h2{font-size:1.5rem !important}
+      h3{font-size:1.25rem !important}
+      .lead{font-size:1rem}
+      .list-check li{font-size:0.9rem}
+      .tile{padding:1rem}
+      .crystal{padding:1rem !important}
+    }
+
+    @media (max-width: 640px) {
+      .grid.lg\\:grid-cols-3,.grid.md\\:grid-cols-2,.grid.md\\:grid-cols-3{grid-template-columns:1fr !important}
+      .hero-card{order:-1}
+    }
   </style>
 </head>
-<body class="bg-white text-slate-900">
+<body>
   <header class="brand-header">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20">
+      <a href="index.html" class="flex items-center gap-3" aria-label="IUFP Home">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
       </a>
       <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
         <a class="brand-link hover:opacity-90" href="index.html">Home</a>
@@ -68,120 +107,151 @@
   </header>
 
   <main>
-    <section class="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-6">
-      <div class="grid lg:grid-cols-3 gap-8 items-center">
-        <div class="lg:col-span-2">
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">About the International University Foundation Programme (IUFP)</h1>
-          <p class="mt-3 text-lg opacity-95">
-            The IUFP is a globally recognized university pathway endorsed by <strong>ATHE</strong> (an Ofqual‑regulated awarding body), providing a tried, tested and trusted route to leading universities in the UK and beyond.
+    <section class="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-8">
+      <div class="grid lg:grid-cols-3 gap-6 md:gap-8 items-center">
+        <div class="hero-card order-first lg:order-last">
+          <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1200&q=70" alt="Prestigious campus view" class="w-full h-full object-cover">
+        </div>
+        <div class="lg:col-span-2 order-last lg:order-first">
+          <div class="eyebrow">About IUFP</div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mt-1">International University Foundation Programme</h1>
+          <p class="lead mt-3">
+            The IUFP is a globally recognized university pathway endorsed by <strong>ATHE</strong> (an Ofqual‑regulated awarding body), offering a tried, tested and trusted route to leading universities in the United Kingdom and beyond.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="pill">ATHE‑endorsed</span>
-            <span class="pill">Global Pathways</span>
-            <span class="pill">AI‑assisted learning</span>
-          </div>
           <div class="mt-5 flex gap-3 flex-wrap">
             <a href="students.html" class="btn btn-primary">Explore Pathways</a>
-            <a href="partner-schools.html" class="btn btn-ghost">Find a Partner School</a>
+            <a href="universities.html" class="btn btn-ghost">View Partner Universities</a>
           </div>
         </div>
-        <div class="hero-img">
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=60" alt="Graduation ceremony celebrating academic achievement" class="w-full h-full object-cover">
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-10">
+      <div class="crystal p-6 md:p-8">
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div>
+            <div class="eyebrow">Our Mission</div>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-black mt-1">Bridge to University Success</h2>
+          </div>
+          <div class="md:col-span-2">
+            <p class="lead">
+              We exist to bridge the gap between secondary school and university by equipping students with the knowledge, skills, and confidence to thrive and excel in higher education. Our programme is built on <span class="kicker">academic excellence, inclusivity, innovation, and global opportunity</span>.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-10">
-      <div class="crystal rounded-2xl p-6 md:p-7 grid md:grid-cols-3 gap-6 items-start" style="background:var(--tint-a)">
-        <div class="md:col-span-2">
-          <h2 class="text-2xl font-extrabold">Our Mission</h2>
-          <p class="mt-2 text-[1.02rem] leading-relaxed">We bridge the gap between secondary school and university by equipping students with the knowledge, skills and confidence to thrive and excel in higher education — grounded in academic excellence, inclusivity, innovation and global opportunity.</p>
-        </div>
-        <div class="grid gap-3">
-          <div class="tile tile-a"><div>🎓</div><div>University‑ready skills</div></div>
-          <div class="tile tile-b"><div>🌍</div><div>Global progression routes</div></div>
-          <div class="tile tile-c"><div>🤖</div><div>AI‑powered support</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-4 pb-12">
-      <div class="grid md:grid-cols-5 gap-6">
-        <div class="md:col-span-2 crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-b)">
-          <h2 class="text-2xl font-extrabold">How IUFP Works</h2>
-          <ul class="list-disc list-inside mt-2 space-y-2 text-[0.98rem]">
-            <li><strong>Two schemes</strong> for flexibility: <em>Standard Scheme</em> (September–August) and <em>Intensive Scheme</em> (January–September).</li>
-            <li>Blend of <strong>Core</strong> and <strong>Elective</strong> subjects so students can specialise toward future degrees.</li>
-            <li>Secure <strong>Virtual Learning Environment (VLE)</strong> with syllabuses, scheme of work, bespoke e‑books, past exam papers, AI assistants and progression resources.</li>
+    <section class="max-w-7xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div class="tile tile-teal">
+          <div class="eyebrow">Programme Structure</div>
+          <h3 class="text-xl md:text-2xl font-black mt-1">Two Schemes. One Standard.</h3>
+          <ul class="list-check mt-3">
+            <li><strong>Standard Scheme</strong> (September–August)</li>
+            <li><strong>Intensive Scheme</strong> (January–September)</li>
+            <li>Curriculum blends <strong>Core</strong> with wide‑ranging <strong>Electives</strong> to specialise for degree pathways.</li>
           </ul>
         </div>
-        <div class="md:col-span-3 crystal rounded-2xl p-6 md:p-7 grid sm:grid-cols-2 gap-4" style="background:var(--tint-d)">
-          <div class="tile tile-a"><div>🧠</div><div>Core: Academic English, Study Skills, IT</div></div>
-          <div class="tile tile-b"><div>🔬</div><div>STEM Electives: Computing, Engineering, Biology, Chemistry, Physics</div></div>
-          <div class="tile tile-c"><div>⚖️</div><div>Professional: Law, Business, Economics, Management</div></div>
-          <div class="tile tile-d"><div>🧪</div><div>Health: Biomedical Science, Medical Science, Nursing, Pharmacy</div></div>
+        <div class="tile tile-purple">
+          <div class="eyebrow">Virtual Learning Environment</div>
+          <h3 class="text-xl md:text-2xl font-black mt-1">Built for Serious Study</h3>
+          <ul class="list-check mt-3">
+            <li>All IUFP <strong>Subject Syllabuses</strong> & <strong>Scheme of Work</strong></li>
+            <li>IUFP <strong>Bespoke E‑Books</strong> & <strong>Past Examination Papers</strong></li>
+            <li>AI‑powered learning assistants and <strong>University Progression</strong> resources</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-12">
-      <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-c)">
-        <h2 class="text-2xl font-extrabold">Degrees &amp; Disciplines</h2>
-        <p class="mt-2 text-[0.98rem]">Students typically progress into Accounting, AI &amp; Robotics, Banking, Biomedical Science, Business, Computer Science, Engineering, Finance, Law, Life Sciences, Management, Medical Science, Medicine, Nursing, Pharmacy, Psychology, Sociology, and many more.</p>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-4 pb-12">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="crystal rounded-2xl p-6 md:p-7" style="background:var(--tint-a)">
-          <h2 class="text-2xl font-extrabold">Our Network</h2>
-          <p class="mt-2 text-[0.98rem]">IUFP works with a vetted community of Partner Schools across Africa, Asia, Europe and the Middle East; delivery is local, and quality is assured by the IUFP Global UK Team in London.</p>
-        </div>
-        <div class="crystal rounded-2xl p-6 md:p-7 grid sm:grid-cols-2 gap-4" style="background:var(--tint-d)">
-          <div class="tile tile-a"><div>🏫</div><div>Approved Partner Schools</div></div>
-          <div class="tile tile-b"><div>🧑‍🏫</div><div>Dedicated teaching support</div></div>
-          <div class="tile tile-c"><div>📊</div><div>Consistent academic standards</div></div>
-          <div class="tile tile-d"><div>🇬🇧</div><div>Quality assured from London</div></div>
+    <section class="max-w-7xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="crystal p-6 md:p-8">
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+          <div>
+            <div class="eyebrow">Our Network</div>
+            <h3 class="text-xl md:text-2xl font-black mt-1">Partner Schools Worldwide</h3>
+          </div>
+          <div class="md:col-span-2 lead">
+            IUFP has a vetted community of Partner Schools across <strong>Africa, Asia, Europe and the Middle East</strong>. Delivery is local in each country, with <strong>quality assured by the IUFP Global UK Team in London</strong>. Students benefit from consistent academic standards and dedicated local teaching support.
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-12">
-      <div class="crystal rounded-2xl p-6 md:p-7 grid md:grid-cols-3 gap-6 items-center" style="background:var(--tint-b)">
-        <div class="md:col-span-2">
-          <h2 class="text-2xl font-extrabold">Pathways to Universities</h2>
-          <p class="mt-2 text-[0.98rem]">Successful students receive internationally respected transcripts and an ATHE Certificate of Completion, enabling conditional and unconditional offers from a growing list of IUFP Partner Universities — including progression routes and scholarships.</p>
+    <section class="max-w-7xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div class="tile tile-amber">
+          <div class="eyebrow">Pathway to Universities</div>
+          <h3 class="text-xl md:text-2xl font-black mt-1">From Foundation to Degree</h3>
+          <p class="lead mt-2">
+            Students who successfully complete the IUFP receive internationally respected transcripts and an <strong>ATHE Completion Certificate</strong>. With these, they can secure conditional or unconditional offers from a growing list of <strong>IUFP Partner Universities</strong>, many of which offer progression routes and scholarships.
+          </p>
           <div class="mt-4 flex gap-3 flex-wrap">
-            <a href="universities.html" class="btn btn-primary">View University Partners</a>
+            <a href="universities.html" class="btn btn-primary">Explore University Partners</a>
             <a href="students.html" class="btn btn-ghost">How to Apply</a>
           </div>
         </div>
-        <div class="grid gap-3">
-          <div class="tile tile-a"><div>📜</div><div>ATHE Certificate of Completion</div></div>
-          <div class="tile tile-c"><div>🎯</div><div>Direct entry opportunities</div></div>
-          <div class="tile tile-d"><div>🎓</div><div>Scholarship pathways</div></div>
+        <div class="tile tile-soft">
+          <div class="eyebrow">Disciplines</div>
+          <h3 class="text-xl md:text-2xl font-black mt-1">Where IUFP Can Take You</h3>
+          <ul class="list-check mt-3">
+            <li>Accounting, Banking, Finance, Management & Business</li>
+            <li>Computer Science, Engineering, AI & Robotics</li>
+            <li>Biomedical & Medical Sciences, Nursing, Pharmacy</li>
+            <li>Law, Life Sciences, Psychology, Sociology and more</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="crystal rounded-2xl p-6 md:p-7 grid md:grid-cols-2 gap-6" style="background:var(--tint-a)">
-        <div>
-          <h2 class="text-2xl font-extrabold">Why Choose IUFP?</h2>
-          <ul class="list-disc list-inside mt-2 space-y-2 text-[0.98rem]">
-            <li><strong>Endorsed by ATHE</strong> — ATHE issues Certificates of Completion to successful students.</li>
-            <li><strong>Tried, tested &amp; trusted</strong> — more than 17 years of continuous evolution.</li>
-            <li><strong>Global reach</strong> — Partner Schools and universities across Africa, Asia, Europe and the Middle East.</li>
-            <li><strong>Student‑focused</strong> — clear progression pathways, personalised support and AI‑assisted learning.</li>
-            <li><strong>Flexible routes</strong> — Standard and Intensive schemes to fit different timelines.</li>
-            <li><strong>Guaranteed progression</strong> — direct entry into diverse undergraduate degrees.</li>
-          </ul>
+    <section class="max-w-7xl mx-auto px-4 pb-10 md:pb-14">
+      <div class="crystal p-6 md:p-8">
+        <div class="eyebrow">Leadership</div>
+        <h3 class="text-xl md:text-2xl font-black mt-1 mb-5">Our Executive Team</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          <div class="tile" style="background:linear-gradient(135deg, rgba(251,146,60,.06), rgba(245,158,11,.03)); border:1px solid rgba(251,146,60,.15)">
+            <div class="font-black ceo-badge">Mr. Bola Makinde <span class="sig">LLB (Hons), LLM</span></div>
+            <div class="text-sm font-bold mt-1" style="color:#ea580c">Chief Executive Officer</div>
+          </div>
+          <div class="tile">
+            <div class="font-black">Dr. Charles Timi <span class="sig">LLM, PhD</span></div>
+            <div class="text-sm text-slate-600 mt-1">Chief Examinations Officer</div>
+          </div>
+          <div class="tile">
+            <div class="font-black">Dr. Austin Briggs <span class="sig">MSc, PhD</span></div>
+            <div class="text-sm text-slate-600 mt-1">Board Member</div>
+          </div>
+          <div class="tile">
+            <div class="font-black">Mr. Charles Nwankpa <span class="sig">BSc (Hons), MSc (Data Science)</span></div>
+            <div class="text-sm text-slate-600 mt-1">Chief Technology Officer</div>
+          </div>
+          <div class="tile">
+            <div class="font-black">Ms. Judith Brightwell <span class="sig">BA (Hons)</span></div>
+            <div class="text-sm text-slate-600 mt-1">International Coordinator</div>
+          </div>
         </div>
-        <div class="grid sm:grid-cols-2 gap-4 content-start">
-          <div class="tile tile-b"><div>🗺️</div><div>Standard: Sep–Aug</div></div>
-          <div class="tile tile-c"><div>⚡</div><div>Intensive: Jan–Sep</div></div>
-          <div class="tile tile-d"><div>🔐</div><div>Secure exams &amp; QA</div></div>
-          <div class="tile tile-a"><div>🤝</div><div>Partner School network</div></div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-12 md:pb-20">
+      <div class="crystal p-6 md:p-8" style="background:linear-gradient(135deg, rgba(25,55,109,.04), rgba(20,184,166,.06))">
+        <div class="eyebrow mb-3">Why Choose IUFP?</div>
+        <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div>
+            <ul class="list-check space-y-2">
+              <li><strong>Endorsed by ATHE</strong> — Certificates of Completion issued to successful students</li>
+              <li><strong>Tried, tested & trusted</strong> — 17+ years of continuous evolution</li>
+              <li><strong>Global reach</strong> — Partner Schools & Universities across regions</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list-check space-y-2">
+              <li><strong>Student‑focused</strong> — clear pathways, personalised support & AI‑assisted learning</li>
+              <li><strong>Flexible routes</strong> — Standard & Intensive schemes to fit timelines</li>
+              <li><strong>Guaranteed progression</strong> — direct entry into diverse undergraduate degrees</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
