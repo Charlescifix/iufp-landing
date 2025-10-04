@@ -499,43 +499,7 @@
     </div>
   </div>
 
-  <footer class="brand-footer relative z-10 mt-8 no-print">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-      <div>
-        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto mb-3 md:h-24">
-        <p class="opacity-95">
-          IUFP Global Education UK<br>
-          Beaufort House Rm 1134,<br>
-          15 St. Botolph Street, Aldgate, London EC3A 7BB
-        </p>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
-          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
-          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Start Your Application</h4>
-        <div class="flex gap-3">
-          <a href="students.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e">IUFP Student</a>
-          <a href="partner-schools.html" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442">Partner School</a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4">
-          <span class="opacity-50">Privacy Policy</span>
-          <span class="opacity-50">Cookie Policy</span>
-          <span class="opacity-50">Terms</span>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-container"></div>
 
   <div id="bot" class="bot-container no-print">
     <div class="bot-bubble">
@@ -554,8 +518,6 @@
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
     const sections = Array.from(document.querySelectorAll('.sec'));
     const bar = document.getElementById('bar');
     const nextBtn = document.getElementById('nextBtn');
@@ -682,6 +644,13 @@
         localStorage.setItem('iufp_ps_application_autosave', JSON.stringify(obj));
       }, 2000);
     });
+  </script>
+
+  <script src="footer-component.min.js?v=1.0"></script>
+  <script>
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'default');
+    }
   </script>
 </body>
 </html>

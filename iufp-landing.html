@@ -254,45 +254,7 @@
     </section>
   </main>
 
-  <footer class="brand-footer relative z-10 mt-8">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-      <div>
-        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto mb-3 md:h-24">
-        <p class="opacity-95">
-          IUFP Global Education UK<br>
-          Beaufort House Rm 1134,<br>
-          15 St. Botolph Street, Aldgate, London EC3A 7BB
-        </p>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
-          <li><a href="iufp-universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
-          <li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li>
-          <li><a href="/contact-us/" class="underline-offset-4 hover:underline">Contact Us</a></li>
-          <li><a href="/payment/" class="underline-offset-4 hover:underline">Payments</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Start Your Application</h4>
-        <div class="flex gap-3">
-          <a href="/students/" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e">IUFP Student</a>
-          <a href="/partner-schools/" class="crystal px-4 py-2 rounded-lg bouncy" style="background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442">Partner School</a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4">
-          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
-          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
-          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-container"></div>
 
   <div id="bot" class="bot-container">
     <div class="bot-bubble">
@@ -311,7 +273,13 @@
 
   <script>
     document.getElementById('botToggle').addEventListener('click',()=>document.body.classList.toggle('bot-open'));
-    document.getElementById('y').textContent=new Date().getFullYear();
+    </script>
+
+  <script src="footer-component.min.js?v=1.0"></script>
+  <script>
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'default');
+    }
   </script>
 </body>
 </html>

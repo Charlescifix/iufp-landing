@@ -161,20 +161,12 @@
     </section>
   </main>
 
-  <footer class="brand-footer">
-    <div class="max-w-5xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-      <div><img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 w-auto mb-3 md:h-16"><p class="opacity-95 text-sm">IUFP Global Education UK<br>Beaufort House Rm 1134,<br>15 St. Botolph Street, Aldgate, London EC3A 7BB</p></div>
-      <div><h4 class="font-semibold mb-2">Quick Links</h4><ul class="space-y-2 text-sm"><li><a href="/students/" class="underline-offset-4 hover:underline">Students</a></li><li><a href="/universities/" class="underline-offset-4 hover:underline">Universities</a></li><li><a href="/partner-schools/" class="underline-offset-4 hover:underline">Partner Schools</a></li><li><a href="/faqs/" class="underline-offset-4 hover:underline">FAQs</a></li></ul></div>
-      <div><h4 class="font-semibold mb-2">Need help?</h4><div class="flex gap-3"><a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold">Contact Support</a></div></div>
-    </div>
-    <div class="border-t border-white/10">
-      <div class="max-w-5xl mx-auto px-4 py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4"><a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a><a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a><a href="/terms/" class="underline-offset-4 hover:underline">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <div id="footer-container"></div>
+  <script src="footer-component.min.js?v=1.0"></script>
+  <script>
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'default');
+    }
+  </script>  <script></script>
 </body>
 </html>

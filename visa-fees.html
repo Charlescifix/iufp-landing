@@ -155,15 +155,13 @@
     </section>
   </main>
 
-  <footer class="brand-footer">
-    <div class="max-w-7xl mx-auto px-4 py-8 text-xs opacity-80">
-      © <span id="y"></span> International University Foundation Programme (IUFP) • <a class="underline" href="#privacy-policy">Privacy</a> • <a class="underline" href="#cookie-policy">Cookies</a>
-    </div>
-  </footer>
-
+  <div id="footer-container"></div>
+  <script src="footer-component.min.js?v=1.0"></script>
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-  </script>
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'student');
+    }
+  </script>  <script>
+    </script>
 </body>
 </html>

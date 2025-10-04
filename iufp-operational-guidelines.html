@@ -201,48 +201,13 @@
     </section>
   </main>
 
-  <footer class="brand-footer">
-    <div class="max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:py-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-      <div class="text-center md:text-left">
-        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-12 sm:h-14 lg:h-16 w-auto mb-2 sm:mb-3 mx-auto md:mx-0">
-        <p class="opacity-95 text-xs sm:text-sm">
-          IUFP Global Education UK<br>
-          Beaufort House Rm 1134,<br>
-          15 St. Botolph Street, Aldgate, London EC3A 7BB
-        </p>
-      </div>
-      <div class="text-center md:text-left">
-        <h4 class="font-semibold mb-2 text-sm sm:text-base">Quick Links</h4>
-        <ul class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-          <li><a href="students.html" class="underline-offset-4 hover:underline">Students</a></li>
-          <li><a href="universities.html" class="underline-offset-4 hover:underline">Universities</a></li>
-          <li><a href="partner-schools.html" class="underline-offset-4 hover:underline">Partner Schools</a></li>
-          <li><a href="/aboutus/" class="underline-offset-4 hover:underline">About IUFP</a></li>
-          <li><a href="contact.html" class="underline-offset-4 hover:underline">Contact</a></li>
-        </ul>
-      </div>
-      <div class="text-center md:text-left">
-        <h4 class="font-semibold mb-2 text-sm sm:text-base">Partner Support</h4>
-        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
-          <a href="contact.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm">Contact Support</a>
-          <a href="iufp-partner-welcome.html" class="crystal rounded-xl px-3 sm:px-5 py-2 sm:py-3 font-bold text-xs sm:text-sm" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">VLE Portal</a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-white/10">
-      <div class="max-w-5xl mx-auto px-4 py-3 sm:py-4 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
-        <div>© <span id="y"></span> International University Foundation Programme (IUFP)</div>
-        <div class="space-x-4">
-          <a href="/privacy-policy/" class="underline-offset-4 hover:underline">Privacy Policy</a>
-          <a href="/cookie-policy/" class="underline-offset-4 hover:underline">Cookie Policy</a>
-          <a href="/terms/" class="underline-offset-4 hover:underline">Terms</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <div id="footer-container"></div>
+  <script src="footer-component.min.js?v=1.0"></script>
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'default');
+    }
+  </script>  <script>
+    </script>
 </body>
 </html>
