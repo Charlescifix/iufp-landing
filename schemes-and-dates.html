@@ -183,15 +183,15 @@
   <div aria-hidden="true" class="jelly-bg"><span class="blob"></span><span class="blob"></span></div>
     <header class="brand-header relative z-20">
         <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
-            <a href="/" class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
                 <img src="iufp-logo.jpg" alt="IUFP logo" class="h-14 md:h-16 w-auto"/>
             </a>
             <nav class="hidden md:flex gap-7 text-base md:text-lg font-semibold">
-                <a class="brand-link hover:opacity-90" href="/">Home</a>
-                <a class="brand-link hover:opacity-90" href="/students/">Students</a>
-                <a class="brand-link hover:opacity-90" href="/universities/">Universities</a>
-                <a class="brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
-                <a class="brand-link hover:opacity-90" href="/contact-us/">Contact</a>
+                <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+                <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+                <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+                <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+                <a class="brand-link hover:opacity-90" href="contact.html">Contact</a>
             </nav>
             <!-- Mobile menu button -->
             <button class="md:hidden text-white p-2" onclick="toggleMobileMenu()">
@@ -203,11 +203,11 @@
         <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-brand-nav-bg border-t border-white/10">
             <nav class="px-4 py-2 space-y-1">
-                <a class="block py-2 brand-link hover:opacity-90" href="/">Home</a>
-                <a class="block py-2 brand-link hover:opacity-90" href="/students/">Students</a>
-                <a class="block py-2 brand-link hover:opacity-90" href="/universities/">Universities</a>
-                <a class="block py-2 brand-link hover:opacity-90" href="/partner-schools/">Partner Schools</a>
-                <a class="block py-2 brand-link hover:opacity-90" href="/contact-us/">Contact</a>
+                <a class="block py-2 brand-link hover:opacity-90" href="index.html">Home</a>
+                <a class="block py-2 brand-link hover:opacity-90" href="students.html">Students</a>
+                <a class="block py-2 brand-link hover:opacity-90" href="universities.html">Universities</a>
+                <a class="block py-2 brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+                <a class="block py-2 brand-link hover:opacity-90" href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
@@ -383,8 +383,8 @@
                     <h3 class="text-xl font-extrabold">Next Steps</h3>
                     <p class="mt-2 text-sm opacity-90">Match your intended degree to electives and plan your assessment calendar.</p>
                     <div class="mt-4 flex gap-3 flex-wrap">
-                        <a href="/students/apply" class="crystal rounded-xl px-5 py-3 font-bold inline-block hover:opacity-90 transition-opacity" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">Apply Now</a>
-                        <a href="/contact-us/" class="crystal rounded-xl px-5 py-3 font-bold inline-block hover:opacity-90 transition-opacity">Ask Admissions</a>
+                        <a href="apply.html" class="crystal rounded-xl px-5 py-3 font-bold inline-block hover:opacity-90 transition-opacity" style="background:linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95)); color:#0b2447">Apply Now</a>
+                        <a href="contact.html" class="crystal rounded-xl px-5 py-3 font-bold inline-block hover:opacity-90 transition-opacity">Ask Admissions</a>
                     </div>
                 </aside>
             </div>
@@ -398,9 +398,8 @@
     if (window.IUFPFooter) {
       IUFPFooter.render('#footer-container', 'default');
     }
-  </script>    <script>
-        document.getElementById('y').textContent = (new Date()).getFullYear();
-        
+  </script>
+    <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
