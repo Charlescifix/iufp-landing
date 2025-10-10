@@ -6,262 +6,98 @@
   <title>IUFP — International University Foundation Programme</title>
   <meta name="description" content="Fast-track alternative entry to leading universities in 9–12 months without A-Levels. IUFP is endorsed by ATHE (an OFQUAL-regulated awarding body).">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand-nav-bg:#0b2447;
+      --brand-nav-bg:#0b2447;           
       --brand-nav-text:#ffffff;
-      --brand-primary:#19376d;
+      --brand-primary:#19376d;          
       --brand-on-primary:#ffffff;
       --brand-footer-bg:#0b2447;
       --brand-footer-text:#ffffff;
-      --gold-accent:#d4af37;
-      --gold-light:#f4e4b0;
-      --gold-dark:#b8941f;
-      --prestige-navy:#0a1128;
-      --prestige-blue:#1e3a5f;
     }
-
-    html,body{
-      scroll-behavior:smooth;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .serif-heading {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-header{
-      background: linear-gradient(135deg, var(--prestige-navy) 0%, var(--brand-nav-bg) 100%);
-      color:var(--brand-nav-text);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .brand-link{
-      color:var(--brand-nav-text);
-      position:relative;
-      transition:all 0.3s ease;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-link::before{
-      content:'';
-      position:absolute;
-      bottom:-4px;
-      left:50%;
-      width:0;
-      height:2px;
-      background: linear-gradient(90deg, var(--gold-accent), var(--gold-light));
-      transition:all 0.3s ease;
-      transform:translateX(-50%);
-      box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
-    }
-
-    .brand-link:hover{
-      color: var(--gold-light);
-      transform:translateY(-2px);
-    }
-
+    html,body{scroll-behavior:smooth}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
     .brand-link:hover::before{width:100%}
-
-    .brand-primary{
-      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--prestige-blue) 100%);
-      color:var(--brand-on-primary)
-    }
-
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
     .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
 
-    .jelly-bg{
-      position:fixed;
-      inset:0;
-      overflow:hidden;
-      z-index:0;
+    .jelly-bg{position:fixed;inset:0;overflow:hidden;z-index:0;
       background:
-        radial-gradient(80vw 80vw at 15% -5%, rgba(25,55,109,.04), transparent 65%),
-        radial-gradient(70vw 70vw at 85% 15%, rgba(212,175,55,.02), transparent 65%),
-        radial-gradient(60vw 60vw at 50% 100%, rgba(11,36,71,.06), transparent 70%);
-      filter:saturate(120%);
+        radial-gradient(60vw 60vw at 10% -10%, rgba(25,55,109,.08), transparent 60%),
+        radial-gradient(50vw 50vw at 90% 10%, rgba(11,36,71,.10), transparent 60%);
+      filter:saturate(115%);
     }
+    .blob{position:absolute;border-radius:9999px;opacity:.5;filter:blur(40px);mix-blend-mode:screen}
+    .blob:nth-child(1){width:28rem;height:28rem;left:-6rem;top:-4rem;background:rgba(25,55,109,.08);animation:float1 16s ease-in-out infinite}
+    .blob:nth-child(2){width:24rem;height:24rem;right:-4rem;top:6rem;background:rgba(11,36,71,.10);animation:float2 18s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 
-    .blob{
-      position:absolute;
-      border-radius:9999px;
-      opacity:.4;
-      filter:blur(50px);
-      mix-blend-mode:soft-light;
-    }
-
-    .blob:nth-child(1){
-      width:32rem;
-      height:32rem;
-      left:-8rem;
-      top:-6rem;
-      background: radial-gradient(circle, rgba(212,175,55,.12), rgba(25,55,109,.08));
-      animation:float1 20s ease-in-out infinite;
-    }
-
-    .blob:nth-child(2){
-      width:28rem;
-      height:28rem;
-      right:-6rem;
-      top:8rem;
-      background: radial-gradient(circle, rgba(25,55,109,.10), rgba(11,36,71,.12));
-      animation:float2 22s ease-in-out infinite;
-    }
-
-    .blob:nth-child(3){
-      width:36rem;
-      height:36rem;
-      left:50%;
-      bottom:-10rem;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(212,175,55,.08), rgba(30,58,95,.08));
-      animation:float3 24s ease-in-out infinite;
-    }
-
-    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(30px)}}
-    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
-    @keyframes float3{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(25px)}}
-
-    .crystal{
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 12px 32px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-
-    .crystal:hover{
-      transform:translateY(-3px) scale(1.005);
-      box-shadow:0 16px 40px rgba(0,0,0,.16), 0 4px 12px rgba(0,0,0,.08);
-    }
-
-    .crystal-premium{
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
-      background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.12));
-      border:1px solid rgba(212,175,55,.15);
-      box-shadow:0 16px 40px rgba(0,0,0,.14), 0 4px 12px rgba(212,175,55,.08), inset 0 1px 0 rgba(255,255,255,.3);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-
-    .crystal-premium:hover{
-      transform:translateY(-4px) scale(1.008);
-      box-shadow:0 20px 48px rgba(0,0,0,.18), 0 6px 16px rgba(212,175,55,.12), inset 0 1px 0 rgba(255,255,255,.4);
-    }
-
-    .gold-accent-border {
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .gold-shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gold-shimmer::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
-      animation: shimmer 3s infinite;
-    }
-
-    @keyframes shimmer {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    .cta{
-      font-weight:700;
-      border:1px solid rgba(255,255,255,.35);
-      font-size:1rem;
-      padding:0.875rem 2rem;
-      letter-spacing: 0.02em;
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
-    }
-
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+    .cta{font-weight:700;border:1px solid rgba(255,255,255,.35);font-size:1rem;padding:0.75rem 1.5rem;}
+    
     /* Button system */
     .btn-primary {
-      font-size: 0.9375rem;
-      padding: 0.75rem 1.75rem;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
       font-weight: 700;
-      border-radius: 0.875rem;
-      transition: all 0.25s ease;
-      letter-spacing: 0.01em;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease;
     }
-
+    
     .btn-primary.btn-cta {
-      font-size: 1.0625rem;
-      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
     }
-
+    
     .btn-secondary {
-      font-size: 0.9375rem;
-      padding: 0.75rem 1.75rem;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
       font-weight: 600;
-      border-radius: 0.875rem;
-      transition: all 0.25s ease;
-      letter-spacing: 0.01em;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease;
     }
-
+    
     @media (max-width: 576px) {
       .btn-primary {
-        font-size: 0.875rem;
-        padding: 0.625rem 1.25rem;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
       }
       .btn-primary.btn-cta {
-        font-size: 0.9375rem;
-        padding: 0.75rem 1.5rem;
-      }
-      .btn-secondary {
-        font-size: 0.875rem;
+        font-size: 0.9rem;
         padding: 0.625rem 1.25rem;
       }
-      .cta {
-        font-size: 0.9375rem;
-        padding: 0.75rem 1.5rem;
+      .btn-secondary {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+      .cta { 
+        font-size: 0.9rem; 
+        padding: 0.625rem 1.25rem; 
       }
     }
-
+    
     /* Grid and container optimizations */
-    .responsive-grid { display: grid; gap: 1rem; }
-    @media (min-width: 576px) { .responsive-grid { gap: 1.25rem; } }
-    @media (min-width: 768px) { .responsive-grid { gap: 1.5rem; } }
-    @media (min-width: 1024px) { .responsive-grid { gap: 2rem; } }
+    .responsive-grid { display: grid; gap: 0.75rem; }
+    @media (min-width: 576px) { .responsive-grid { gap: 1rem; } }
+    @media (min-width: 768px) { .responsive-grid { gap: 1.25rem; } }
+    @media (min-width: 1024px) { .responsive-grid { gap: 1.5rem; } }
+    
+    .responsive-container { padding: 0.75rem; }
+    @media (min-width: 576px) { .responsive-container { padding: 1rem; } }
+    @media (min-width: 768px) { .responsive-container { padding: 1.25rem; } }
+    @media (min-width: 1024px) { .responsive-container { padding: 1.5rem; } }
 
-    .responsive-container { padding: 1rem; }
-    @media (min-width: 576px) { .responsive-container { padding: 1.25rem; } }
-    @media (min-width: 768px) { .responsive-container { padding: 1.5rem; } }
-    @media (min-width: 1024px) { .responsive-container { padding: 2rem; } }
-
-    .cta--student{
-      background:linear-gradient(135deg, rgba(20,184,166,.98), rgba(16,148,133,.92));
-      color:#06223e;
-      border: 1px solid rgba(255,255,255,.4);
-    }
-
-    .cta--partner{
-      background:linear-gradient(135deg, rgba(167,139,250,.98), rgba(139,116,216,.92));
-      color:#0a1442;
-      border: 1px solid rgba(255,255,255,.4);
-    }
-
-    .cta:hover{
-      filter:saturate(115%) brightness(105%);
-      box-shadow:0 12px 32px rgba(0,0,0,.22);
-      transform:translateY(-3px) scale(1.02);
-    }
+    .cta--student{background:linear-gradient(180deg, rgba(20,184,166,.95), rgba(20,184,166,.85)); color:#06223e}
+    .cta--partner{background:linear-gradient(180deg, rgba(167,139,250,.95), rgba(167,139,250,.85)); color:#0a1442}
+    .cta:hover{filter:saturate(110%); box-shadow:0 12px 26px rgba(0,0,0,.18)}
+    .cta:hover{transform:translateY(-3px) scale(1.02)}
 
     .bot-bubble{position:fixed;right:20px;bottom:20px;z-index:50}
     .bot-panel{position:fixed;right:20px;bottom:92px;width:360px;max-width:calc(100vw - 40px);height:520px;max-height:calc(100vh - 120px);z-index:50;display:none}
@@ -270,13 +106,13 @@
       .bot-bubble{right:10px;bottom:10px}
     }
     .bot-open .bot-panel{display:block}
-
+    
     /* Chatbot iframe responsive styles */
     .bot-panel iframe {
       transform: scale(1);
       transform-origin: top left;
     }
-
+    
     @media (max-width: 480px) {
       .bot-panel iframe {
         transform: scale(0.9);
@@ -285,193 +121,155 @@
         height: 111%;
       }
     }
-
+    
     /* Enhanced Responsive Design System - Optimized */
-
+    
     /* Mobile First - Base styles (320px+) */
-    .responsive-text-xs { font-size: 0.75rem; line-height: 1.125rem; }
-    .responsive-text-sm { font-size: 0.875rem; line-height: 1.375rem; }
-    .responsive-text-base { font-size: 1rem; line-height: 1.625rem; }
-    .responsive-text-lg { font-size: 1rem; line-height: 1.625rem; }
-    .responsive-text-xl { font-size: 1.0625rem; line-height: 1.625rem; }
-    .responsive-text-2xl { font-size: 1.375rem; line-height: 1.875rem; }
-    .responsive-text-3xl { font-size: 1.625rem; line-height: 2.125rem; }
-    .responsive-text-4xl { font-size: 2rem; line-height: 2.25rem; }
-
+    .responsive-text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .responsive-text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .responsive-text-base { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-lg { font-size: 0.9375rem; line-height: 1.375rem; }
+    .responsive-text-xl { font-size: 1rem; line-height: 1.5rem; }
+    .responsive-text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .responsive-text-3xl { font-size: 1.5rem; line-height: 2rem; }
+    .responsive-text-4xl { font-size: 1.875rem; line-height: 2rem; }
+    
     /* Small devices (576px and up) - Optimized */
     @media (min-width: 576px) {
-      .responsive-text-lg { font-size: 1.0625rem; line-height: 1.625rem; }
-      .responsive-text-xl { font-size: 1.1875rem; line-height: 1.75rem; }
-      .responsive-text-2xl { font-size: 1.5rem; line-height: 2rem; }
-      .responsive-text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-      .responsive-text-4xl { font-size: 2.5rem; line-height: 1.1; }
+      .responsive-text-lg { font-size: 1rem; line-height: 1.5rem; }
+      .responsive-text-xl { font-size: 1.125rem; line-height: 1.625rem; }
+      .responsive-text-2xl { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-3xl { font-size: 1.75rem; line-height: 2rem; }
+      .responsive-text-4xl { font-size: 2.25rem; line-height: 1; }
     }
-
+    
     /* Medium devices (768px and up) - Optimized */
     @media (min-width: 768px) {
-      .responsive-text-lg { font-size: 1.1875rem; line-height: 1.875rem; }
-      .responsive-text-xl { font-size: 1.375rem; line-height: 1.875rem; }
-      .responsive-text-2xl { font-size: 1.75rem; line-height: 2.125rem; }
-      .responsive-text-3xl { font-size: 2.25rem; line-height: 1.1; }
-      .responsive-text-4xl { font-size: 3rem; line-height: 1.1; }
+      .responsive-text-lg { font-size: 1.25rem; line-height: 1.75rem; }
+      .responsive-text-xl { font-size: 1.375rem; line-height: 1.75rem; }
+      .responsive-text-2xl { font-size: 1.625rem; line-height: 2rem; }
+      .responsive-text-3xl { font-size: 2rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 2.75rem; line-height: 1; }
     }
-
+    
     /* Large devices (1024px and up) - Optimized */
     @media (min-width: 1024px) {
-      .responsive-text-lg { font-size: 1.25rem; line-height: 2rem; }
-      .responsive-text-xl { font-size: 1.5rem; line-height: 2rem; }
-      .responsive-text-2xl { font-size: 2rem; line-height: 1.1; }
-      .responsive-text-3xl { font-size: 2.5rem; line-height: 1.1; }
-      .responsive-text-4xl { font-size: 3.5rem; line-height: 1.1; }
+      .responsive-text-lg { font-size: 1.375rem; line-height: 1.875rem; }
+      .responsive-text-xl { font-size: 1.5rem; line-height: 1.875rem; }
+      .responsive-text-2xl { font-size: 1.75rem; line-height: 1; }
+      .responsive-text-3xl { font-size: 2.25rem; line-height: 1; }
+      .responsive-text-4xl { font-size: 3rem; line-height: 1; }
     }
-
+    
     /* Navigation Enhancements */
     @media (max-width: 640px) {
-      .brand-header .max-w-7xl { padding: 0.875rem 1rem; }
-      .brand-header img { height: 4.5rem; }
-      .crystal { padding: 0.875rem 1.25rem !important; }
+      .brand-header .max-w-7xl { padding: 0.75rem 1rem; }
+      .brand-header img { height: 4rem; }
+      .crystal { padding: 0.75rem 1rem !important; }
     }
-
+    
     @media (min-width: 641px) and (max-width: 1023px) {
-      .brand-header img { height: 5.5rem; }
+      .brand-header img { height: 5rem; }
     }
-
+    
     /* Grid System Enhancements */
     .responsive-grid {
       display: grid;
-      gap: 1.25rem;
+      gap: 1rem;
     }
-
+    
     @media (min-width: 640px) {
-      .responsive-grid { gap: 1.75rem; }
+      .responsive-grid { gap: 1.5rem; }
     }
-
+    
     @media (min-width: 768px) {
-      .responsive-grid { gap: 2.25rem; }
+      .responsive-grid { gap: 2rem; }
       .responsive-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
     }
-
+    
     @media (min-width: 1024px) {
-      .responsive-grid { gap: 2.75rem; }
+      .responsive-grid { gap: 2.5rem; }
       .responsive-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
     }
-
+    
     /* Button Enhancements */
     .responsive-btn {
-      padding: 0.875rem 1.75rem;
-      font-size: 1.0625rem;
-      min-height: 50px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
-
+    
     @media (max-width: 640px) {
       .responsive-btn {
         padding: 1rem 1.5rem;
         font-size: 1rem;
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
       }
     }
-
+    
     @media (min-width: 768px) {
       .responsive-btn {
-        padding: 1rem 2.25rem;
+        padding: 1rem 2rem;
         font-size: 1.125rem;
         width: auto;
       }
     }
-
+    
     /* Image Responsiveness */
     .responsive-img {
       width: 100%;
       height: auto;
       max-width: 100%;
     }
-
+    
     @media (max-width: 640px) {
+      .responsive-img { border-radius: 0.75rem; }
+    }
+    
+    @media (min-width: 768px) {
       .responsive-img { border-radius: 1rem; }
     }
-
-    @media (min-width: 768px) {
-      .responsive-img { border-radius: 1.25rem; }
-    }
-
+    
     /* Container Spacing */
     .responsive-container {
       padding-left: 1rem;
       padding-right: 1rem;
     }
-
+    
     @media (min-width: 640px) {
       .responsive-container {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
       }
     }
-
+    
     @media (min-width: 768px) {
       .responsive-container {
         padding-left: 2rem;
         padding-right: 2rem;
       }
     }
-
+    
     /* Touch Target Improvements */
     @media (hover: none) and (pointer: coarse) {
       .brand-link, .cta, .crystal {
         min-height: 48px;
         min-width: 48px;
-        padding: 1rem 1.75rem;
+        padding: 0.875rem 1.5rem;
       }
-
+      
       .brand-link::before {
-        display: none;
-      }
-    }
-
-    /* Premium Badge Styles */
-    .premium-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: linear-gradient(135deg, rgba(212,175,55,.15), rgba(184,148,31,.10));
-      border: 1px solid rgba(212,175,55,.3);
-      border-radius: 2rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #0b2447;
-      box-shadow: 0 4px 12px rgba(212,175,55,.15), inset 0 1px 0 rgba(255,255,255,.3);
-    }
-
-    .premium-badge::before {
-      content: '★';
-      color: var(--gold-accent);
-      font-size: 1rem;
-    }
-
-    /* Section Dividers */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,.2), transparent);
-      margin: 3rem 0;
-    }
-
-    @media (min-width: 768px) {
-      .section-divider {
-        margin: 4rem 0;
+        display: none; /* Remove hover effects on touch devices */
       }
     }
   </style>
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative">
-  <div aria-hidden="true" class="jelly-bg">
-    <span class="blob"></span>
-    <span class="blob"></span>
-    <span class="blob"></span>
-  </div>
+  <div aria-hidden="true" class="jelly-bg"><span class="blob"></span><span class="blob"></span></div>
 
   <header class="brand-header relative z-20">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
@@ -506,318 +304,170 @@
   </header>
 
   <main class="relative z-10">
-    <!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-16">
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10">
+      <div class="grid md:grid-cols-2 gap-4 md:gap-6 items-center">
         <div>
-          <div class="premium-badge mb-5">OFQUAL-Regulated Excellence</div>
-          <h1 class="serif-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-5" style="color: var(--prestige-navy);">
-            Your Gateway to <span style="color: var(--gold-dark);">Prestigious</span> UK Universities
-          </h1>
-          <p class="responsive-text-lg opacity-90 leading-relaxed mb-2">
-            The International University Foundation Programme offers an <strong>elite alternative pathway</strong>
-            to first-year degree entry at leading universities — completed in just <strong>9–12 months</strong>
-            of intensive, focused study.
-          </p>
-          <p class="text-base opacity-75 leading-relaxed mb-6">
-            Endorsed by ATHE and regulated by OFQUAL, IUFP eliminates the need for A-Levels while
-            maintaining the highest academic standards.
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">Fast-Track Entry to Prestigious Universities</h1>
+          <p class="mt-3 responsive-text-lg opacity-95">
+            The IUFP is a pre-degree, full-time university foundation course offering a <strong>fast-track alternative route</strong>
+            to first-year degree entry after <strong>9–12 months</strong> of intensive study — without the need to undertake the GCE A-Levels course.
           </p>
 
-          <div class="mt-6 flex flex-col sm:flex-row flex-wrap gap-4">
-            <a href="students.html" class="crystal-premium cta cta--student btn-cta rounded-2xl gold-shimmer">Begin Your Journey</a>
-            <a href="partner-schools.html" class="crystal cta cta--partner btn-secondary rounded-2xl">Partner With Us</a>
+          <div class="mt-4 flex flex-col sm:flex-row flex-wrap gap-3">
+            <a href="students.html" class="crystal cta cta--student btn-cta bouncy rounded-2xl">IUFP Student</a>
+            <a href="partner-schools.html" class="crystal cta cta--partner btn-secondary bouncy rounded-2xl">IUFP Partner Schools</a>
           </div>
 
-          <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 crystal-premium rounded-xl p-4 sm:px-5 sm:py-4 gold-accent-border">
-            <img src="athe-logo.png" class="h-12 w-auto" alt="ATHE logo" />
-            <div class="text-sm leading-relaxed">
-              <strong class="block mb-1" style="color: var(--prestige-navy);">ATHE Endorsed Programme</strong>
-              <span class="opacity-80">Regulated by OFQUAL (UK) • Certificates of Completion issued to all successful students</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="crystal-premium rounded-2xl p-3 shadow-2xl order-first md:order-last gold-accent-border">
-          <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" alt="Students collaborating" class="rounded-xl w-full h-full object-cover"/>
-        </div>
-      </div>
-    </section>
-
-    <!-- What is IUFP -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-8 md:pb-12">
-      <div class="crystal-premium rounded-2xl p-8 md:p-10 shadow-xl gold-accent-border">
-        <h2 class="serif-heading responsive-text-2xl font-bold mb-4" style="color: var(--prestige-navy);">
-          What does IUFP mean?
-        </h2>
-        <p class="text-slate-800 responsive-text-lg leading-relaxed">
-          <strong>IUFP</strong> stands for <strong>International University Foundation Programme</strong> —
-          an accelerated pre‑degree pathway meticulously designed to equip ambitious students with the
-          <strong>academic excellence</strong>, English proficiency, and subject mastery required for
-          <strong>direct entry into Year 1</strong> of undergraduate programmes at distinguished UK universities.
-        </p>
-      </div>
-    </section>
-
-    <div class="section-divider max-w-7xl mx-auto px-4"></div>
-
-    <!-- Why Choose IUFP -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
-      <div class="text-center mb-10">
-        <h2 class="serif-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: var(--prestige-navy);">
-          The IUFP Advantage
-        </h2>
-        <p class="responsive-text-lg opacity-80 max-w-3xl mx-auto">
-          Discover why discerning students and institutions choose IUFP for university preparation
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-        <div class="crystal-premium p-8 rounded-2xl font-semibold text-center gold-accent-border" style="background:linear-gradient(135deg, rgba(212,175,55,.08), rgba(25,55,109,.04));">
-          <div class="text-4xl mb-4">🎓</div>
-          <h3 class="font-bold text-lg mb-3" style="color: var(--prestige-navy);">Direct University Entry</h3>
-          <p class="font-normal text-base opacity-85 leading-relaxed">Guaranteed progression to first year of degree courses at prestigious UK universities upon successful completion.</p>
-        </div>
-        <div class="crystal-premium p-8 rounded-2xl font-semibold text-center gold-accent-border" style="background:linear-gradient(135deg, rgba(212,175,55,.08), rgba(25,55,109,.04));">
-          <div class="text-4xl mb-4">⚡</div>
-          <h3 class="font-bold text-lg mb-3" style="color: var(--prestige-navy);">Accelerated Timeline</h3>
-          <p class="font-normal text-base opacity-85 leading-relaxed">Complete your foundation in 9–12 months with our intensive, expertly-structured curriculum designed for excellence.</p>
-        </div>
-        <div class="crystal-premium p-8 rounded-2xl font-semibold text-center gold-accent-border" style="background:linear-gradient(135deg, rgba(212,175,55,.08), rgba(25,55,109,.04));">
-          <div class="text-4xl mb-4">💎</div>
-          <h3 class="font-bold text-lg mb-3" style="color: var(--prestige-navy);">Exceptional Value</h3>
-          <p class="font-normal text-base opacity-85 leading-relaxed">Significant cost savings compared to alternative routes, complemented by our dedicated University Placement Service.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider max-w-7xl mx-auto px-4"></div>
-
-    <!-- Programme Details -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
-      <div class="text-center mb-10">
-        <h2 class="serif-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style="color: var(--prestige-navy);">
-          Programme Overview
-        </h2>
-        <p class="responsive-text-lg opacity-80 max-w-3xl mx-auto">
-          Comprehensive foundation designed for academic excellence
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8">
-        <div class="crystal-premium rounded-2xl p-7 shadow-lg" style="background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
-          <h3 class="font-bold text-xl mb-4" style="color: var(--prestige-navy);">Entry Requirements</h3>
-          <ul class="opacity-90 space-y-2 text-base leading-relaxed">
-            <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Age 16+ with completed secondary education</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Minimum 5 credits including English & Mathematics</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>International qualifications welcomed</span></li>
-          </ul>
-        </div>
-        <div class="crystal-premium rounded-2xl p-7 shadow-lg" style="background:linear-gradient(135deg, rgba(20,184,166,.12), rgba(20,184,166,.06));">
-          <h3 class="font-bold text-xl mb-4" style="color: var(--prestige-navy);">Academic Calendar</h3>
-          <ul class="opacity-90 space-y-2 text-base leading-relaxed">
-            <li class="flex items-start gap-2"><span class="text-teal-600 mt-1">•</span><span>Intake periods: January & September</span></li>
-            <li class="flex items-start gap-2"><span class="text-teal-600 mt-1">•</span><span>Examination sessions: June/July & December/January</span></li>
-          </ul>
-        </div>
-        <div class="crystal-premium rounded-2xl p-7 shadow-lg" style="background:linear-gradient(135deg, rgba(167,139,250,.14), rgba(167,139,250,.06));">
-          <h3 class="font-bold text-xl mb-4" style="color: var(--prestige-navy);">Learning Model</h3>
-          <ul class="opacity-90 space-y-2 text-base leading-relaxed">
-            <li class="flex items-start gap-2"><span class="text-purple-600 mt-1">•</span><span>Face‑to‑face and blended delivery options</span></li>
-            <li class="flex items-start gap-2"><span class="text-purple-600 mt-1">•</span><span>Examinations at accredited IUFP Partner Schools</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider max-w-7xl mx-auto px-4"></div>
-
-    <!-- Curriculum -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
-      <div class="crystal-premium rounded-2xl p-8 md:p-10 shadow-2xl gold-accent-border">
-        <h3 class="serif-heading text-3xl md:text-4xl font-bold mb-6" style="color: var(--prestige-navy);">
-          Curriculum Excellence
-        </h3>
-        <p class="responsive-text-lg opacity-85 mb-8 leading-relaxed">
-          A meticulously structured programme combining core academic foundations with specialized pathway preparation
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="rounded-2xl p-6" style="background:linear-gradient(135deg, rgba(25,55,109,.08), rgba(25,55,109,.04)); border: 1px solid rgba(25,55,109,.12);">
-            <div class="text-sm uppercase tracking-widest opacity-70 mb-3 font-semibold">Term 1 · Core Foundation</div>
-            <ul class="space-y-2 font-semibold text-base">
-              <li class="flex items-center gap-2"><span class="text-lg">📚</span> Academic English</li>
-              <li class="flex items-center gap-2"><span class="text-lg">🎯</span> Study Skills</li>
-              <li class="flex items-center gap-2"><span class="text-lg">💻</span> IT Applications</li>
-            </ul>
-          </div>
-
-          <div class="rounded-2xl p-6" style="background:linear-gradient(135deg, rgba(20,184,166,.12), rgba(20,184,166,.06)); border: 1px solid rgba(20,184,166,.15);">
-            <div class="text-sm uppercase tracking-widest opacity-70 mb-3 font-semibold">Terms 2–3 · Specialization</div>
-            <div class="grid grid-cols-2 gap-x-3 gap-y-2 font-semibold text-sm">
-              <div>• Accounting</div><div>• Biology</div>
-              <div>• Business</div><div>• Chemistry</div>
-              <div>• Computing</div><div>• Economics</div>
-              <div>• Gov & Politics</div><div>• Law</div>
-              <div>• Mathematics</div><div>• Physics</div>
-              <div>• Psychology</div><div>• Sociology</div>
-            </div>
-          </div>
-
-          <div class="rounded-2xl p-6" style="background:linear-gradient(135deg, rgba(212,175,55,.12), rgba(212,175,55,.06)); border: 1px solid rgba(212,175,55,.2);">
-            <div class="text-sm uppercase tracking-widest opacity-70 mb-3 font-semibold">Programme Duration</div>
-            <div class="space-y-3">
-              <div>
-                <p class="font-bold text-base">Standard Track</p>
-                <p class="text-sm opacity-85">12 months comprehensive</p>
-              </div>
-              <div>
-                <p class="font-bold text-base">Intensive Track</p>
-                <p class="text-sm opacity-85">9 months accelerated</p>
-              </div>
-            </div>
-            <div class="mt-4 text-xs opacity-75 leading-relaxed">Expertly designed for seamless Year 1 university transition</div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="px-4 py-2 rounded-full font-semibold" style="background: linear-gradient(135deg, var(--gold-accent), var(--gold-dark)); color: white;">Academic English</span>
-          <span class="px-4 py-2 rounded-full crystal-premium font-semibold">Study Skills</span>
-          <span class="px-4 py-2 rounded-full crystal-premium font-semibold">IT Applications</span>
-          <span class="px-4 py-2 rounded-full crystal font-semibold opacity-80">+ 12 Elective Modules</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Degree Pathways -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
-      <div class="text-center mb-10">
-        <h3 class="serif-heading text-3xl md:text-4xl font-bold mb-3" style="color: var(--prestige-navy);">
-          9 Distinguished Degree Pathways
-        </h3>
-        <p class="responsive-text-lg opacity-80 max-w-3xl mx-auto">
-          Comprehensive progression routes to prestigious undergraduate programmes
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-7 text-sm">
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
-          <div class="text-2xl mb-2">💼</div>
-          <p>Accounting, Banking, Business, Finance & Management</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">
-          <div class="text-2xl mb-2">💻</div>
-          <p>Computing, Information Systems & Mathematics</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
-          <div class="text-2xl mb-2">⚙️</div>
-          <p>Engineering</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
-          <div class="text-2xl mb-2">⚖️</div>
-          <p>Law & Criminology</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">
-          <div class="text-2xl mb-2">🌍</div>
-          <p>Social Sciences</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
-          <div class="text-2xl mb-2">🎬</div>
-          <p>Media & Cultural Studies</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
-          <div class="text-2xl mb-2">🔬</div>
-          <p>Medical Sciences</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">
-          <div class="text-2xl mb-2">🧬</div>
-          <p>Life Sciences, Pharmacy & Nursing</p>
-        </div>
-        <div class="crystal-premium p-6 rounded-2xl font-semibold text-center" style="background:linear-gradient(135deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
-          <div class="text-2xl mb-2">🗣️</div>
-          <p>Linguistics & Modern English</p>
-        </div>
-      </div>
-      <p class="text-base opacity-80 mt-8 text-center leading-relaxed max-w-4xl mx-auto">
-        Our pathways open doors to distinguished programmes including Computer Science, Mechanical Engineering,
-        Law, Psychology, Biomedical Science, Pharmacy, International Relations, and numerous other degree courses
-        at leading UK universities.
-      </p>
-    </section>
-
-    <div class="section-divider max-w-7xl mx-auto px-4"></div>
-
-    <!-- Accreditation & Recognition -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
-      <div class="crystal-premium rounded-2xl p-8 md:p-10 shadow-xl gold-accent-border">
-        <div class="grid md:grid-cols-3 gap-8 items-center">
-          <div class="md:col-span-2">
-            <h3 class="serif-heading text-2xl md:text-3xl font-bold mb-4" style="color: var(--prestige-navy);">
-              Accreditation & Quality Assurance
-            </h3>
-            <p class="text-slate-800 responsive-text-lg leading-relaxed">
-              IUFP is proudly recognized as an <strong>ATHE Endorsed Programme</strong>. The Awards for Training
-              and Higher Education (ATHE) is regulated by Ofqual, the Office of Qualifications and Examinations
-              Regulation in the United Kingdom. All successful IUFP students receive an official ATHE Certificate
-              of Completion alongside their comprehensive IUFP assessment results.
+          <div class="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 crystal rounded-xl p-3 sm:px-3 sm:py-2">
+            <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE logo" />
+            <p class="text-sm leading-snug">
+              <strong>ATHE Endorsed Programme</strong> — ATHE is regulated by OFQUAL (UK). ATHE Certificates of Completion are issued to successful IUFP students.
             </p>
           </div>
-          <div class="justify-self-center md:justify-self-end">
-            <div class="crystal-premium rounded-2xl p-6 shadow-xl flex flex-col items-center gap-4 gold-accent-border text-center">
-              <img src="athe-logo.png" class="h-14 w-auto" alt="ATHE logo">
-              <div>
-                <p class="font-bold text-sm mb-1" style="color: var(--prestige-navy);">OFQUAL Regulated</p>
-                <span class="text-xs opacity-75">Trusted quality assurance</span>
-              </div>
-            </div>
+        </div>
+
+        <div class="crystal rounded-2xl p-2 shadow-lg order-first md:order-last">
+          <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" alt="Students collaborating" class="rounded-2xl w-full h-full object-cover"/>
+        </div>
+      </div>
+</section>
+
+    <!-- What is IUFP -->
+    <section class="max-w-7xl mx-auto px-4 pb-6">
+      <div class="crystal rounded-2xl p-6 shadow">
+        <h2 class="responsive-text-2xl font-extrabold mb-2">What does IUFP mean?</h2>
+        <p class="text-slate-800 text-base md:text-lg">
+          <strong>IUFP</strong> stands for <strong>International University Foundation Programme</strong> —
+          a fast-track pre‑degree pathway that equips international and local students with the academic skills,
+          English proficiency, and subject knowledge required for <strong>direct entry into the first year</strong> of a university degree.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-3">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 md:mb-6">Why Choose IUFP?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-4">
+        <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
+          Direct entry to first year of degree courses at prestigious Universities.
+        </div>
+        <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
+          9–12 months intensive pathway that equips you with skills to thrive at university.
+        </div>
+        <div class="crystal p-6 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(11,36,71,.04));">
+          Significant cost savings vs. other routes, plus a dedicated University Placement Service.
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
+        <div class="crystal rounded-xl p-6 shadow" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
+          <h3 class="font-bold text-xl mb-2">Admissions</h3>
+          <ul class="opacity-95 list-disc list-inside space-y-1"><li>Age 16+ and completion of secondary school</li><li>5 credits including English & Mathematics</li><li>International equivalents accepted</li></ul>
+        </div>
+        <div class="crystal rounded-xl p-6 shadow" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.06));">
+          <h3 class="font-bold text-xl mb-2">Intakes & Exams</h3>
+          <ul class="opacity-95 list-disc list-inside space-y-1"><li>Start dates: January & September</li><li>Exam windows: June/July and December/January</li></ul>
+        </div>
+        <div class="crystal rounded-xl p-6 shadow" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
+          <h3 class="font-bold text-xl mb-2">Study Model</h3>
+          <ul class="opacity-95 list-disc list-inside space-y-1"><li>Face‑to‑face or blended delivery</li><li>Exams held at IUFP Partner Schools</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-10">
+      <div class="crystal rounded-2xl p-6 shadow-lg">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-3">Curriculum Snapshot</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">
+            <div class="text-sm uppercase tracking-wide opacity-70">Term 1 · Core</div>
+            <ul class="mt-2 space-y-1 font-semibold">
+              <li>Academic English</li>
+              <li>Study Skills</li>
+              <li>IT Applications</li>
+            </ul>
+          </div>
+          <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.06));">
+            <div class="text-sm uppercase tracking-wide opacity-70">Terms 2–3 · Electives</div>
+            <ul class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 font-semibold text-sm">
+              <li>Accounting</li><li>Biology</li><li>Business</li><li>Chemistry</li>
+              <li>Computing</li><li>Economics</li><li>Government and Politics</li><li>Law</li>
+              <li>Mathematics</li><li>Physics</li><li>Psychology</li><li>Sociology</li>
+            </ul>
+          </div>
+          <div class="rounded-xl p-4" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">
+            <div class="text-sm uppercase tracking-wide opacity-70">Duration</div>
+            <p class="mt-2 font-semibold">Standard: 12 months<br>Intensive: 9 months</p>
+            <div class="mt-3 text-xs opacity-70">Designed as a focused, tech-forward preparation for Year 1 entry.</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full brand-primary font-semibold">Academic English</span>
+          <span class="px-3 py-1 rounded-full crystal font-semibold">Study Skills</span>
+          <span class="px-3 py-1 rounded-full crystal font-semibold">IT Applications</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-12">
+      <h3 class="text-2xl font-bold mb-4">9 Degree Progression Pathways</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-sm">
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">Accounting, Banking, Business, Finance & Management</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">Computing, Information Systems & Mathematics</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">Engineering</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">Law & Criminology</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">Social Sciences</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">Media & Cultural Studies</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(25,55,109,.06), rgba(25,55,109,.03));">Medical Sciences</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(20,184,166,.05));">Life Sciences, Pharmacy & Nursing</div>
+        <div class="crystal p-4 rounded-xl font-semibold" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(167,139,250,.06));">Linguistics & Modern English</div>
+      </div>
+      <p class="text-sm opacity-90 mt-6">Examples include routes into Computer Science, Mechanical Engineering, Law, Psychology, Biomedical Science, Pharmacy, and more.</p>
+    </section>
+
+    <!-- Accreditation & Recognition -->
+    <section class="max-w-7xl mx-auto px-4 pb-10">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2">
+          <h3 class="text-2xl font-bold mb-2">Accreditation & Recognition</h3>
+          <p class="text-slate-700">IUFP is an <strong>ATHE Endorsed Programme</strong>. ATHE is regulated by Ofqual (UK). Successful students receive an ATHE Certificate of Completion alongside IUFP results.</p>
+        </div>
+        <div class="justify-self-end">
+          <div class="crystal rounded-xl p-3 shadow-lg flex items-center gap-3">
+            <img src="athe-logo.png" class="h-10 w-auto" alt="ATHE logo">
+            <span class="text-sm">Trusted quality assurance</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQs -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
-      <div class="text-center mb-10">
-        <h2 class="serif-heading text-3xl md:text-4xl font-bold mb-3" style="color: var(--prestige-navy);">
-          Frequently Asked Questions
-        </h2>
-        <p class="responsive-text-lg opacity-80">
-          Everything you need to know about IUFP
-        </p>
-      </div>
-
-      <div class="space-y-4">
-        <details class="crystal-premium rounded-2xl p-5 md:p-6 shadow-lg group">
-          <summary class="font-bold text-lg cursor-pointer" style="color: var(--prestige-navy);">Who is eligible to apply?</summary>
-          <p class="mt-4 text-base opacity-85 leading-relaxed">Students aged 16 and above who have successfully completed secondary school education with at least five credits, including English and Mathematics (or internationally recognized equivalents).</p>
+    <section class="max-w-7xl mx-auto px-4 pb-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 md:mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-2 sm:space-y-3">
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
+          <summary class="font-semibold">Who is eligible to apply?</summary>
+          <p class="mt-2 text-sm">Students aged 16+ who have completed secondary school with at least five credits including English and Mathematics (or overseas equivalents).</p>
         </details>
-
-        <details class="crystal-premium rounded-2xl p-5 md:p-6 shadow-lg group">
-          <summary class="font-bold text-lg cursor-pointer" style="color: var(--prestige-navy);">How long does the programme take?</summary>
-          <p class="mt-4 text-base opacity-85 leading-relaxed">The standard programme duration is 9–12 months. An intensive accelerated route of 6–9 months is available depending on your elective module selections and individual study pace.</p>
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
+          <summary class="font-semibold">How long does the programme take?</summary>
+          <p class="mt-2 text-sm">Standard route is 9–12 months; intensive route 6–9 months, depending on elective choices and study pace.</p>
         </details>
-
-        <details class="crystal-premium rounded-2xl p-5 md:p-6 shadow-lg group">
-          <summary class="font-bold text-lg cursor-pointer" style="color: var(--prestige-navy);">Do I need IELTS certification?</summary>
-          <p class="mt-4 text-base opacity-85 leading-relaxed">IELTS requirements vary by country of origin and destination university. Many students do not require IELTS. Please consult our 'Admissions Criteria by Countries' documentation for specific requirements applicable to your situation.</p>
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
+          <summary class="font-semibold">Do I need IELTS?</summary>
+          <p class="mt-2 text-sm">IELTS may be required from students from a number of countries but it does not apply to all students applying to study in the UK. Please check the information on 'Admissions Criteria by Countries' for more information.</p>
         </details>
-
-        <details class="crystal-premium rounded-2xl p-5 md:p-6 shadow-lg group">
-          <summary class="font-bold text-lg cursor-pointer" style="color: var(--prestige-navy);">Where are examinations conducted?</summary>
-          <p class="mt-4 text-base opacity-85 leading-relaxed">All IUFP examinations are administered at our accredited IUFP Partner Schools, ensuring standardized quality and proper invigilation.</p>
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
+          <summary class="font-semibold">Where are exams held?</summary>
+          <p class="mt-2 text-sm">Examinations are conducted at IUFP Partner Schools.</p>
         </details>
-
-        <details class="crystal-premium rounded-2xl p-5 md:p-6 shadow-lg group">
-          <summary class="font-bold text-lg cursor-pointer" style="color: var(--prestige-navy);">What degree pathways are available?</summary>
-          <p class="mt-4 text-base opacity-85 leading-relaxed">IUFP offers 9 comprehensive progression pathways including Business & Finance, Computing & IT, Engineering, Law, Social Sciences, Medical Sciences, Life Sciences (including Pharmacy & Nursing), Media & Cultural Studies, and Linguistics & Modern English. These pathways provide access to a wide range of undergraduate degree programmes at prestigious UK universities.</p>
+        <details class="crystal rounded-xl p-3 sm:p-4 shadow">
+          <summary class="font-semibold">What degree pathways can I progress to?</summary>
+          <p class="mt-2 text-sm">A wide range including Business & Finance, Computing & IT, Engineering, Law, Social Sciences, Medical and Life Sciences, Media & Culture, and more.</p>
         </details>
-
-        <div class="mt-8 text-center">
-          <a href="contact.html" class="inline-block">
-            <span class="crystal-premium px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-transform" style="color: var(--prestige-navy);">
-              Have more questions? Contact us →
-            </span>
-          </a>
+        <div class="mt-4">
+          <span class="brand-primary inline-block px-4 py-2 rounded-lg opacity-50">More FAQs coming soon</span>
         </div>
       </div>
     </section>
