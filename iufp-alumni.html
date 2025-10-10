@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IUFP — Alumni</title>
+  <meta name="description" content="Meet the IUFP Alumni community: success stories and our LinkedIn alumni hub." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447;
+      --brand-nav-text:#ffffff;
+      --brand-primary:#19376d;
+      --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447;
+      --brand-footer-text:#ffffff;
+      --ink:#0e1a2b;
+      --muted:#42526b;
+      --gold:#caa86a;
+      --tint-a:rgba(25,55,109,.06);
+      --tint-b:rgba(20,184,166,.12);
+      --tint-c:rgba(167,139,250,.14);
+      --tint-d:rgba(11,36,71,.08);
+      --accent:linear-gradient(180deg,rgba(255,196,0,1),rgba(255,138,0,.95));
+    }
+    html,body{scroll-behavior:smooth}
+    body{color:var(--ink)}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+
+    .jelly-bg{position:fixed;inset:0;overflow:hidden;z-index:0;
+      background:
+        radial-gradient(60vw 60vw at 10% -10%, rgba(25,55,109,.08), transparent 60%),
+        radial-gradient(50vw 50vw at 90% 10%, rgba(11,36,71,.10), transparent 60%);
+      filter:saturate(115%);
+    }
+    .blob{position:absolute;border-radius:9999px;opacity:.5;filter:blur(40px);mix-blend-mode:screen}
+    .blob:nth-child(1){width:28rem;height:28rem;left:-6rem;top:-4rem;background:rgba(25,55,109,.08);animation:float1 16s ease-in-out infinite}
+    .blob:nth-child(2){width:24rem;height:24rem;right:-4rem;top:6rem;background:rgba(11,36,71,.10);animation:float2 18s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+
+    .btn{border-radius:14px;padding:.9rem 1.2rem;font-weight:700;display:inline-flex;align-items:center;gap:.55rem;transition:all 0.2s ease;text-decoration:none;cursor:pointer;min-height:48px}
+    .btn-primary{background:var(--accent); color:#0b2447;border:none}
+    .btn-primary:hover{filter:saturate(110%); box-shadow:0 12px 26px rgba(0,0,0,.18);transform:translateY(-2px)}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12);color:#0b2447}
+    .btn-ghost:hover{background:#f8fafc;border-color:rgba(0,0,0,.18);transform:translateY(-1px)}
+
+    .pill{display:inline-block;border:1px solid rgba(0,0,0,.08);border-radius:9999px;padding:.3rem .7rem;font-weight:800;background:#fff;font-size:.875rem}
+    .card{border-radius:18px; overflow:hidden; border:1px solid rgba(0,0,0,.08); background:#fff}
+    .badge{display:inline-block; padding:.25rem .55rem; border-radius:999px; border:1px solid rgba(0,0,0,.08); font-weight:600; background:#fff; font-size:.75rem}
+    .search{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:.8rem 1rem;outline:none;font-size:0.875rem;transition:all 0.2s ease}
+    .search:focus{border-color:#19376d; box-shadow:0 0 0 3px rgba(25,55,109,.15)}
+
+    .bot-bubble{position:fixed;right:20px;bottom:20px;z-index:50}
+    .bot-panel{position:fixed;right:20px;bottom:92px;width:360px;max-width:calc(100vw - 40px);height:520px;max-height:calc(100vh - 120px);z-index:50;display:none}
+    @media (max-width: 480px) {
+      .bot-panel{right:10px;bottom:82px;width:calc(100vw - 20px);max-width:none;height:calc(100vh - 100px);max-height:none}
+      .bot-bubble{right:10px;bottom:10px}
+    }
+    .bot-open .bot-panel{display:block}
+
+    .bot-panel iframe {
+      transform: scale(1);
+      transform-origin: top left;
+    }
+
+    @media (max-width: 480px) {
+      .bot-panel iframe {
+        transform: scale(0.9);
+        transform-origin: top left;
+        width: 111%;
+        height: 111%;
+      }
+    }
+
+    /* Enhanced responsive utilities */
+    @media (max-width: 640px) {
+      .brand-header .max-w-7xl { padding: 0.75rem 1rem; }
+      .brand-header img { height: 3.5rem; }
+      .crystal { padding: 0.75rem 1rem !important; }
+      .btn { padding: 0.75rem 1rem; font-size: 0.875rem; }
+    }
+
+    /* Touch Target Improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .brand-link, .btn, .crystal {
+        min-height: 48px;
+        min-width: 48px;
+      }
+
+      .brand-link::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen relative">
+  <div aria-hidden="true" class="jelly-bg"><span class="blob"></span><span class="blob"></span></div>
+
+  <header class="brand-header relative z-20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-20 w-auto md:h-28" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="iufp-about.html">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="iufp-alumni.html">Alumni</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </nav>
+      <button aria-label="Open menu" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="document.getElementById('mnav').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-1.5">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="iufp-about.html">About IUFP</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="iufp-alumni.html">Alumni</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section class="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-8">
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <div class="text-xs tracking-[.12em] uppercase font-black text-[#caa86a]">Community</div>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight mt-1">IUFP Alumni</h1>
+          <p class="mt-3 text-lg text-slate-600">Celebrating our graduates — where they studied, what they do now, and how they give back. Join our LinkedIn Alumni hub.</p>
+          <div class="mt-5 flex gap-3 flex-wrap">
+            <a href="#directory" class="btn btn-primary">Browse Alumni</a>
+            <a href="#linkedin" class="btn btn-ghost">Join LinkedIn Hub</a>
+          </div>
+          <div class="mt-4 flex gap-2 flex-wrap">
+            <span class="pill">Global pathways</span>
+            <span class="pill">Mentoring</span>
+            <span class="pill">Internships</span>
+          </div>
+        </div>
+        <div class="crystal p-4">
+          <div class="text-sm opacity-90">
+            <div class="font-black mb-1">Share your story</div>
+            Feature on this page by submitting your update (degree, university, role). <a href="#share" class="underline underline-offset-4">Submit now</a>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="linkedin" class="max-w-7xl mx-auto px-4 pb-10">
+      <div class="crystal p-6 md:p-8 grid md:grid-cols-3 gap-6 items-center" style="background:var(--tint-d)">
+        <div class="md:col-span-2">
+          <div class="text-xs tracking-[.12em] uppercase font-black text-[#caa86a]">Networking</div>
+          <h2 class="text-2xl md:text-3xl font-black mt-1">Follow & connect on LinkedIn</h2>
+          <p class="mt-2 text-[1.02rem] text-slate-700">We host an official <strong>IUFP Alumni LinkedIn</strong> page where past and current students connect, share internships, and mentor new applicants.</p>
+          <div class="mt-4 flex gap-3 flex-wrap">
+            <a id="linkedinBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow on LinkedIn</a>
+            <a href="#share" class="btn btn-ghost">Submit Your Update</a>
+          </div>
+          <p class="text-xs opacity-70 mt-2">Replace the button link with your official LinkedIn URL in the code.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=60" alt="Networking and career connections" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <div class="font-black">Mentoring & Opportunities</div>
+            <p class="text-sm text-slate-600 mt-1">Find alumni by industry, country, or university; request informational chats and guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="directory" class="max-w-7xl mx-auto px-4 pb-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <h2 class="text-2xl font-extrabold">Alumni Directory</h2>
+        <div class="flex gap-2 flex-wrap">
+          <input id="q" class="search" placeholder="Search name, university, industry…"/>
+          <select id="filter" class="search">
+            <option value="">All industries</option>
+            <option>Engineering</option>
+            <option>Business</option>
+            <option>Law</option>
+            <option>Computing</option>
+            <option>Health</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-14">
+      <div id="list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="card p-4" data-name="Amara Okoye" data-uni="University of Manchester" data-role="Software Engineer" data-industry="Computing">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Amara Okoye</div>
+              <div class="text-sm text-slate-600">Software Engineer • <span class="badge">Computing</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">BSc Computer Science, University of Manchester. Former IUFP: Computing + Maths. Mentors students on coding interviews.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">Manchester</span><span class="badge">UK</span></div>
+        </article>
+
+        <article class="card p-4" data-name="Yusuf Khan" data-uni="Queen Mary University of London" data-role="Mechanical Engineer" data-industry="Engineering">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Yusuf Khan</div>
+              <div class="text-sm text-slate-600">Mechanical Engineer • <span class="badge">Engineering</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">MEng Mechanical Engineering, QMUL. IUFP: Physics + Further Maths. Passionate about robotics projects.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">London</span><span class="badge">UK</span></div>
+        </article>
+
+        <article class="card p-4" data-name="Zara Mensah" data-uni="University of Leicester" data-role="Biomedical Scientist" data-industry="Health">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Zara Mensah</div>
+              <div class="text-sm text-slate-600">Biomedical Scientist • <span class="badge">Health</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">BSc Biomedical Science, Leicester. IUFP: Biology + Chemistry. Interested in clinical diagnostics.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">Leicester</span><span class="badge">UK</span></div>
+        </article>
+
+        <article class="card p-4" data-name="Daniel Okon" data-uni="University of Reading" data-role="Corporate Lawyer" data-industry="Law">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Daniel Okon</div>
+              <div class="text-sm text-slate-600">Corporate Lawyer • <span class="badge">Law</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">LLB Law, University of Reading. IUFP: Law + Business. Open to speaking with current students.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">Reading</span><span class="badge">UK</span></div>
+        </article>
+
+        <article class="card p-4" data-name="Aisha Rahman" data-uni="Aston University" data-role="Investment Analyst" data-industry="Business">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Aisha Rahman</div>
+              <div class="text-sm text-slate-600">Investment Analyst • <span class="badge">Business</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">BSc Finance, Aston University. IUFP: Economics + Maths. Runs weekly finance Q&As on LinkedIn.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">Birmingham</span><span class="badge">UK</span></div>
+        </article>
+
+        <article class="card p-4" data-name="Chioma Eze" data-uni="University of Sussex" data-role="Data Scientist" data-industry="Computing">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-full bg-slate-200"></div>
+            <div>
+              <div class="font-black">Chioma Eze</div>
+              <div class="text-sm text-slate-600">Data Scientist • <span class="badge">Computing</span></div>
+            </div>
+          </div>
+          <div class="mt-3 text-sm">BSc Data Science, Sussex. IUFP: Computing + Statistics. Interested in AI for healthcare.</div>
+          <div class="mt-3 flex gap-2"><span class="badge">Brighton</span><span class="badge">UK</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="share" class="max-w-7xl mx-auto px-4 pb-16">
+      <div class="crystal p-6 md:p-8" style="background:var(--tint-a)">
+        <h2 class="text-2xl md:text-3xl font-black">Share your story</h2>
+        <p class="mt-2 text-slate-700">Are you an IUFP graduate? Tell us where you studied and what you're doing now — we'll showcase highlights here and on our LinkedIn hub.</p>
+        <form class="grid md:grid-cols-2 gap-4 mt-4" id="storyForm" action="/alumni/submit" method="post">
+          <input class="search" placeholder="Full name" name="name" required/>
+          <input class="search" placeholder="Email (for contact only)" name="email" type="email" required/>
+          <input class="search" placeholder="University & Degree" name="uni"/>
+          <input class="search" placeholder="Current role & company" name="role"/>
+          <select class="search" name="industry">
+            <option value="">Industry</option>
+            <option>Engineering</option>
+            <option>Business</option>
+            <option>Law</option>
+            <option>Computing</option>
+            <option>Health</option>
+            <option>Other</option>
+          </select>
+          <input class="search" placeholder="LinkedIn profile URL (optional)" name="linkedin" type="url"/>
+          <textarea class="search md:col-span-2" placeholder="Your short story (2–4 sentences)…" rows="4" name="story"></textarea>
+          <label class="md:col-span-2 text-sm text-slate-600 flex items-start gap-2">
+            <input type="checkbox" required class="mt-1"> I consent to IUFP showcasing my story and photo.
+          </label>
+          <div class="md:col-span-2 flex gap-3">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-ghost" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <div id="bot" class="bot-container">
+    <div class="bot-bubble">
+      <button id="botToggle" aria-label="Open IUFP Assistant" class="rounded-full p-3 shadow-lg brand-primary"><span style="font-size:32px;line-height:1">🤖</span></button>
+    </div>
+    <div class="bot-panel rounded-2xl overflow-hidden" id="botPanel" role="dialog" aria-label="IUFP Assistant" style="background:linear-gradient(180deg, #0b2447, #19376d); border:1px solid rgba(255,255,255,.12)">
+      <div class="brand-primary px-4 py-3 flex items-center justify-between">
+        <strong>IUFP Assistant</strong>
+        <button onclick="document.body.classList.remove('bot-open')" aria-label="Close" class="underline">Close</button>
+      </div>
+      <iframe title="IUFP Assistant Chat"
+              src="https://iufp.up.railway.app/chat"
+              style="width:100%;height:100%;border:0;background:transparent;overflow:hidden"
+              sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+    </div>
+  </div>
+
+  <script src="footer-component.min.js?v=1.0"></script>
+  <script>
+    document.getElementById('botToggle').addEventListener('click',()=>document.body.classList.toggle('bot-open'));
+
+    // Render footer with default CTA config
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'default');
+    }
+
+    // Alumni directory filtering
+    const q=document.getElementById('q'), filter=document.getElementById('filter'), list=document.getElementById('list');
+    function applyFilter(){
+      const term=(q.value||'').toLowerCase();
+      const ind=(filter.value||'').toLowerCase();
+      [...list.children].forEach(card=>{
+        const name=card.dataset.name.toLowerCase();
+        const uni=card.dataset.uni.toLowerCase();
+        const role=card.dataset.role.toLowerCase();
+        const industry=card.dataset.industry.toLowerCase();
+        const matchTerm=!term||name.includes(term)||uni.includes(term)||role.includes(term);
+        const matchInd=!ind||industry===ind;
+        card.style.display=(matchTerm&&matchInd)?'':'none';
+      });
+    }
+    q.addEventListener('input',applyFilter);
+    filter.addEventListener('change',applyFilter);
+
+    // Set your official LinkedIn URL here:
+    document.getElementById('linkedinBtn').href="https://www.linkedin.com/company/iufp-global-education";
+  </script>
+</body>
+</html>
