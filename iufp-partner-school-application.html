@@ -542,13 +542,6 @@
       window.scrollTo({top:0, behavior:'smooth'});
     }
 
-    nextBtn.addEventListener('click', ()=>{
-      if(cur < total-1){ cur++; show(cur); } else { /* finished */ }
-    });
-    prevBtn.addEventListener('click', ()=>{
-      if(cur > 0){ cur--; show(cur); }
-    });
-
     // simple local draft save
     const form = document.querySelector('form');
     const saveBtn = document.getElementById('saveDraft');
@@ -581,14 +574,14 @@
 
     // Chatbot functionality
     document.getElementById('botToggle').addEventListener('click',()=>document.body.classList.toggle('bot-open'));
-    
+
     // Form validation improvements
     const requiredFields = form.querySelectorAll('[required]');
     function validateStep(stepIndex) {
       const currentSection = sections[stepIndex];
       const stepFields = currentSection.querySelectorAll('[required]');
       let isValid = true;
-      
+
       stepFields.forEach(field => {
         if (!field.value.trim()) {
           field.style.borderColor = '#dc2626';
@@ -597,24 +590,20 @@
           field.style.borderColor = '';
         }
       });
-      
+
       return isValid;
     }
-    
-    // Enhanced next button functionality
-    const originalNextHandler = nextBtn.onclick;
+
+    // Next button with validation
     nextBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       if (cur < total - 1) {
-        if (validateStep(cur)) {
-          cur++; 
-          show(cur);
-        } else {
-          alert('Please fill in all required fields before continuing.');
-        }
+        // Move to next section
+        cur++;
+        show(cur);
       } else {
-        // On final step, validate entire form
+        // On final step, validate entire form before submission
         let allValid = true;
         for (let i = 0; i < total; i++) {
           if (!validateStep(i)) {
@@ -622,7 +611,7 @@
             break;
           }
         }
-        
+
         if (allValid) {
           if (confirm('Are you ready to submit your application? This will send your application for review.')) {
             form.submit();
@@ -630,6 +619,15 @@
         } else {
           alert('Please complete all required fields in all sections before submitting.');
         }
+      }
+    });
+
+    // Previous button
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(cur > 0){
+        cur--;
+        show(cur);
       }
     });
     
