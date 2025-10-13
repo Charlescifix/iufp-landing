@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UK Student Visa Checklist — IUFP Tier 4 Application Guide</title>
+  <meta name="description" content="Comprehensive UK Student (Tier 4) visa application checklist for IUFP students. Track assessment requirements, financial evidence, documents, and immigration requirements with our interactive checklist tool." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-nav-bg:#0b2447;
+      --brand-nav-text:#ffffff;
+      --brand-primary:#19376d;
+      --brand-on-primary:#ffffff;
+      --brand-footer-bg:#0b2447;
+      --brand-footer-text:#ffffff;
+      --ink:#0e1a2b;
+      --muted:#42526b;
+      --gold:#caa86a;
+      --t1: rgba(25,55,109,.06);
+      --t2: rgba(20,184,166,.12);
+      --t3: rgba(167,139,250,.14);
+      --t4: rgba(11,36,71,.08);
+      --accent: linear-gradient(180deg, rgba(255,196,0,1), rgba(255,138,0,.95));
+    }
+    html,body{scroll-behavior:smooth}
+    body{color:var(--ink); background:#ffffff}
+    .brand-header{background-color:var(--brand-nav-bg);color:var(--brand-nav-text)}
+    .brand-link{color:var(--brand-nav-text);position:relative;transition:all 0.3s ease}
+    .brand-link::before{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:linear-gradient(90deg,rgba(20,184,166,0.8),rgba(167,139,250,0.8));transition:all 0.3s ease;transform:translateX(-50%)}
+    .brand-link:hover{color:#ffffff;transform:translateY(-2px)}
+    .brand-link:hover::before{width:100%}
+    .brand-primary{background-color:var(--brand-primary);color:var(--brand-on-primary)}
+    .brand-footer{background-color:var(--brand-footer-bg);color:var(--brand-footer-text)}
+
+    .jelly-bg{position:fixed;inset:0;overflow:hidden;z-index:0;
+      background:
+        radial-gradient(60vw 60vw at 10% -10%, rgba(25,55,109,.08), transparent 60%),
+        radial-gradient(50vw 50vw at 90% 10%, rgba(11,36,71,.10), transparent 60%);
+      filter:saturate(115%);
+    }
+    .blob{position:absolute;border-radius:9999px;opacity:.5;filter:blur(40px);mix-blend-mode:screen}
+    .blob:nth-child(1){width:28rem;height:28rem;left:-6rem;top:-4rem;background:rgba(25,55,109,.08);animation:float1 16s ease-in-out infinite}
+    .blob:nth-child(2){width:24rem;height:24rem;right:-4rem;top:6rem;background:rgba(11,36,71,.10);animation:float2 18s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+    .crystal{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+      border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 24px rgba(0,0,0,.10);transition:transform .12s ease}
+    .crystal:hover{transform:translateY(-2px) scale(1.01)}
+
+    .eyebrow{letter-spacing:.12em; text-transform:uppercase; font-weight:900; color:var(--gold); font-size:.78rem}
+    .lead{font-size:1.05rem; line-height:1.65; color:var(--muted)}
+    .bullet{display:flex;align-items:flex-start;gap:.85rem;padding:1rem 1.1rem;border-radius:16px;font-size:1rem;font-weight:800;line-height:1.35;border:1px solid rgba(0,0,0,.08);transition:all .15s ease}
+    .bullet:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+    .b1{background:linear-gradient(135deg,rgba(25,55,109,.08),rgba(25,55,109,.14))}
+    .b2{background:linear-gradient(135deg,rgba(20,184,166,.10),rgba(20,184,166,.18))}
+    .b3{background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(167,139,250,.20))}
+    .b4{background:linear-gradient(135deg,rgba(255,196,0,.10),rgba(255,138,0,.18))}
+    .b5{background:linear-gradient(135deg,rgba(11,36,71,.05),rgba(11,36,71,.10))}
+    .check{accent-color:#19376d; transform:scale(1.15); margin-top:.18rem}
+    .note{font-size:.85rem; opacity:.9}
+
+    .btn{border-radius:14px;padding:.85rem 1.1rem;font-weight:900;display:inline-flex;align-items:center;gap:.55rem;transition:transform .12s ease, box-shadow .2s ease}
+    .btn-primary{background:var(--accent); color:#0b2447}
+    .btn-ghost{background:#fff;border:1px solid rgba(0,0,0,.12)}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(0,0,0,.12)}
+
+    .bot-bubble{position:fixed;right:20px;bottom:20px;z-index:50}
+    .bot-panel{position:fixed;right:20px;bottom:92px;width:360px;max-width:calc(100vw - 40px);height:520px;max-height:calc(100vh - 120px);z-index:50;display:none}
+    @media (max-width: 480px) {
+      .bot-panel{right:10px;bottom:82px;width:calc(100vw - 20px);max-width:none;height:calc(100vh - 100px);max-height:none}
+      .bot-bubble{right:10px;bottom:10px}
+    }
+    .bot-open .bot-panel{display:block}
+    .bot-panel iframe {transform: scale(1);transform-origin: top left;}
+    @media (max-width: 480px) {
+      .bot-panel iframe {transform: scale(0.9);transform-origin: top left;width: 111%;height: 111%;}
+    }
+
+    /* Responsive Typography System */
+    .responsive-text-4xl{font-size:1.875rem;line-height:2rem}
+    .responsive-text-2xl{font-size:1.25rem;line-height:1.75rem}
+    .responsive-text-xl{font-size:1rem;line-height:1.5rem}
+    @media(min-width:576px){
+      .responsive-text-4xl{font-size:2.25rem;line-height:1}
+      .responsive-text-2xl{font-size:1.375rem;line-height:1.875rem}
+      .responsive-text-xl{font-size:1.125rem;line-height:1.625rem}
+    }
+    @media(min-width:768px){
+      .responsive-text-4xl{font-size:2.75rem;line-height:1}
+      .responsive-text-2xl{font-size:1.625rem;line-height:2rem}
+      .responsive-text-xl{font-size:1.375rem;line-height:1.75rem}
+    }
+    @media(min-width:1024px){
+      .responsive-text-4xl{font-size:3rem;line-height:1}
+      .responsive-text-2xl{font-size:1.75rem;line-height:1}
+      .responsive-text-xl{font-size:1.5rem;line-height:1.875rem}
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 640px) {
+      .bullet{font-size:.88rem;padding:.8rem .9rem;gap:.65rem}
+      .crystal{border-radius:16px;padding:1rem !important}
+      h1{font-size:1.75rem !important}
+      .eyebrow{font-size:.72rem}
+      .lead{font-size:.95rem}
+      .brand-header .max-w-7xl{padding:0.75rem 1rem}
+      .brand-header img{height:4rem}
+    }
+
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .brand-header img{height:5rem}
+    }
+
+    /* Touch target improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .btn{min-height:48px;min-width:48px;padding:1rem 1.5rem}
+      .brand-link{min-height:48px;padding:0.875rem 1.5rem}
+      .brand-link::before{display:none}
+    }
+
+    /* Additional responsive improvements */
+    @media (max-width: 1023px) {
+      .grid.lg\\:grid-cols-3{grid-template-columns:1fr;gap:1.5rem}
+      .lg\\:col-span-2{grid-column:span 1}
+    }
+
+    @media (max-width: 768px) {
+      .text-\\[0\\.98rem\\]{font-size:0.9rem}
+      section{scroll-margin-top:80px}
+    }
+
+    @media (max-width: 480px) {
+      .bullet span{font-size:0.85rem;line-height:1.4}
+      .note{font-size:0.8rem}
+      .btn{font-size:0.875rem;padding:0.75rem 1rem}
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen relative">
+  <div aria-hidden="true" class="jelly-bg"><span class="blob"></span><span class="blob"></span></div>
+
+  <header class="brand-header relative z-20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-3 md:p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="iufp-logo.jpg" alt="IUFP logo" class="h-16 w-auto md:h-20" />
+      </a>
+      <nav class="hidden md:flex gap-5 text-base md:text-lg font-semibold">
+        <a class="brand-link hover:opacity-90" href="index.html">Home</a>
+        <a class="brand-link hover:opacity-90" href="iufp-about.html">About IUFP</a>
+        <a class="brand-link hover:opacity-90" href="students.html">Students</a>
+        <a class="brand-link hover:opacity-90" href="universities.html">Universities</a>
+        <a class="brand-link hover:opacity-90" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link hover:opacity-90" href="vle.html">VLE</a>
+        <a class="brand-link hover:opacity-90" href="iufp-alumni.html">Alumni</a>
+        <a class="brand-link hover:opacity-90" href="contact.html">Contact Us</a>
+      </nav>
+      <button type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden crystal px-3 py-2 rounded-lg"
+              onclick="const m=document.getElementById('mnav');m.classList.toggle('hidden');this.setAttribute('aria-expanded',!m.classList.contains('hidden'))">Menu</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden px-4 pb-4 text-base font-semibold">
+      <div class="crystal rounded-xl p-3 flex flex-col gap-2">
+        <a class="brand-link" href="index.html">Home</a>
+        <a class="brand-link" href="iufp-about.html">About IUFP</a>
+        <a class="brand-link" href="students.html">Students</a>
+        <a class="brand-link" href="universities.html">Universities</a>
+        <a class="brand-link" href="partner-schools.html">Partner Schools</a>
+        <a class="brand-link" href="vle.html">VLE</a>
+        <a class="brand-link" href="iufp-alumni.html">Alumni</a>
+        <a class="brand-link" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-4 pt-8 md:pt-14 pb-6 md:pb-8">
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <div class="eyebrow">UK Visas</div>
+          <h1 class="responsive-text-4xl font-black leading-tight mt-1">Student (Tier 4) Visa — Checklist</h1>
+          <p class="lead responsive-text-xl mt-3">
+            A step-by-step checklist for Student visa applications made <strong>outside the UK</strong>. Tick each item as you prepare documents and proofs. Adapted from IUFP guidance.
+          </p>
+          <div class="mt-4 md:mt-5 flex gap-2 md:gap-3 flex-wrap">
+            <a href="#assessment" class="btn btn-primary">Assessment</a>
+            <a href="#finance" class="btn btn-ghost">Financial Evidence</a>
+            <a href="#docs" class="btn btn-ghost">Documents</a>
+            <a href="#other" class="btn btn-ghost">Other Checks</a>
+          </div>
+        </div>
+        <div class="crystal rounded-2xl p-4 shadow">
+          <div class="text-sm"><strong>Pro tip:</strong> Keep a single PDF per category (e.g., finance) with a cover page summarising amounts, dates, and payers. It helps reviews go faster.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assessment requirements -->
+    <section id="assessment" class="max-w-6xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="crystal rounded-2xl p-5 md:p-8 shadow" style="background:var(--t1)">
+        <div class="eyebrow">Assessment Requirements</div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mt-3">
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>SELT certificate (if applicable) — e.g., IELTS.</span></label>
+          <label class="bullet b2"><input type="checkbox" class="check"/><span>Several UK universities accept <strong>Credits Grade in WAEC English</strong> in place of IELTS.</span></label>
+          <label class="bullet b3"><input type="checkbox" class="check"/><span>IELTS overall <strong>6.0</strong> for degree; <strong>6.5</strong> for postgraduate; not less than <strong>5.5</strong> in each sub-test.</span></label>
+          <label class="bullet b4"><input type="checkbox" class="check"/><span>Copies of <strong>all qualifications</strong> used to assess your offer (as listed on your CAS).</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Financial evidence -->
+    <section id="finance" class="max-w-6xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="crystal rounded-2xl p-5 md:p-8 shadow" style="background:var(--t2)">
+        <div class="eyebrow">Financial Evidence</div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mt-3">
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>Bank statement/letter in <strong>applicant's name</strong>.</span></label>
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>Bank statement/letter in <strong>parent(s)/legal guardian(s)</strong> name(s) + <strong>original birth certificate</strong> + <strong>consent letter</strong>.</span></label>
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>Joint bank account (with applicant's name on it).</span></label>
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>Educational bank scheme loan (in applicant's name; ≤ 6 months old).</span></label>
+          <label class="bullet b1"><input type="checkbox" class="check"/><span>Government sponsorship letter (include dependants if applicable).</span></label>
+          <div class="bullet b5">⚠️ Business accounts and stocks/shares are <strong>not permitted</strong>.</div>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mt-4">
+          <div class="crystal rounded-xl p-4 shadow">
+            <div class="font-black text-sm md:text-base">Total amount required</div>
+            <ul class="mt-2 space-y-2 text-[0.98rem]">
+              <li>Inner London living costs: <strong>£13,347</strong> (£1,483 × 9 months).</li>
+              <li>Outer London living costs: <strong>£10,224</strong> (£1,136 × 9 months).</li>
+              <li>Plus: <strong>full academic year course fees</strong>, less deposit paid.</li>
+            </ul>
+          </div>
+          <div class="crystal rounded-xl p-4 shadow">
+            <div class="font-black text-sm md:text-base">28-day & statement rules</div>
+            <ul class="mt-2 space-y-2 text-[0.98rem]">
+              <li>Funds must be held for a full <strong>28 consecutive days</strong> before CAS is issued.</li>
+              <li>Bank statement closing balance must be <strong>≤ 31 days old</strong> on visa application date.</li>
+              <li>Balance must <strong>never drop below</strong> the required amount within the 28 days.</li>
+              <li>CAS should be <strong>updated</strong> with any fees paid before assigning.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note mt-3">Check your bank is on the accepted institutions list (UKVI). Convert foreign currency using <em>closing balance</em> (e.g., OANDA).</div>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section id="docs" class="max-w-6xl mx-auto px-4 pb-8 md:pb-10">
+      <div class="crystal rounded-2xl p-5 md:p-8 shadow" style="background:var(--t3)">
+        <div class="eyebrow">Documents</div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mt-3">
+          <label class="bullet b2"><input type="checkbox" class="check"/><span><strong>Passport</strong> valid for entry to the UK.</span></label>
+          <label class="bullet b2"><input type="checkbox" class="check"/><span><strong>Tuberculosis (TB) certificate</strong> if required (check country list).</span></label>
+          <label class="bullet b2"><input type="checkbox" class="check"/><span>Official <strong>translations</strong> for documents not in English, attached to originals.</span></label>
+        </div>
+        <div class="crystal rounded-xl p-4 mt-4 shadow">
+          <div class="font-black text-sm md:text-base">Applicants under 18 (before application date)</div>
+          <ul class="mt-2 space-y-2 text-[0.98rem]">
+            <li>Letter from parent/legal guardian confirming relationship and permissions (study, living, travel).</li>
+            <li>Original birth certificate (or adoption certificate).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other considerations -->
+    <section id="other" class="max-w-6xl mx-auto px-4 pb-12 md:pb-16">
+      <div class="crystal rounded-2xl p-5 md:p-8 shadow" style="background:var(--t4)">
+        <div class="eyebrow">Other Considerations</div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mt-3">
+          <div class="crystal rounded-xl p-4 shadow">
+            <div class="font-black text-sm md:text-base">Time limits & academic progression</div>
+            <ul class="mt-2 space-y-2 text-[0.98rem]">
+              <li>All previous UK study (and time below/at degree level) must be assessed before issuing CAS.</li>
+              <li>If limits exceeded or progression isn't clear, do <strong>not</strong> assign a CAS.</li>
+              <li>For a second Masters, ensure the new programme is justified; a course director statement may be required.</li>
+            </ul>
+          </div>
+          <div class="crystal rounded-xl p-4 shadow">
+            <div class="font-black text-sm md:text-base">Useful links</div>
+            <ul class="list-disc list-inside mt-2 text-[0.98rem]">
+              <li>UKCISA — eligibility, English, maintenance, passport guidance.</li>
+              <li>UKVI financial institutions list; OANDA currency converter; TB test countries.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <div id="bot" class="bot-container">
+    <div class="bot-bubble">
+      <button id="botToggle" aria-label="Open IUFP Assistant" class="rounded-full p-3 shadow-lg brand-primary"><span style="font-size:32px;line-height:1">🤖</span></button>
+    </div>
+    <div class="bot-panel rounded-2xl overflow-hidden" id="botPanel" role="dialog" aria-label="IUFP Assistant" style="background:linear-gradient(180deg, #0b2447, #19376d); border:1px solid rgba(255,255,255,.12)">
+      <div class="brand-primary px-4 py-3 flex items-center justify-between">
+        <strong>IUFP Assistant</strong>
+        <button onclick="document.body.classList.remove('bot-open')" aria-label="Close" class="underline">Close</button>
+      </div>
+      <iframe title="IUFP Assistant Chat"
+              src="https://iufp.up.railway.app/chat"
+              style="width:100%;height:100%;border:0;background:transparent;overflow:hidden"
+              sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+    </div>
+  </div>
+
+  <script src="footer-component.min.js?v=1.0"></script>
+  <script>
+    document.getElementById('botToggle').addEventListener('click',()=>document.body.classList.toggle('bot-open'));
+    if (window.IUFPFooter) {
+      IUFPFooter.render('#footer-container', 'student');
+    }
+  </script>
+</body>
+</html>
